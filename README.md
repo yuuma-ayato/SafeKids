@@ -41,7 +41,7 @@ Rails 5.2.4
   * 予約についてコメント（保護者連絡、保育士メモ）を付けられる。
 
 ## カタログ設計
-[Googleスプレッドシート](https://docs.google.com/spreadsheets/d/10yvr_-g7P8p7djihJd5azVzyCWWB0n8XN4H2jfQ5ynE/edit#gid=1137449687)
+[Googleスプレッドシート](https://docs.google.com/spreadsheets/d/e/2PACX-1vQYwK1DQiQQlIGAzNz7e3t_n5gY4yb8qLklZ_m1GNVo8pI0fyQUl5iM_ByoCWYTvEIszN8AFs-w3FWq/pubhtml?gid=1137449687&single=true)
 ## テーブル設計
 [Googleスプレッドシート](https://docs.google.com/spreadsheets/d/1NtphrLYvBmN8jrOSotKD8EiXoRDo84038nifjXmbqKY/edit#gid=1502539650)
 ## ER図
