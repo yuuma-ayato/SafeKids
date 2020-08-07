@@ -41,15 +41,15 @@ Rails 5.2.4
   * 予約についてコメント（保護者連絡、保育士メモ）を付けられる。
 
 ## カタログ設計
-[Googleスプレッドシート](https://docs.google.com/spreadsheets/d/e/2PACX-1vQYwK1DQiQQlIGAzNz7e3t_n5gY4yb8qLklZ_m1GNVo8pI0fyQUl5iM_ByoCWYTvEIszN8AFs-w3FWq/pubhtml?gid=1137449687&single=true)
+[Googleスプレッドシート](https://docs.google.com/spreadsheets/d/e/2PACX-1vQYwK1DQiQQlIGAzNz7e3t_n5gY4yb8qLklZ_m1GNVo8pI0fyQUl5iM_ByoCWYTvEIszN8AFs-w3FWq/pubhtml)
 ## テーブル設計
-[Googleスプレッドシート](https://docs.google.com/spreadsheets/d/1NtphrLYvBmN8jrOSotKD8EiXoRDo84038nifjXmbqKY/edit#gid=1502539650)
+[Googleスプレッドシート](https://docs.google.com/spreadsheets/d/e/2PACX-1vS1bM0FdGiLL4AFxWcKxEAeG_sLesM7L7oybULngGx01-Z3Q2XOcDdOyjP7f0BS7bzU8a8ZPBClpTVP/pubhtml)
 ## ER図
 [Draw.io](https://www.draw.io/#G1K6tKCB2e4J1Thjdg9z7wN2ZnjQqBvH7G)
 ## 画面遷移図
 [Draw.io](https://www.draw.io/#G1aLlFDHNzqzxBe8syLPzqmzBhYODyYGpr)
 ## ワイヤーフレーム
-[Googleスプレッドシート](https://docs.google.com/spreadsheets/d/1vpvGSbl4zREDn6Dq-eJ7eC-_Wx68nhWOeGWLzO52O5M/edit#gid=961519512)
+[Googleスプレッドシート](https://docs.google.com/spreadsheets/d/e/2PACX-1vSv7g6FhFNrHIE1v_HJBOzzetbvIbcV5Z2H1An5erYerVEMZHB4tzrIZ0AW6zX6B8Drh7rYdb9JuXt_/pubhtml)
 
 ## 使用予定Gem
 * ransack
