@@ -49,7 +49,7 @@ Rails 5.2.4
 ## 画面遷移図
 [Draw.io](https://www.draw.io/#G1aLlFDHNzqzxBe8syLPzqmzBhYODyYGpr)
 ## ワイヤーフレーム
-[画面ワイヤーフレーム](https://docs.google.com/spreadsheets/d/1vpvGSbl4zREDn6Dq-eJ7eC-_Wx68nhWOeGWLzO52O5M/edit#gid=961519512)
+[Googleスプレッドシート](https://docs.google.com/spreadsheets/d/1vpvGSbl4zREDn6Dq-eJ7eC-_Wx68nhWOeGWLzO52O5M/edit#gid=961519512)
 
 ## 使用予定Gem
 * ransack
