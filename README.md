@@ -53,6 +53,7 @@ Rails 5.2.4
 
 ## 使用予定Gem
 * ransack
+* devise
 * kaminari
 * carrierwave
 * mini_magick
