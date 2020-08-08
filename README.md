@@ -45,7 +45,7 @@ Rails 5.2.4
 ## テーブル設計
 [Googleスプレッドシート](https://docs.google.com/spreadsheets/d/e/2PACX-1vS1bM0FdGiLL4AFxWcKxEAeG_sLesM7L7oybULngGx01-Z3Q2XOcDdOyjP7f0BS7bzU8a8ZPBClpTVP/pubhtml)
 ## ER図
-[Googleスプレッドシート](https://docs.google.com/spreadsheets/d/e/2PACX-1vSGh9ZbI13nk2tABLpcIHsWl-35ZWgjYB7axI2gdL3gII4ijK0fWHk4CUQ--nB_l7ZdBoRMC-cC0LYs/pubhtml)
+[Googleスプレッドシート](https://docs.google.com/spreadsheets/d/e/2PACX-1vQUobdBrk2vDlSJLXZuPisM4kUrwM2DdoOtnoNpT2Qy0sKC2XNtNpnrHGWTpodXx-eAVKYyDtxxUDJw/pubhtml)
 ## 画面遷移図
 [Googleスプレッドシート](https://docs.google.com/spreadsheets/d/e/2PACX-1vRCyDOkUfEYT6or1LJpSPtM8acGCI_YK1plUROx55dqjTvoKz_LyVwexOZBlL5V9j75foLuD10Nr-sl/pubhtml)
 ## ワイヤーフレーム
