@@ -41,15 +41,15 @@ Rails 5.2.4
   * 予約についてコメント（保護者連絡、保育士メモ）を付けられる。
 
 ## カタログ設計
-[Googleスプレッドシート](https://docs.google.com/spreadsheets/d/e/2PACX-1vQYwK1DQiQQlIGAzNz7e3t_n5gY4yb8qLklZ_m1GNVo8pI0fyQUl5iM_ByoCWYTvEIszN8AFs-w3FWq/pubhtml)
+[Googleスプレッドシート](https://docs.google.com/spreadsheets/d/10yvr_-g7P8p7djihJd5azVzyCWWB0n8XN4H2jfQ5ynE/edit?usp=sharing)
 ## テーブル設計
-[Googleスプレッドシート](https://docs.google.com/spreadsheets/d/e/2PACX-1vS1bM0FdGiLL4AFxWcKxEAeG_sLesM7L7oybULngGx01-Z3Q2XOcDdOyjP7f0BS7bzU8a8ZPBClpTVP/pubhtml)
+[Googleスプレッドシート](https://docs.google.com/spreadsheets/d/1NtphrLYvBmN8jrOSotKD8EiXoRDo84038nifjXmbqKY/edit?usp=sharing)
 ## ER図
-[Googleスプレッドシート](https://docs.google.com/spreadsheets/d/e/2PACX-1vQUobdBrk2vDlSJLXZuPisM4kUrwM2DdoOtnoNpT2Qy0sKC2XNtNpnrHGWTpodXx-eAVKYyDtxxUDJw/pubhtml)
+[Googleスプレッドシート](https://docs.google.com/spreadsheets/d/1FxkJOX_QAhMlDh-B49FdcHcWlQ6E3tu4QNwApeKuaPk/edit?usp=sharing)
 ## 画面遷移図
-[Googleスプレッドシート](https://docs.google.com/spreadsheets/d/e/2PACX-1vRCyDOkUfEYT6or1LJpSPtM8acGCI_YK1plUROx55dqjTvoKz_LyVwexOZBlL5V9j75foLuD10Nr-sl/pubhtml)
+[Googleスプレッドシート](https://docs.google.com/spreadsheets/d/1Co6MR_8zaoVBHPAL6_bVkObPN5vsngJDSjferR0XAp8/edit?usp=sharing)
 ## ワイヤーフレーム
-[Googleスプレッドシート](https://docs.google.com/spreadsheets/d/e/2PACX-1vSv7g6FhFNrHIE1v_HJBOzzetbvIbcV5Z2H1An5erYerVEMZHB4tzrIZ0AW6zX6B8Drh7rYdb9JuXt_/pubhtml)
+[Googleスプレッドシート](https://docs.google.com/spreadsheets/d/1vpvGSbl4zREDn6Dq-eJ7eC-_Wx68nhWOeGWLzO52O5M/edit?usp=sharing)
 
 ## 使用予定Gem
 * ransack
