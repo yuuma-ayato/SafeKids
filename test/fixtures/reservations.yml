@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: 2020-08-12 15:57:43
+  reason: 1
+  other_reason: MyString
+  status: 1
+
+two:
+  date: 2020-08-12 15:57:43
+  reason: 1
+  other_reason: MyString
+  status: 1
