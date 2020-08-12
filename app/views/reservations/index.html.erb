@@ -1,2 +1,29 @@
-<h1>Reservations#index</h1>
-<p>Find me in app/views/reservations/index.html.erb</p>
+<h1>予約一覧</h1>
+<p><%= notice %></p>
+
+  <table class="table table">
+    <tr>
+      <th><%= t('view.date') %></th>
+      <th><%= t('view.reason') %></th>
+      <th><%= t('view.other_reason') %></th>
+      <th><%= t('view.status') %></th>
+    </tr>
+    <% @reservations.each do |reservation| %>
+    <tr>
+      <td class="reservation_row">
+        <%= reservation.date %>
+      </td>
+      <td><%= reservation.reason %></td>
+      <td><%= reservation.other_reason %></td>
+      <td><%= reservation.status %></td>
+      <td>
+      </td>
+      <td><%= link_to t('view.show'), reservation_path(reservation.id) %></td>
+      <td><%= link_to t('view.edit'), edit_reservation_path(reservation.id), data: { confirm: '本当に編集していいですか？' } %></td>
+      <td><%= link_to t('view.delete'), reservation_path(reservation.id), method: :delete ,data: { confirm: '本当に削除していいですか？' } %></td>
+    </tr>
+    <% end %>
+  </table>
+  <div class="new_reservation">
+    <%= link_to '予約する', new_reservation_path %>
+  </div>

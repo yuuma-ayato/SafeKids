@@ -5,6 +5,12 @@ ja:
     reason: 保育理由
     other_reason: その他の保育理由
     status: ステータス
+    show: 詳細
+    edit: 編集
+    delete: 削除
+    create_reservation: 予約しました！
+    edit_reservation: 予約を編集しました！
+    delete_reservation: 予約を削除しました！
 
   activerecord:
     models:

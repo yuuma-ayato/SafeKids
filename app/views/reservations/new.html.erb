@@ -1,0 +1,16 @@
+<%= form_with(model: @reservation, local: true) do |form| %>
+  <div class="reservation_date">
+    <%= form.label :date %>
+    <%= form.date_field :date %>
+  </div>
+  <div class="reservation_reason">
+    <%= form.label :reason %>
+    <%= form.select :reason, [["仕事", "仕事"], ["疾病", "疾病"], ["その他", "その他"]], include_blank: "選択して下さい" %>
+  </div>
+  <div class="reservation_other_reason">
+    <%= form.label :other_reason %>
+    <%= form.text_field :other_reason %>
+  </div>
+  <%= form.submit %>
+<% end %>
+<%= link_to "一覧へ戻る", reservations_path %>

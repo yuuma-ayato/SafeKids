@@ -1,4 +1,4 @@
 Rails.application.routes.draw do
-  get 'reservations/index'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  root 'reservations#new'
+  resources :reservations
 end
