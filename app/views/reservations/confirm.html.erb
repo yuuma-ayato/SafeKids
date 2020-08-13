@@ -1,0 +1,12 @@
+<h3>以下の内容で、送信する。</h3>
+<%= form_with(model: @reservation, local: true) do |form| %>
+  <%= form.hidden_field :date %>
+  <%= form.hidden_field :reason %>
+  <%= form.hidden_field :other_reason %>
+  <%= form.hidden_field :status %>
+  <p><%= t('view.date') %>: <%= @reservation.date %></p>
+  <p><%= t('view.reason') %>: <%= @reservation.reason %></p>
+  <p><%= t('view.other_reason') %>: <%= @reservation.other_reason %></p>
+  <%= form.submit  "登録する" %>
+  <%= form.submit "戻る", name: 'back' %>
+<% end %>

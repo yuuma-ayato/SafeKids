@@ -24,7 +24,6 @@ class ReservationsController < ApplicationController
   end
 
   def show
-    @favorite = current_user.favorites.find_by(reservation_id: @reservation.id)
   end
 
   def edit
@@ -45,7 +44,7 @@ class ReservationsController < ApplicationController
 
   def confirm
     @reservation = Reservation.new(reservation_params)
-    @reservation.user_id = current_user.id
+    # @reservation.user_id = current_user.id
     render :new if @reservation.invalid?
   end
 
