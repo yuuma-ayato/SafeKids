@@ -10,10 +10,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_14_085414) do
+ActiveRecord::Schema.define(version: 2020_08_17_083208) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "children", force: :cascade do |t|
+    t.integer "gender", null: false
+    t.string "other_gender", limit: 255
+    t.date "birth", null: false
+    t.string "image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_children_on_user_id"
+  end
+
+  create_table "parents", force: :cascade do |t|
+    t.integer "relation", null: false
+    t.string "other_relation", limit: 255
+    t.string "phone_number", limit: 11, null: false
+    t.string "postal_code", limit: 7, null: false
+    t.string "prefecture", limit: 255, null: false
+    t.string "city", limit: 255, null: false
+    t.string "adress", limit: 255, null: false
+    t.string "building", limit: 255
+    t.string "image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_parents_on_user_id"
+  end
 
   create_table "reservations", force: :cascade do |t|
     t.date "date", null: false
@@ -22,6 +49,8 @@ ActiveRecord::Schema.define(version: 2020_08_14_085414) do
     t.integer "status", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_reservations_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -42,4 +71,7 @@ ActiveRecord::Schema.define(version: 2020_08_14_085414) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "children", "users"
+  add_foreign_key "parents", "users"
+  add_foreign_key "reservations", "users"
 end

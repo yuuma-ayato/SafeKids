@@ -16,12 +16,28 @@ ja:
     models:
       reservation: 予約
       user: ユーザー
+      parent: 保護者
     attributes:
       reservation:
         date: 予約日
         reason: 保育理由
         other_reason: その他の保育理由
         status: ステータス
+      parent:
+        relation: 続柄
+        other_relation: その他の続柄
+        phone_number: 電話番号
+        postal_code: 郵便番号
+        prefecture: 都道府県
+        city: 市区町村
+        adress: 番地等
+        building: マンション名、部屋番号等
+        image: 顔写真
+      child:
+        gender: 性別
+        other_gender: その他の性別
+        birth: 生年月日
+        image: 顔写真
 
       user:
         title: タイトル
