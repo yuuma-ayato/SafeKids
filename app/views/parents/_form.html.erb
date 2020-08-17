@@ -1,4 +1,4 @@
-<%= form_with(model: @parent, local: true ,url: choose_new_or_edit) do |form| %>
+<%= form_with(model: @parent, local: true ,url: choose_new_or_edit_parent ) do |form| %>
   <div class="parent_relation">
     <%= form.label :relation %>
     <%= form.select :relation, [["父", "父"], ["母", "母"], ["その他", "その他"]], include_blank: "選択して下さい" %>
@@ -33,7 +33,7 @@
   </div>
   <div class="parent_image">
     <%= form.label :image %>
-    <%= image_tag(@child.image.url) if @child.image && @child.image.url %>
+    <%= image_tag(@parent.image.url) if @parent.image && @parent.image.url %>
     <%= form.file_field :image %>
     <%= form.hidden_field :image_cache %>
   </div>

@@ -16,7 +16,7 @@ before_action :set_parent, only: [:show, :edit, :update, :destroy]
       render :new
     else
       if @parent.save
-        redirect_to new_parent_path, notice: t('view.create_parent')
+        redirect_to reservations_path, notice: t('view.create_parent')
       else
         render :new
       end

@@ -16,7 +16,7 @@ class ReservationsController < ApplicationController
       render :new
     else
       if @reservation.save
-        redirect_to new_reservation_path, notice: t('view.create_reservation')
+        redirect_to reservations_path, notice: t('view.create_reservation')
       else
         render :new
       end

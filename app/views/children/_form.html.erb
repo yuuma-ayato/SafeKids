@@ -1,4 +1,4 @@
-<%= form_with(model: @child, local: true ,url: choose_new_or_edit) do |form| %>
+<%= form_with(model: @child, local: true ,url: choose_new_or_edit ) do |form| %>
   <div class="child_gender">
     <%= form.label :gender %>
     <%= form.select :gender, [["男", "男"], ["女", "女"], ["その他", "その他"]], include_blank: "選択して下さい" %>

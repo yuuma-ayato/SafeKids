@@ -9,7 +9,12 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :parents
+  resources :parents do
+    collection do
+      post :confirm
+    end
+  end
+
   resources :children
 
   if Rails.env.development?
