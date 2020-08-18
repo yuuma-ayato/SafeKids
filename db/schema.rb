@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_18_031051) do
+ActiveRecord::Schema.define(version: 2020_08_18_061620) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,13 +27,26 @@ ActiveRecord::Schema.define(version: 2020_08_18_031051) do
   end
 
   create_table "contact_informations", force: :cascade do |t|
-    t.integer "relation"
+    t.integer "relation", null: false
     t.string "other_relation"
-    t.string "phone_number"
+    t.string "phone_number", limit: 11, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
     t.index ["user_id"], name: "index_contact_informations_on_user_id"
+  end
+
+  create_table "daycares", force: :cascade do |t|
+    t.string "name", limit: 255, null: false
+    t.string "phone_number", limit: 11, null: false
+    t.string "postal_code", limit: 7, null: false
+    t.string "prefecture", limit: 255, null: false
+    t.string "city", limit: 255, null: false
+    t.string "adress", limit: 255, null: false
+    t.string "building", limit: 255
+    t.integer "capacity", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "parents", force: :cascade do |t|
