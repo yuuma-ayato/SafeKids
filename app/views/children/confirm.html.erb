@@ -1,0 +1,16 @@
+<h3>以下の内容で登録してもよろしいですか？</h3>
+<%= form_with(model: @child, local: true) do |form| %>
+  <%= form.hidden_field :gender %>
+  <%= form.hidden_field :other_gender %>
+  <%= form.hidden_field :birth %>
+
+  <p><%= t('view.gender') %>: <%= @child.gender %></p>
+  <p><%= t('view.other_gender') %>: <%= @child.other_gender %></p>
+  <p><%= t('view.birth') %>: <%= @child.birth %></p>
+
+  <p><%= image_tag(@child.image.url) if @child.image && @child.image.url %></p>
+  <p><%= form.hidden_field :image_cache %></p>
+
+  <%= form.submit  "登録する" %>
+  <%= form.submit "戻る", name: 'back' %>
+<% end %>

@@ -1,0 +1,5 @@
+class AddUserRefToContactInformations < ActiveRecord::Migration[5.2]
+  def change
+    add_reference :contact_informations, :user, foreign_key: true
+  end
+end

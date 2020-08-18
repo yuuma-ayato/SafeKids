@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_17_083208) do
+ActiveRecord::Schema.define(version: 2020_08_18_031051) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,16 @@ ActiveRecord::Schema.define(version: 2020_08_17_083208) do
     t.datetime "updated_at", null: false
     t.bigint "user_id"
     t.index ["user_id"], name: "index_children_on_user_id"
+  end
+
+  create_table "contact_informations", force: :cascade do |t|
+    t.integer "relation"
+    t.string "other_relation"
+    t.string "phone_number"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_contact_informations_on_user_id"
   end
 
   create_table "parents", force: :cascade do |t|
@@ -72,6 +82,7 @@ ActiveRecord::Schema.define(version: 2020_08_17_083208) do
   end
 
   add_foreign_key "children", "users"
+  add_foreign_key "contact_informations", "users"
   add_foreign_key "parents", "users"
   add_foreign_key "reservations", "users"
 end

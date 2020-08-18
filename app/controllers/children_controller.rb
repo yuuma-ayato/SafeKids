@@ -16,7 +16,7 @@ class ChildrenController < ApplicationController
         render :new
       else
         if @child.save
-          redirect_to new_child_path, notice: t('view.create_child')
+          redirect_to reservations_path, notice: t('view.create_child')
         else
           render :new
         end
