@@ -1,0 +1,13 @@
+<h3>以下の内容で登録してもよろしいですか？</h3>
+<%= form_with(model: @contact_information, local: true) do |form| %>
+  <%= form.hidden_field :relation %>
+  <%= form.hidden_field :other_relation %>
+  <%= form.hidden_field :phone_number %>
+
+  <p><%= t('view.relation') %>: <%= @contact_information.relation %></p>
+  <p><%= t('view.other_relation') %>: <%= @contact_information.other_relation %></p>
+  <p><%= t('view.phone_number') %>: <%= @contact_information.phone_number %></p>
+
+  <%= form.submit  "登録する" %>
+  <%= form.submit "戻る", name: 'back' %>
+<% end %>

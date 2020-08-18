@@ -1,0 +1,16 @@
+<%= form_with(model: @contact_information, local: true ,url: choose_new_or_edit_contact_information ) do |form| %>
+  <div class="contact_information_relation">
+    <%= form.label :relation %>
+    <%= form.select :relation, [["父", "父"], ["母", "母"], ["その他", "その他"]], include_blank: "選択して下さい" %>
+  </div>
+  <div class="contact_information_other_relation">
+    <%= form.label :other_relation %>
+    <%= form.text_field :other_relation %>
+  </div>
+  <div class="contact_information_phone_number">
+    <%= form.label :phone_number %>
+    <%= form.telephone_field :phone_number %>
+  </div>
+  
+  <%= form.submit %>
+<% end %>
