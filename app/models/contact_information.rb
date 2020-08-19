@@ -8,4 +8,5 @@ class ContactInformation < ApplicationRecord
 
   enum relation: { その他: 0, 父: 1, 母: 2 }
   belongs_to :user
+  has_one :people, as: :personable
 end

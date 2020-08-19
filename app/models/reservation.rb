@@ -11,4 +11,5 @@ class Reservation < ApplicationRecord
 
     enum reason: { その他: 0, 仕事: 1, 疾病: 2 }
     enum status: { 仮予約: 0, 本予約: 1 }
+    belongs_to :user
 end

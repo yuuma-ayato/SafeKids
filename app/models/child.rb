@@ -7,4 +7,5 @@ class Child < ApplicationRecord
 
   enum gender: { その他: 0, 男: 1, 女: 2 }
   belongs_to :user
+  has_one :people, as: :personable
 end

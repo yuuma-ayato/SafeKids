@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_18_061620) do
+ActiveRecord::Schema.define(version: 2020_08_19_070223) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -65,6 +65,18 @@ ActiveRecord::Schema.define(version: 2020_08_18_061620) do
     t.index ["user_id"], name: "index_parents_on_user_id"
   end
 
+  create_table "people", force: :cascade do |t|
+    t.string "family_name", limit: 255, null: false
+    t.string "first_name", limit: 255, null: false
+    t.string "family_name_kana", limit: 255, null: false
+    t.string "first_name_kana", limit: 255, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "personable_type"
+    t.bigint "personable_id"
+    t.index ["personable_type", "personable_id"], name: "index_people_on_personable_type_and_personable_id"
+  end
+
   create_table "reservations", force: :cascade do |t|
     t.date "date", null: false
     t.integer "reason", null: false
@@ -77,10 +89,6 @@ ActiveRecord::Schema.define(version: 2020_08_18_061620) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "family_name", limit: 255, null: false
-    t.string "first_name", limit: 255, null: false
-    t.string "family_name_kana", limit: 255, null: false
-    t.string "first_name_kana", limit: 255, null: false
     t.integer "kind", default: 0, null: false
     t.boolean "admin", default: false, null: false
     t.datetime "created_at", null: false

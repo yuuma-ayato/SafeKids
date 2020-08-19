@@ -1,5 +1,9 @@
 ja:
   view:
+    family_name: 姓
+    first_name: 名
+    family_name_kana: せい（ふりがな）
+    first_name_kana: めい（ふりがな）
     reservation: 予約
     date: 予約日
     reason: 保育理由
@@ -62,6 +66,10 @@ ja:
         birth: 生年月日
         image: 顔写真
       contact_information:
+        family_name: 姓
+        first_name: 名
+        family_name_kana: せい（ふりがな）
+        first_name_kana: めい（ふりがな）
         relation: 続柄
         other_relation: その他の続柄
         phone_number: 電話番号

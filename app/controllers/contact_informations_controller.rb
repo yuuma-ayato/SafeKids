@@ -45,6 +45,7 @@ class ContactInformationsController < ApplicationController
       def confirm
         @contact_information = ContactInformation.new(contact_information_params)
         @contact_information.user_id = current_user.id
+        @user = @contact_information.user
         render :new if @contact_information.invalid?
       end
 
