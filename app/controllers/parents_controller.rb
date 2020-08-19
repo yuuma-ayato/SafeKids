@@ -16,7 +16,7 @@ before_action :set_parent, only: [:show, :edit, :update, :destroy]
       render :new
     else
       if @parent.save
-        redirect_to reservations_path, notice: t('view.create_parent')
+        redirect_to @parent, notice: t('view.create_parent')
       else
         render :new
       end
@@ -40,12 +40,6 @@ before_action :set_parent, only: [:show, :edit, :update, :destroy]
   def destroy
     @parent.destroy
     redirect_to parents_path, notice: t('view.delete_parent')
-  end
-
-  def confirm
-    @parent = Parent.new(parent_params)
-    @parent.user_id = current_user.id
-    render :new if @parent.invalid?
   end
 
 private

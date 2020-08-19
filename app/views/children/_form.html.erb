@@ -1,24 +1,26 @@
-<%= form_with(model: @child, local: true ,url: choose_new_or_edit_child ) do |form| %>
+<%= form_with(model: @child, local: true ) do |form| %>
 
-<div class="field">
-  <%= form.label :family_name %><br />
-  <%= form.text_field :family_name %>
-</div>
+  <%= form.fields_for :people do |field|%>
+    <div class="field">
+      <%= field.label :family_name %><br />
+      <%= field.text_field :family_name %>
+    </div>
 
-<div class="field">
-  <%= form.label :first_name %><br />
-  <%= form.text_field :first_name %>
-</div>
+    <div class="field">
+      <%= field.label :first_name %><br />
+      <%= field.text_field :first_name %>
+    </div>
 
-<div class="field">
-  <%= form.label :family_name_kana %><br />
-  <%= form.text_field :family_name_kana %>
-</div>
+    <div class="field">
+      <%= field.label :family_name_kana %><br />
+      <%= field.text_field :family_name_kana %>
+    </div>
 
-<div class="field">
-  <%= form.label :first_name_kana %><br />
-  <%= form.text_field :first_name_kana %>
-</div>
+    <div class="field">
+      <%= field.label :first_name_kana %><br />
+      <%= field.text_field :first_name_kana %>
+    </div>
+  <% end %>
 
   <div class="child_gender">
     <%= form.label :gender %>

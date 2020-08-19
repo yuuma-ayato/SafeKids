@@ -16,7 +16,7 @@ class ReservationsController < ApplicationController
       render :new
     else
       if @reservation.save
-        redirect_to reservations_path, notice: t('view.create_reservation')
+        redirect_to @reservation, notice: t('view.create_reservation')
       else
         render :new
       end
@@ -40,12 +40,6 @@ class ReservationsController < ApplicationController
   def destroy
     @reservation.destroy
     redirect_to reservations_path, notice: t('view.delete_reservation')
-  end
-
-  def confirm
-    @reservation = Reservation.new(reservation_params)
-    @reservation.user_id = current_user.id
-    render :new if @reservation.invalid?
   end
 
   private

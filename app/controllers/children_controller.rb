@@ -7,18 +7,17 @@ class ChildrenController < ApplicationController
 
     def new
       @child = Child.new
-      @child.build_people
+      @child.people.build
     end
 
     def create
       @child = Child.new(child_params)
       @child.user_id = current_user.id
-      @child.build_people(people_params)
       if params[:back]
         render :new
       else
         if @child.save
-          redirect_to reservations_path, notice: t('view.create_child')
+          redirect_to @child, notice: t('view.create_child')
         else
           render :new
         end
@@ -44,15 +43,20 @@ class ChildrenController < ApplicationController
       redirect_to children_path, notice: t('view.delete_child')
     end
 
-    def confirm
-      @child = Child.new(child_params)
-      @child.user_id = current_user.id
-      render :new if @child.invalid?
-    end
-
   private
     def child_params
-      params.require(:child).permit(:gender, :other_gender, :birth, :image)
+      params.require(:child).permit(
+        :gender,
+        :other_gender,
+        :birth,
+        :image,
+        people_attributes:[
+          :family_name,
+          :first_name,
+          :family_name_kana,
+          :first_name_kana,
+          :id,
+          :_destroy])
     end
 
     def set_child

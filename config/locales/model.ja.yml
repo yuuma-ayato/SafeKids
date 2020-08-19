@@ -57,19 +57,16 @@ ja:
         building: マンション名、部屋番号等
         image: 顔写真
       child:
-        family_name: 姓
-        first_name: 名
-        family_name_kana: せい（ふりがな）
-        first_name_kana: めい（ふりがな）
         gender: 性別
         other_gender: その他の性別
         birth: 生年月日
         image: 顔写真
       contact_information:
+        relation: 続柄
+        other_relation: その他の続柄
+        phone_number: 電話番号
+      person:
         family_name: 姓
         first_name: 名
         family_name_kana: せい（ふりがな）
         first_name_kana: めい（ふりがな）
-        relation: 続柄
-        other_relation: その他の続柄
-        phone_number: 電話番号
