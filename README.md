@@ -42,7 +42,7 @@ Rails 5.2.4
 
 ## カタログ設計
 [Googleスプレッドシート](https://docs.google.com/spreadsheets/d/10yvr_-g7P8p7djihJd5azVzyCWWB0n8XN4H2jfQ5ynE/edit?usp=sharing)
-## テーブル設計
+## テーブル定義
 [Googleスプレッドシート](https://docs.google.com/spreadsheets/d/1NtphrLYvBmN8jrOSotKD8EiXoRDo84038nifjXmbqKY/edit?usp=sharing)
 ## ER図
 [diagrams.net](https://drive.google.com/file/d/1K6tKCB2e4J1Thjdg9z7wN2ZnjQqBvH7G/view?usp=sharing)
