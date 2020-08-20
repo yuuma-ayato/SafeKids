@@ -7,6 +7,7 @@ before_action :set_parent, only: [:show, :edit, :update, :destroy]
 
   def new
     @parent = Parent.new
+    @parent.people.build
   end
 
   def create
@@ -44,8 +45,21 @@ before_action :set_parent, only: [:show, :edit, :update, :destroy]
 
 private
   def parent_params
-    params.require(:parent).permit(:relation, :other_relation, :phone_number,
-                                   :postal_code, :prefecture, :city, :adress, :building, :image)
+    params.require(:parent).permit(
+      :relation,
+      :other_relation,
+      :phone_number,
+      :postal_code,
+      :prefecture,
+      :city,
+      :adress,
+      :building,
+      :image,
+      people_attributes:[
+        :family_name,
+        :first_name,
+        :family_name_kana,
+        :first_name_kana])
   end
 
   def set_parent

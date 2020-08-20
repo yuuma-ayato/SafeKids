@@ -7,6 +7,6 @@ class Child < ApplicationRecord
 
   enum gender: { その他: 0, 男: 1, 女: 2 }
   belongs_to :user
-  has_many :people, as: :personable, inverse_of: :personable, dependent: :destroy
+  has_many :people
   accepts_nested_attributes_for :people
 end

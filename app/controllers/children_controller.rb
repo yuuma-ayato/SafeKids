@@ -54,9 +54,7 @@ class ChildrenController < ApplicationController
           :family_name,
           :first_name,
           :family_name_kana,
-          :first_name_kana,
-          :id,
-          :_destroy])
+          :first_name_kana])
     end
 
     def set_child

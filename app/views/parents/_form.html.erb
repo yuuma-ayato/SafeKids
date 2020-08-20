@@ -1,4 +1,27 @@
 <%= form_with(model: @parent, local: true ) do |form| %>
+
+<%= form.fields_for :people do |field|%>
+  <div class="field">
+    <%= field.label :family_name %><br />
+    <%= field.text_field :family_name %>
+  </div>
+
+  <div class="field">
+    <%= field.label :first_name %><br />
+    <%= field.text_field :first_name %>
+  </div>
+
+  <div class="field">
+    <%= field.label :family_name_kana %><br />
+    <%= field.text_field :family_name_kana %>
+  </div>
+
+  <div class="field">
+    <%= field.label :first_name_kana %><br />
+    <%= field.text_field :first_name_kana %>
+  </div>
+<% end %>
+
   <div class="parent_relation">
     <%= form.label :relation %>
     <%= form.select :relation, [["父", "父"], ["母", "母"], ["その他", "その他"]], include_blank: "選択して下さい" %>
