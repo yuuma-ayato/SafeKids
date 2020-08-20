@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  get 'daycares/index'
-  devise_for :users, controllers: { registrations: 'users/registrations',
-                                    sessions: 'users/sessions' }
+  devise_for :users
+  # devise_for :users, controllers: { registrations: 'users/registrations',
+  #                                   sessions: 'users/sessions' }
 
   root 'reservations#index'
   resources :reservations

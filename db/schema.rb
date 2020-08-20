@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_20_063644) do
+ActiveRecord::Schema.define(version: 2020_08_20_070514) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,8 +22,6 @@ ActiveRecord::Schema.define(version: 2020_08_20_063644) do
     t.string "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "user_id"
-    t.index ["user_id"], name: "index_children_on_user_id"
   end
 
   create_table "contact_informations", force: :cascade do |t|
@@ -32,8 +30,6 @@ ActiveRecord::Schema.define(version: 2020_08_20_063644) do
     t.string "phone_number", limit: 11, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "user_id"
-    t.index ["user_id"], name: "index_contact_informations_on_user_id"
   end
 
   create_table "daycares", force: :cascade do |t|
@@ -61,8 +57,6 @@ ActiveRecord::Schema.define(version: 2020_08_20_063644) do
     t.string "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "user_id"
-    t.index ["user_id"], name: "index_parents_on_user_id"
   end
 
   create_table "people", force: :cascade do |t|
@@ -81,35 +75,29 @@ ActiveRecord::Schema.define(version: 2020_08_20_063644) do
   end
 
   create_table "reservations", force: :cascade do |t|
-    t.date "date", null: false
+    t.datetime "date", null: false
     t.integer "reason", null: false
     t.string "other_reason", limit: 255
     t.integer "status", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "user_id"
-    t.index ["user_id"], name: "index_reservations_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
-    t.integer "kind", default: 0, null: false
-    t.boolean "admin", default: false, null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
+    t.integer "kind", default: 0, null: false
+    t.boolean "admin", default: false, null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "children", "users"
-  add_foreign_key "contact_informations", "users"
-  add_foreign_key "parents", "users"
   add_foreign_key "people", "children"
   add_foreign_key "people", "contact_informations"
   add_foreign_key "people", "parents"
-  add_foreign_key "reservations", "users"
 end
