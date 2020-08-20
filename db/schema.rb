@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_19_070223) do
+ActiveRecord::Schema.define(version: 2020_08_20_063644) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -72,9 +72,12 @@ ActiveRecord::Schema.define(version: 2020_08_19_070223) do
     t.string "first_name_kana", limit: 255, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "personable_type"
-    t.bigint "personable_id"
-    t.index ["personable_type", "personable_id"], name: "index_people_on_personable_type_and_personable_id"
+    t.bigint "parent_id"
+    t.bigint "child_id"
+    t.bigint "contact_information_id"
+    t.index ["child_id"], name: "index_people_on_child_id"
+    t.index ["contact_information_id"], name: "index_people_on_contact_information_id"
+    t.index ["parent_id"], name: "index_people_on_parent_id"
   end
 
   create_table "reservations", force: :cascade do |t|
@@ -105,5 +108,8 @@ ActiveRecord::Schema.define(version: 2020_08_19_070223) do
   add_foreign_key "children", "users"
   add_foreign_key "contact_informations", "users"
   add_foreign_key "parents", "users"
+  add_foreign_key "people", "children"
+  add_foreign_key "people", "contact_informations"
+  add_foreign_key "people", "parents"
   add_foreign_key "reservations", "users"
 end
