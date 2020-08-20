@@ -54,11 +54,6 @@
     <%= form.label :building %>
     <%= form.text_field :building %>
   </div>
-  <div class="parent_image">
-    <%= form.label :image %>
-    <%= image_tag(@parent.image.url) if @parent.image && @parent.image.url %>
-    <%= form.file_field :image %>
-    <%= form.hidden_field :image_cache %>
-  </div>
+
   <%= form.submit %>
 <% end %>
