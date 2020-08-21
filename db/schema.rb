@@ -23,6 +23,8 @@ ActiveRecord::Schema.define(version: 2020_08_21_015110) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
+    t.bigint "person_id"
+    t.index ["person_id"], name: "index_children_on_person_id"
     t.index ["user_id"], name: "index_children_on_user_id"
   end
 
@@ -33,6 +35,8 @@ ActiveRecord::Schema.define(version: 2020_08_21_015110) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
+    t.bigint "person_id"
+    t.index ["person_id"], name: "index_contact_informations_on_person_id"
     t.index ["user_id"], name: "index_contact_informations_on_user_id"
   end
 
@@ -62,6 +66,8 @@ ActiveRecord::Schema.define(version: 2020_08_21_015110) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
+    t.bigint "person_id"
+    t.index ["person_id"], name: "index_parents_on_person_id"
     t.index ["user_id"], name: "index_parents_on_user_id"
   end
 
@@ -105,8 +111,11 @@ ActiveRecord::Schema.define(version: 2020_08_21_015110) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "children", "people"
   add_foreign_key "children", "users"
+  add_foreign_key "contact_informations", "people"
   add_foreign_key "contact_informations", "users"
+  add_foreign_key "parents", "people"
   add_foreign_key "parents", "users"
   add_foreign_key "people", "children"
   add_foreign_key "people", "contact_informations"

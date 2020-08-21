@@ -7,7 +7,6 @@ before_action :set_parent, only: [:show, :edit, :update, :destroy]
 
   def new
     @parent = Parent.new
-    @person = Person.new
     @parent.people.build
   end
 
