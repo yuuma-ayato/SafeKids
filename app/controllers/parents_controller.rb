@@ -7,12 +7,14 @@ before_action :set_parent, only: [:show, :edit, :update, :destroy]
 
   def new
     @parent = Parent.new
+    @person = Person.new
     @parent.people.build
   end
 
   def create
     @parent = Parent.new(parent_params)
     @parent.user_id = current_user.id
+    # @person = Person.new(person_params[:person])
     if params[:back]
       render :new
     else
@@ -55,16 +57,24 @@ private
       :adress,
       :building,
       # :image,
-      # :image_cache,
+      # :image_cache
       people_attributes:[
         :id,
         :family_name,
         :first_name,
         :family_name_kana,
         :first_name_kana,
-        :person_id]
-      )
+        :person_id])
   end
+
+  # def person_params
+  #   params.require(:parent).permit(person:[
+  #       :family_name,
+  #       :first_name,
+  #       :family_name_kana,
+  #       :first_name_kana]
+  #     )
+  # end
 
   def set_parent
     @parent = Parent.find(params[:id])
