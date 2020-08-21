@@ -1,0 +1,37 @@
+<%= form_with(model: @daycare, local: true ) do |form| %>
+
+  <div class="daycare_name">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+  <div class="daycare_phone_number">
+    <%= form.label :phone_number %>
+    <%= form.telephone_field :phone_number %>
+  </div>
+  <div class="daycare_postal_code">
+    <%= form.label :postal_code %>
+    <%= form.text_field :postal_code %>
+  </div>
+  <div class="daycare_prefecture">
+    <%= form.label :prefecture %>
+    <%= form.text_field :prefecture %>
+  </div>
+  <div class="daycare_city">
+    <%= form.label :city %>
+    <%= form.text_field :city %>
+  </div>
+  <div class="daycare_adress">
+    <%= form.label :adress %>
+    <%= form.text_field :adress %>
+  </div>
+  <div class="daycare_building">
+    <%= form.label :building %>
+    <%= form.text_field :building %>
+  </div>
+  <div class="daycare_capacity">
+    <%= form.label :capacity %>
+    <%= form.number_field :capacity, class: "capacity", min: 1, max: 10 %>名
+  </div>
+
+  <%= form.submit %>
+<% end %>

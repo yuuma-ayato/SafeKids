@@ -25,6 +25,8 @@ ja:
     other_gender: その他の性別
     birth: 生年月日
     image: 顔写真
+    name: 保育施設名
+    capacity: 定員数
     create_reservation: 予約しました
     edit_reservation: 予約を編集しました
     delete_reservation: 予約を削除しました
@@ -34,6 +36,9 @@ ja:
     create_child: お子様情報を登録しました
     edit_child: お子様情報を編集しました
     delete_child: お子様情報を削除しました
+    create_daycare: 保育施設情報を登録しました
+    edit_daycare: 保育施設情報を編集しました
+    delete_daycare: 保育施設情報を削除しました
 
   activerecord:
     models:
@@ -65,6 +70,15 @@ ja:
         relation: 続柄
         other_relation: その他の続柄
         phone_number: 電話番号
+      daycare:
+        name: 保育施設名
+        phone_number: 電話番号
+        postal_code: 郵便番号
+        prefecture: 都道府県
+        city: 市区町村
+        adress: 番地等
+        building: マンション名、部屋番号等
+        capacity: 定員数
       person:
         family_name: 姓
         first_name: 名

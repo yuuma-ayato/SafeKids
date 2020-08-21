@@ -1,0 +1,11 @@
+<h1>保育施設情報詳細画面</h1>
+<p><%= notice %></p>
+<p><%= t('view.name') %>: <%= @daycare.name %></p>
+<p><%= t('view.phone_number') %>: <%= @daycare.phone_number %></p>
+<p><%= t('view.postal_code') %>: <%= @daycare.postal_code %></p>
+<p><%= t('view.prefecture') %>: <%= @daycare.prefecture %></p>
+<p><%= t('view.city') %>: <%= @daycare.city %></p>
+<p><%= t('view.adress') %>: <%= @daycare.adress %></p>
+<p><%= t('view.building') %>: <%= @daycare.building %></p>
+<p><%= t('view.capacity') %>: <%= @daycare.capacity %>名</p>
+<%= link_to "一覧へ戻る", reservations_path %>

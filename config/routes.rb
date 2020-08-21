@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :parents
   resources :children
   resources :contact_informations
+  resources :daycares
 
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
