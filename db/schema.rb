@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_21_101407) do
+ActiveRecord::Schema.define(version: 2020_08_21_104631) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -54,12 +54,16 @@ ActiveRecord::Schema.define(version: 2020_08_21_101407) do
   end
 
   create_table "families", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.bigint "user_id"
     t.bigint "parent_id"
     t.bigint "child_id"
     t.bigint "contact_information_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.index ["child_id"], name: "index_families_on_child_id"
+    t.index ["contact_information_id"], name: "index_families_on_contact_information_id"
+    t.index ["parent_id"], name: "index_families_on_parent_id"
+    t.index ["user_id"], name: "index_families_on_user_id"
   end
 
   create_table "parents", force: :cascade do |t|
@@ -105,5 +109,9 @@ ActiveRecord::Schema.define(version: 2020_08_21_101407) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "families", "children"
+  add_foreign_key "families", "contact_informations"
+  add_foreign_key "families", "parents"
+  add_foreign_key "families", "users"
   add_foreign_key "reservations", "daycares"
 end
