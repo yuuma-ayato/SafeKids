@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_21_015110) do
+ActiveRecord::Schema.define(version: 2020_08_21_101407) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,10 +22,10 @@ ActiveRecord::Schema.define(version: 2020_08_21_015110) do
     t.string "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "user_id"
-    t.bigint "person_id"
-    t.index ["person_id"], name: "index_children_on_person_id"
-    t.index ["user_id"], name: "index_children_on_user_id"
+    t.string "family_name", limit: 255, null: false
+    t.string "first_name", limit: 255, null: false
+    t.string "family_name_kana", limit: 255, null: false
+    t.string "first_name_kana", limit: 255, null: false
   end
 
   create_table "contact_informations", force: :cascade do |t|
@@ -34,10 +34,10 @@ ActiveRecord::Schema.define(version: 2020_08_21_015110) do
     t.string "phone_number", limit: 11, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "user_id"
-    t.bigint "person_id"
-    t.index ["person_id"], name: "index_contact_informations_on_person_id"
-    t.index ["user_id"], name: "index_contact_informations_on_user_id"
+    t.string "family_name", limit: 255, null: false
+    t.string "first_name", limit: 255, null: false
+    t.string "family_name_kana", limit: 255, null: false
+    t.string "first_name_kana", limit: 255, null: false
   end
 
   create_table "daycares", force: :cascade do |t|
@@ -49,6 +49,15 @@ ActiveRecord::Schema.define(version: 2020_08_21_015110) do
     t.string "adress", limit: 255, null: false
     t.string "building", limit: 255
     t.integer "capacity", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "families", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "parent_id"
+    t.bigint "child_id"
+    t.bigint "contact_information_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -65,25 +74,10 @@ ActiveRecord::Schema.define(version: 2020_08_21_015110) do
     t.string "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "user_id"
-    t.bigint "person_id"
-    t.index ["person_id"], name: "index_parents_on_person_id"
-    t.index ["user_id"], name: "index_parents_on_user_id"
-  end
-
-  create_table "people", force: :cascade do |t|
     t.string "family_name", limit: 255, null: false
     t.string "first_name", limit: 255, null: false
     t.string "family_name_kana", limit: 255, null: false
     t.string "first_name_kana", limit: 255, null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.bigint "parent_id"
-    t.bigint "child_id"
-    t.bigint "contact_information_id"
-    t.index ["child_id"], name: "index_people_on_child_id"
-    t.index ["contact_information_id"], name: "index_people_on_contact_information_id"
-    t.index ["parent_id"], name: "index_people_on_parent_id"
   end
 
   create_table "reservations", force: :cascade do |t|
@@ -111,14 +105,5 @@ ActiveRecord::Schema.define(version: 2020_08_21_015110) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "children", "people"
-  add_foreign_key "children", "users"
-  add_foreign_key "contact_informations", "people"
-  add_foreign_key "contact_informations", "users"
-  add_foreign_key "parents", "people"
-  add_foreign_key "parents", "users"
-  add_foreign_key "people", "children"
-  add_foreign_key "people", "contact_informations"
-  add_foreign_key "people", "parents"
   add_foreign_key "reservations", "daycares"
 end
