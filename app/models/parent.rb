@@ -11,7 +11,5 @@ class Parent < ApplicationRecord
   end
 
   enum relation: { その他: 0, 父: 1, 母: 2 }
-  belongs_to :user
-  has_many :people
-  accepts_nested_attributes_for :people, allow_destroy: true, reject_if: :all_blank
+  has_many :family
 end

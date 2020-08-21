@@ -6,7 +6,5 @@ class Child < ApplicationRecord
   end
 
   enum gender: { その他: 0, 男: 1, 女: 2 }
-  belongs_to :user
-  has_many :people
-  accepts_nested_attributes_for :people
+  has_many :family
 end
