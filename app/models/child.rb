@@ -1,10 +1,5 @@
 class Child < ApplicationRecord
-  validates :other_relation, length: { maximum: 255 }, presence: true, if: :othergender?
+  enum gender: { 男: 0, 女: 1 }
 
-  def othergender?
-    gender == "その他"
-  end
-
-  enum gender: { その他: 0, 男: 1, 女: 2 }
-  has_many :families
+  belongs_to :parent, optional: true
 end

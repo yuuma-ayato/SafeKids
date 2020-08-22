@@ -1,11 +1,16 @@
 class ParentsController < ApplicationController
 before_action :set_parent, only: [:show, :edit, :update, :destroy]
+before_action :authenticate_user!
 
   def index
     @parents = Parent.all
   end
 
   def new
+    @parent = Parent.new
+  end
+
+  def first_time
     @parent = Parent.new
   end
 
@@ -50,7 +55,6 @@ private
       :family_name_kana,
       :first_name_kana,
       :relation,
-      :other_relation,
       :phone_number,
       :postal_code,
       :prefecture,
@@ -59,7 +63,14 @@ private
       :building,
       # :image,
       # :image_cache
-      )
+      children:[
+        :gender,
+        :birth,
+        :image,
+        :family_name,
+        :first_name,
+        :family_name_kana,
+        :first_name_kana ])
   end
 
   def set_parent

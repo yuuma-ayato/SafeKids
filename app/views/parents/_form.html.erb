@@ -22,11 +22,7 @@
 
   <div class="parent_relation">
     <%= form.label :relation %>
-    <%= form.select :relation, [["父", "父"], ["母", "母"], ["その他", "その他"]], include_blank: "選択して下さい" %>
-  </div>
-  <div class="parent_other_relation">
-    <%= form.label :other_relation %>
-    <%= form.text_field :other_relation %>
+    <%= form.select :relation, [["父", "父"], ["母", "母"]], include_blank: "選択して下さい" %>
   </div>
   <div class="parent_phone_number">
     <%= form.label :phone_number %>

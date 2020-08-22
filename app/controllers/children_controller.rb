@@ -1,60 +1,61 @@
 class ChildrenController < ApplicationController
   before_action :set_child, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
-    def index
-      @children = Child.all
-    end
+  def index
+    @children = Child.all
+  end
 
-    def new
-      @child = Child.new
-      @child.people.build
-    end
+  def new
+    @child = Child.new
+  end
 
-    def create
-      @child = Child.new(child_params)
-      @child.user_id = current_user.id
-      if params[:back]
+  def create
+    @child = Child.new(child_params)
+    # @child.user_id = current_user.id
+    if params[:back]
+      render :new
+    else
+      if @child.save
+        redirect_to @child, notice: t('view.create_child')
+      else
         render :new
-      else
-        if @child.save
-          redirect_to @child, notice: t('view.create_child')
-        else
-          render :new
-        end
       end
     end
+  end
 
-    def show
-    end
+  def show
+  end
 
-    def edit
-    end
+  def edit
+  end
 
-    def update
-      if @child.update(child_params)
-        redirect_to children_path, notice: t('view.edit_child')
-      else
-        render :edit
-      end
+  def update
+    if @child.update(child_params)
+      redirect_to children_path, notice: t('view.edit_child')
+    else
+      render :edit
     end
+  end
 
-    def destroy
-      @child.destroy
-      redirect_to children_path, notice: t('view.delete_child')
-    end
+  def destroy
+    @child.destroy
+    redirect_to children_path, notice: t('view.delete_child')
+  end
 
   private
-    def child_params
-      params.require(:child).permit(
-        :gender,
-        :other_gender,
-        :birth,
-        :image,
-        people_attributes:[
-          :family_name,
-          :first_name,
-          :family_name_kana,
-          :first_name_kana])
+  def child_params
+    params.require(:child).permit(
+      :gender,
+      :birth,
+      :image,
+      :family_name,
+      :first_name,
+      :family_name_kana,
+      :first_name_kana,
+      # :image,
+      # :image_cache
+    )
     end
 
     def set_child

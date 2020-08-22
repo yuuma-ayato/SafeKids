@@ -1,13 +1,10 @@
 <h1>お子様情報詳細画面</h1>
 
-<% @child.people.each do |people| %>
-<p><%= t('view.family_name') %>: <%= people.family_name %></p>
-<p><%= t('view.first_name') %>: <%= people.first_name %></p>
-<p><%= t('view.family_name_kana') %>: <%= people.family_name_kana %></p>
-<p><%= t('view.first_name_kana') %>: <%= people.first_name_kana %></p>
-<% end %>
+<p><%= t('view.family_name') %>: <%= @child.family_name %></p>
+<p><%= t('view.first_name') %>: <%= @child.first_name %></p>
+<p><%= t('view.family_name_kana') %>: <%= @child.family_name_kana %></p>
+<p><%= t('view.first_name_kana') %>: <%= @child.first_name_kana %></p>
 <p><%= t('view.gender') %>: <%= @child.gender %></p>
-<p><%= t('view.other_gender') %>: <%= @child.other_gender %></p>
 <p><%= t('view.birth') %>: <%= @child.birth %></p>
 <p class="show_image"><strong><%= t('view.image') %>:</strong></p>
 <%# <p><%= image_tag @child.image.url %></p> %>

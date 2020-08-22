@@ -5,7 +5,6 @@
 <p><%= t('view.family_name_kana') %>: <%= @parent.family_name_kana %></p>
 <p><%= t('view.first_name_kana') %>: <%= @parent.first_name_kana %></p>
 <p><%= t('view.relation') %>: <%= @parent.relation %></p>
-<p><%= t('view.other_relation') %>: <%= @parent.other_relation %></p>
 <p><%= t('view.phone_number') %>: <%= @parent.phone_number %></p>
 <p><%= t('view.postal_code') %>: <%= @parent.postal_code %></p>
 <p><%= t('view.prefecture') %>: <%= @parent.prefecture %></p>
@@ -14,4 +13,5 @@
 <p><%= t('view.building') %>: <%= @parent.building %></p>
 <p class="show_image"><strong><%= t('view.image') %>:</strong></p>
 <%# <p><%= image_tag @parent.image.url %></p> %>
+<%= link_to "お子様情報入力欄へ", new_child_path %>
 <%= link_to "一覧へ戻る", reservations_path %>

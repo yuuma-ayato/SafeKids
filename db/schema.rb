@@ -10,38 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_21_104631) do
+ActiveRecord::Schema.define(version: 2020_08_22_094432) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "children", force: :cascade do |t|
     t.integer "gender", null: false
-    t.string "other_gender", limit: 255
     t.date "birth", null: false
     t.string "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "user_id"
     t.string "family_name", limit: 255, null: false
     t.string "first_name", limit: 255, null: false
     t.string "family_name_kana", limit: 255, null: false
     t.string "first_name_kana", limit: 255, null: false
-    t.index ["user_id"], name: "index_children_on_user_id"
-  end
-
-  create_table "contact_informations", force: :cascade do |t|
-    t.integer "relation", null: false
-    t.string "other_relation"
-    t.string "phone_number", limit: 11, null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.bigint "user_id"
-    t.string "family_name", limit: 255, null: false
-    t.string "first_name", limit: 255, null: false
-    t.string "family_name_kana", limit: 255, null: false
-    t.string "first_name_kana", limit: 255, null: false
-    t.index ["user_id"], name: "index_contact_informations_on_user_id"
+    t.bigint "parent_id"
+    t.index ["parent_id"], name: "index_children_on_parent_id"
   end
 
   create_table "daycares", force: :cascade do |t|
@@ -57,22 +42,8 @@ ActiveRecord::Schema.define(version: 2020_08_21_104631) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "families", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.bigint "user_id"
-    t.bigint "parent_id"
-    t.bigint "child_id"
-    t.bigint "contact_information_id"
-    t.index ["child_id"], name: "index_families_on_child_id"
-    t.index ["contact_information_id"], name: "index_families_on_contact_information_id"
-    t.index ["parent_id"], name: "index_families_on_parent_id"
-    t.index ["user_id"], name: "index_families_on_user_id"
-  end
-
   create_table "parents", force: :cascade do |t|
     t.integer "relation", null: false
-    t.string "other_relation", limit: 255
     t.string "phone_number", limit: 11, null: false
     t.string "postal_code", limit: 7, null: false
     t.string "prefecture", limit: 255, null: false
@@ -82,10 +53,12 @@ ActiveRecord::Schema.define(version: 2020_08_21_104631) do
     t.string "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
     t.string "family_name", limit: 255, null: false
     t.string "first_name", limit: 255, null: false
     t.string "family_name_kana", limit: 255, null: false
     t.string "first_name_kana", limit: 255, null: false
+    t.index ["user_id"], name: "index_parents_on_user_id"
   end
 
   create_table "reservations", force: :cascade do |t|
@@ -102,7 +75,7 @@ ActiveRecord::Schema.define(version: 2020_08_21_104631) do
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
-    t.integer "kind", default: 0, null: false
+    t.integer "user_type", default: 0, null: false
     t.boolean "admin", default: false, null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
@@ -113,11 +86,7 @@ ActiveRecord::Schema.define(version: 2020_08_21_104631) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "children", "users"
-  add_foreign_key "contact_informations", "users"
-  add_foreign_key "families", "children"
-  add_foreign_key "families", "contact_informations"
-  add_foreign_key "families", "parents"
-  add_foreign_key "families", "users"
+  add_foreign_key "children", "parents"
+  add_foreign_key "parents", "users"
   add_foreign_key "reservations", "daycares"
 end
