@@ -7,5 +7,5 @@ class ContactInformation < ApplicationRecord
   end
 
   enum relation: { その他: 0, 父: 1, 母: 2 }
-  has_many :family
+  has_many :families
 end

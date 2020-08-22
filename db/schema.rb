@@ -22,10 +22,12 @@ ActiveRecord::Schema.define(version: 2020_08_21_104631) do
     t.string "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
     t.string "family_name", limit: 255, null: false
     t.string "first_name", limit: 255, null: false
     t.string "family_name_kana", limit: 255, null: false
     t.string "first_name_kana", limit: 255, null: false
+    t.index ["user_id"], name: "index_children_on_user_id"
   end
 
   create_table "contact_informations", force: :cascade do |t|
@@ -34,10 +36,12 @@ ActiveRecord::Schema.define(version: 2020_08_21_104631) do
     t.string "phone_number", limit: 11, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
     t.string "family_name", limit: 255, null: false
     t.string "first_name", limit: 255, null: false
     t.string "family_name_kana", limit: 255, null: false
     t.string "first_name_kana", limit: 255, null: false
+    t.index ["user_id"], name: "index_contact_informations_on_user_id"
   end
 
   create_table "daycares", force: :cascade do |t|
@@ -109,6 +113,8 @@ ActiveRecord::Schema.define(version: 2020_08_21_104631) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "children", "users"
+  add_foreign_key "contact_informations", "users"
   add_foreign_key "families", "children"
   add_foreign_key "families", "contact_informations"
   add_foreign_key "families", "parents"

@@ -9,4 +9,5 @@ class User < ApplicationRecord
   has_many :children, dependent: :destroy
   has_many :contact_informations, dependent: :destroy
   has_many :reservations, dependent: :destroy
+  has_many :families, dependent: :destroy
 end

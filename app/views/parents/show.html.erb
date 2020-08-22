@@ -1,11 +1,9 @@
 <h1>保護者情報詳細画面</h1>
 
-<% @parent.people.each do |people| %>
-<p><%= t('view.family_name') %>: <%= people.family_name %></p>
-<p><%= t('view.first_name') %>: <%= people.first_name %></p>
-<p><%= t('view.family_name_kana') %>: <%= people.family_name_kana %></p>
-<p><%= t('view.first_name_kana') %>: <%= people.first_name_kana %></p>
-<% end %>
+<p><%= t('view.family_name') %>: <%= @parent.family_name %></p>
+<p><%= t('view.first_name') %>: <%= @parent.first_name %></p>
+<p><%= t('view.family_name_kana') %>: <%= @parent.family_name_kana %></p>
+<p><%= t('view.first_name_kana') %>: <%= @parent.first_name_kana %></p>
 <p><%= t('view.relation') %>: <%= @parent.relation %></p>
 <p><%= t('view.other_relation') %>: <%= @parent.other_relation %></p>
 <p><%= t('view.phone_number') %>: <%= @parent.phone_number %></p>

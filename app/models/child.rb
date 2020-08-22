@@ -6,5 +6,5 @@ class Child < ApplicationRecord
   end
 
   enum gender: { その他: 0, 男: 1, 女: 2 }
-  has_many :family
+  has_many :families
 end

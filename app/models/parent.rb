@@ -11,5 +11,6 @@ class Parent < ApplicationRecord
   end
 
   enum relation: { その他: 0, 父: 1, 母: 2 }
-  has_many :family
+  has_many :users
+  has_many :families, dependent: :destroy
 end
