@@ -24,6 +24,8 @@ class ReservationsController < ApplicationController
   end
 
   def show
+    @comments = @reservation.comments
+    @comment = @reservation.comments.build
   end
 
   def edit

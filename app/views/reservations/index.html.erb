@@ -5,16 +5,14 @@
     <tr>
       <th><%= t('view.date') %></th>
       <th><%= t('view.reason') %></th>
-      <th><%= t('view.other_reason') %></th>
       <th><%= t('view.status') %></th>
     </tr>
     <% @reservations.each do |reservation| %>
     <tr>
       <td class="reservation_row">
-        <%= reservation.date %>
+        <%= reservation.date.strftime("%Y-%m-%d%H:%M") %>
       </td>
       <td><%= reservation.reason %></td>
-      <td><%= reservation.other_reason %></td>
       <td><%= reservation.status %></td>
       <td>
       </td>

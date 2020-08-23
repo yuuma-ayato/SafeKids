@@ -1,16 +1,8 @@
 class Reservation < ApplicationRecord
-  before_validation do
-    self.other_reason = nil unless reason == "その他"
-  end
-
-  validates :other_reason, length: { maximum: 255 }, presence: true, if: :otherreason?
-
-  def otherreason?
-    reason == "その他"
-  end
-
-    enum reason: { その他: 0, 仕事: 1, 疾病: 2 }
-    enum status: { 仮予約: 0, 本予約: 1 }
-    belongs_to :user
-    belongs_to :daycare
+  enum reason: { 仕事: 0, 疾病: 1 }
+  enum status: { 仮予約: 0, 本予約: 1 }
+  
+  belongs_to :user, optional: true
+  belongs_to :daycare, optional: true
+  has_many :comments, dependent: :destroy
 end

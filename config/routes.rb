@@ -3,7 +3,10 @@ Rails.application.routes.draw do
                                     sessions: 'users/sessions' }
 
   root 'reservations#index'
-  resources :reservations
+  resources :reservations do
+    resources :comments
+  end
+
   resources :parents
   resources :children
   resources :contact_informations

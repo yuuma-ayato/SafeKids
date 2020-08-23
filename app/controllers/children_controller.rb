@@ -12,7 +12,7 @@ class ChildrenController < ApplicationController
 
   def create
     @child = Child.new(child_params)
-    # @child.user_id = current_user.id
+    @child.user_id = current_user.id
     if params[:back]
       render :new
     else

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_22_094432) do
+ActiveRecord::Schema.define(version: 2020_08_23_082300) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,12 +21,22 @@ ActiveRecord::Schema.define(version: 2020_08_22_094432) do
     t.string "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
     t.string "family_name", limit: 255, null: false
     t.string "first_name", limit: 255, null: false
     t.string "family_name_kana", limit: 255, null: false
     t.string "first_name_kana", limit: 255, null: false
     t.bigint "parent_id"
     t.index ["parent_id"], name: "index_children_on_parent_id"
+    t.index ["user_id"], name: "index_children_on_user_id"
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.bigint "reservation_id"
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["reservation_id"], name: "index_comments_on_reservation_id"
   end
 
   create_table "daycares", force: :cascade do |t|
@@ -64,12 +74,13 @@ ActiveRecord::Schema.define(version: 2020_08_22_094432) do
   create_table "reservations", force: :cascade do |t|
     t.datetime "date", null: false
     t.integer "reason", null: false
-    t.string "other_reason", limit: 255
     t.integer "status", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "daycare_id"
+    t.bigint "user_id"
     t.index ["daycare_id"], name: "index_reservations_on_daycare_id"
+    t.index ["user_id"], name: "index_reservations_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -87,6 +98,9 @@ ActiveRecord::Schema.define(version: 2020_08_22_094432) do
   end
 
   add_foreign_key "children", "parents"
+  add_foreign_key "children", "users"
+  add_foreign_key "comments", "reservations"
   add_foreign_key "parents", "users"
   add_foreign_key "reservations", "daycares"
+  add_foreign_key "reservations", "users"
 end
