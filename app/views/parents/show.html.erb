@@ -12,6 +12,6 @@
 <p><%= t('view.adress') %>: <%= @parent.adress %></p>
 <p><%= t('view.building') %>: <%= @parent.building %></p>
 <p class="show_image"><strong><%= t('view.image') %>:</strong></p>
-<%# <p><%= image_tag @parent.image.url %></p> %>
+<p><%= image_tag @parent.image.url %></p>
 <%= link_to "お子様情報入力欄へ", new_child_path %>
 <%= link_to "一覧へ戻る", reservations_path %>

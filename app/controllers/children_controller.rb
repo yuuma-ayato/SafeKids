@@ -53,9 +53,8 @@ class ChildrenController < ApplicationController
       :first_name,
       :family_name_kana,
       :first_name_kana,
-      # :image,
-      # :image_cache
-    )
+      :image,
+      :image_cache )
     end
 
     def set_child

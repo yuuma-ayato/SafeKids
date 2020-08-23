@@ -29,6 +29,10 @@
   <%= form.label :birth %>
   <%= form.date_select :birth, start_year: 2011, end_year: Time.current.year, use_month_numbers: true %>
 </div>
+<div class="child_image">
+  <%= form.label :image %>
+  <%= form.file_field :image %>
+</div>
 
 <%= form.submit %>
 <% end %>

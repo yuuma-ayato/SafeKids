@@ -61,8 +61,8 @@ private
       :city,
       :adress,
       :building,
-      # :image,
-      # :image_cache
+      :image,
+      :image_cache,
       children:[
         :gender,
         :birth,
