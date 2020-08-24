@@ -7,7 +7,7 @@ ja:
     reservation: 予約
     date: 予約日
     reason: 保育理由
-    status: ステータス
+    status: 予約状況
     daycare_to_use: 利用保育施設
     show: 詳細
     edit: 編集
@@ -48,7 +48,7 @@ ja:
       reservation:
         date: 予約日
         reason: 保育理由
-        status: ステータス
+        status: 予約状況
         daycare_to_use: 利用する保育施設
       contact:
         relation: 続柄

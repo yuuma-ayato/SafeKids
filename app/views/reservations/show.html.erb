@@ -6,8 +6,20 @@
 <p><%= t('view.date') %>: <%= @reservation.date %></p>
 <p><%= t('view.reason') %>: <%= @reservation.reason %></p>
 <p><%= t('view.daycare_to_use') %>: <%= @reservation.daycare_to_use %></p>
-<p><%= t('view.status') %>: <%= @reservation.status %></p>
+<p><%= t('view.status') %>: <%= @reservation.status %></p><br>
 
+<% if current_user.user_type == 1 %>
+<%= form_with(model: @reservation, local: true ) do |form| %>
+<div class="reservation_status">
+  <p>内容を確認し予約を確定して下さい</p>
+  <%= form.label :status %>
+  <%= form.select :status, [["仮予約", "仮予約"], ["本予約", "本予約"]], include_blank: "選択して下さい" %>
+</div>
+<%= form.submit "確定" %>
+<% end %>
+<% end %>
+
+<br>
 <p>コメント一覧</p>
 <!-- このcomments_areaというHTMLのidを取得して、そのdivの部分だけを更新する -->
 <div id="comments_area">
