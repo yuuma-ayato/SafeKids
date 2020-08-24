@@ -14,7 +14,7 @@
         <%= reservation.date.strftime("%Y-%m-%d%H:%M") %>
       </td>
       <td><%= reservation.reason %></td>
-      <td><%= reservation.daycare_to_use.name %></td>
+      <td><%= reservation.daycare_to_use %></td>
       <td><%= reservation.status %></td>
       <td><%= link_to t('view.show'), reservation_path(reservation.id) %></td>
       <td><%= link_to t('view.edit'), edit_reservation_path(reservation.id), data: { confirm: '本当に編集していいですか？' } %></td>

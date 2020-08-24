@@ -7,6 +7,7 @@ class ReservationsController < ApplicationController
 
   def new
     @reservation = Reservation.new
+    @daycare = Daycare.all
   end
 
   def create
