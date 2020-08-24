@@ -5,6 +5,7 @@
     <tr>
       <th><%= t('view.date') %></th>
       <th><%= t('view.reason') %></th>
+      <th><%= t('view.daycare_to_use') %></th>
       <th><%= t('view.status') %></th>
     </tr>
     <% @reservations.each do |reservation| %>
@@ -13,9 +14,8 @@
         <%= reservation.date.strftime("%Y-%m-%d%H:%M") %>
       </td>
       <td><%= reservation.reason %></td>
+      <td><%= reservation.daycare_to_use.name %></td>
       <td><%= reservation.status %></td>
-      <td>
-      </td>
       <td><%= link_to t('view.show'), reservation_path(reservation.id) %></td>
       <td><%= link_to t('view.edit'), edit_reservation_path(reservation.id), data: { confirm: '本当に編集していいですか？' } %></td>
       <td><%= link_to t('view.delete'), reservation_path(reservation.id), method: :delete ,data: { confirm: '本当に削除していいですか？' } %></td>

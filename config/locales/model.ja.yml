@@ -9,6 +9,7 @@ ja:
     reason: 保育理由
     other_reason: その他の保育理由
     status: ステータス
+    daycare_to_use: 利用保育施設
     show: 詳細
     edit: 編集
     delete: 削除
@@ -27,6 +28,7 @@ ja:
     image: 顔写真
     name: 保育施設名
     capacity: 定員数
+    content: コメント欄
     create_reservation: 予約しました
     edit_reservation: 予約を編集しました
     delete_reservation: 予約を削除しました
@@ -51,6 +53,7 @@ ja:
         reason: 保育理由
         other_reason: その他の保育理由
         status: ステータス
+        daycare_to_use: 利用する保育施設
       parent:
         family_name: 姓
         first_name: 名
@@ -91,3 +94,5 @@ ja:
         adress: 番地等
         building: マンション名、部屋番号等
         capacity: 定員数
+      comment:
+        content: コメント欄

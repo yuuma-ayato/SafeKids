@@ -7,7 +7,11 @@
     <%= form.label :reason %>
     <%= form.select :reason, [["仕事", "仕事"], ["疾病", "疾病"]], include_blank: "選択して下さい" %>
   </div>
-  
+  <div class="reservation_daycare_to_use">
+    <%= form.label :daycare_to_use %>
+    <%= form.collection_select :daycare_to_use, Daycare.all, :name, :name, :prompt => "選択して下さい" %>
+  </div>
+
   <%= form.submit %>
 <% end %>
 <%= link_to "一覧へ戻る", reservations_path %>

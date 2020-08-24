@@ -46,7 +46,7 @@ class ReservationsController < ApplicationController
 
   private
   def reservation_params
-    params.require(:reservation).permit(:date, :reason, :other_reason, :status)
+    params.require(:reservation).permit(:date, :reason, :other_reason, :status, :daycare_to_use)
   end
 
   def set_reservation
