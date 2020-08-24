@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_24_063134) do
+ActiveRecord::Schema.define(version: 2020_08_24_065839) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -70,7 +70,9 @@ ActiveRecord::Schema.define(version: 2020_08_24_063134) do
     t.datetime "updated_at", null: false
     t.bigint "user_id"
     t.bigint "child_id"
+    t.bigint "contact_id"
     t.index ["child_id"], name: "index_names_on_child_id"
+    t.index ["contact_id"], name: "index_names_on_contact_id"
     t.index ["user_id"], name: "index_names_on_user_id"
   end
 
@@ -105,6 +107,7 @@ ActiveRecord::Schema.define(version: 2020_08_24_063134) do
   add_foreign_key "comments", "reservations"
   add_foreign_key "contacts", "users"
   add_foreign_key "names", "children"
+  add_foreign_key "names", "contacts"
   add_foreign_key "names", "users"
   add_foreign_key "reservations", "daycares"
   add_foreign_key "reservations", "users"

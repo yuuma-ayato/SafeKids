@@ -7,14 +7,12 @@ ja:
     reservation: 予約
     date: 予約日
     reason: 保育理由
-    other_reason: その他の保育理由
     status: ステータス
     daycare_to_use: 利用保育施設
     show: 詳細
     edit: 編集
     delete: 削除
     relation: 続柄
-    other_relation: その他の続柄
     phone_number: 電話番号
     postal_code: 郵便番号
     prefecture: 都道府県
@@ -23,7 +21,6 @@ ja:
     building: マンション名、部屋番号等
     image: 顔写真
     gender: 性別
-    other_gender: その他の性別
     birth: 生年月日
     image: 顔写真
     name: 保育施設名
@@ -32,9 +29,9 @@ ja:
     create_reservation: 予約しました
     edit_reservation: 予約を編集しました
     delete_reservation: 予約を削除しました
-    create_parent: 保護者情報を登録しました
-    edit_parent: 保護者情報を編集しました
-    delete_parent: 保護者情報を削除しました
+    create_contact: 連絡先情報を登録しました
+    edit_contact: 連絡先情報を編集しました
+    delete_contact: 連絡先情報を削除しました
     create_child: お子様情報を登録しました
     edit_child: お子様情報を編集しました
     delete_child: お子様情報を削除しました
@@ -46,19 +43,14 @@ ja:
     models:
       reservation: 予約
       user: ユーザー
-      parent: 保護者
+      contact: 連絡先
     attributes:
       reservation:
         date: 予約日
         reason: 保育理由
-        other_reason: その他の保育理由
         status: ステータス
         daycare_to_use: 利用する保育施設
-      parent:
-        family_name: 姓
-        first_name: 名
-        family_name_kana: せい（ふりがな）
-        first_name_kana: めい（ふりがな）
+      contact:
         relation: 続柄
         other_relation: その他の続柄
         phone_number: 電話番号
@@ -69,22 +61,9 @@ ja:
         building: マンション名、部屋番号等
         image: 顔写真
       child:
-        family_name: 姓
-        first_name: 名
-        family_name_kana: せい（ふりがな）
-        first_name_kana: めい（ふりがな）
         gender: 性別
-        other_gender: その他の性別
         birth: 生年月日
         image: 顔写真
-      contact_information:
-        family_name: 姓
-        first_name: 名
-        family_name_kana: せい（ふりがな）
-        first_name_kana: めい（ふりがな）
-        relation: 続柄
-        other_relation: その他の続柄
-        phone_number: 電話番号
       daycare:
         name: 保育施設名
         phone_number: 電話番号
@@ -96,3 +75,8 @@ ja:
         capacity: 定員数
       comment:
         content: コメント欄
+      name:
+        family_name: 姓
+        first_name: 名
+        family_name_kana: せい（ふりがな）
+        first_name_kana: めい（ふりがな）
