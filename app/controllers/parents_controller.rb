@@ -8,10 +8,7 @@ before_action :authenticate_user!
 
   def new
     @parent = Parent.new
-  end
-
-  def first_time
-    @parent = Parent.new
+    @parent.names.build
   end
 
   def create
@@ -63,10 +60,7 @@ private
       :building,
       :image,
       :image_cache,
-      children:[
-        :gender,
-        :birth,
-        :image,
+      names_attributes:[
         :family_name,
         :first_name,
         :family_name_kana,

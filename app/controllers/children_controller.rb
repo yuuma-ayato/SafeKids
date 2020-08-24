@@ -8,6 +8,7 @@ class ChildrenController < ApplicationController
 
   def new
     @child = Child.new
+    @child.names.build
   end
 
   def create
@@ -54,7 +55,12 @@ class ChildrenController < ApplicationController
       :family_name_kana,
       :first_name_kana,
       :image,
-      :image_cache )
+      :image_cache,
+      names_attributes:[
+        :family_name,
+        :first_name,
+        :family_name_kana,
+        :first_name_kana ] )
     end
 
     def set_child

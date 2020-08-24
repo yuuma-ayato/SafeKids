@@ -8,4 +8,5 @@ class User < ApplicationRecord
   has_many :reservations, dependent: :destroy
   has_many :parents, dependent: :destroy
   has_many :children
+  has_many :names
 end

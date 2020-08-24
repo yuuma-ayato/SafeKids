@@ -9,6 +9,6 @@ class Parent < ApplicationRecord
   mount_uploader :image, ImageUploader
 
   belongs_to :user
-  has_many :children, dependent: :destroy
-  # accepts_nested_attributes_for :children, allow_destroy: true, reject_if: :all_blank
+  has_many :names
+  accepts_nested_attributes_for :names, allow_destroy: true, reject_if: :all_blank
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_24_024647) do
+ActiveRecord::Schema.define(version: 2020_08_24_060708) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,12 +22,6 @@ ActiveRecord::Schema.define(version: 2020_08_24_024647) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
-    t.string "family_name", limit: 255, null: false
-    t.string "first_name", limit: 255, null: false
-    t.string "family_name_kana", limit: 255, null: false
-    t.string "first_name_kana", limit: 255, null: false
-    t.bigint "parent_id"
-    t.index ["parent_id"], name: "index_children_on_parent_id"
     t.index ["user_id"], name: "index_children_on_user_id"
   end
 
@@ -52,6 +46,21 @@ ActiveRecord::Schema.define(version: 2020_08_24_024647) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "names", force: :cascade do |t|
+    t.string "family_name", limit: 255, null: false
+    t.string "first_name", limit: 255, null: false
+    t.string "family_name_kana", limit: 255, null: false
+    t.string "first_name_kana", limit: 255, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "parent_id"
+    t.bigint "user_id"
+    t.bigint "child_id"
+    t.index ["child_id"], name: "index_names_on_child_id"
+    t.index ["parent_id"], name: "index_names_on_parent_id"
+    t.index ["user_id"], name: "index_names_on_user_id"
+  end
+
   create_table "parents", force: :cascade do |t|
     t.integer "relation", null: false
     t.string "phone_number", limit: 11, null: false
@@ -64,10 +73,6 @@ ActiveRecord::Schema.define(version: 2020_08_24_024647) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
-    t.string "family_name", limit: 255, null: false
-    t.string "first_name", limit: 255, null: false
-    t.string "family_name_kana", limit: 255, null: false
-    t.string "first_name_kana", limit: 255, null: false
     t.index ["user_id"], name: "index_parents_on_user_id"
   end
 
@@ -98,9 +103,11 @@ ActiveRecord::Schema.define(version: 2020_08_24_024647) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "children", "parents"
   add_foreign_key "children", "users"
   add_foreign_key "comments", "reservations"
+  add_foreign_key "names", "children"
+  add_foreign_key "names", "parents"
+  add_foreign_key "names", "users"
   add_foreign_key "parents", "users"
   add_foreign_key "reservations", "daycares"
   add_foreign_key "reservations", "users"
