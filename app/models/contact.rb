@@ -7,7 +7,7 @@ class Contact < ApplicationRecord
 
   mount_uploader :image, ImageUploader
 
-  belongs_to :user
+  belongs_to :user, optional: true
   has_many :names
   accepts_nested_attributes_for :names, allow_destroy: true, reject_if: :all_blank
 end

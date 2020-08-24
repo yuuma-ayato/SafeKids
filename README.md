@@ -38,7 +38,7 @@ Rails 5.2.4
 * 定員機能
   * 保育施設の定員数までしか予約できないようにする。
 * コメント機能
-  * 予約についてコメント（保護者連絡、保育士メモ）を付けられる。
+  * 予約についてコメント（保護者連絡）を付けられる。
 
 ## カタログ設計
 [Googleスプレッドシート](https://docs.google.com/spreadsheets/d/10yvr_-g7P8p7djihJd5azVzyCWWB0n8XN4H2jfQ5ynE/edit?usp=sharing)
