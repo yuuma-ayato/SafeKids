@@ -6,12 +6,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   #アカウント登録後のリダイレクト先
   def after_sign_up_path_for(resource)
-    new_parent_path
+    new_contact_path
   end
 
   #アカウント編集後のリダイレクト先
   def after_update_path_for(resource)
-    edit_parent_path
+    edit_contact_path
   end
 
   # GET /resource/sign_up

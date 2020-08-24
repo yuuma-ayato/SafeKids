@@ -1,3 +1,3 @@
 class Name < ApplicationRecord
-  belongs_to :parent, optional: true
+  belongs_to :contact, optional: true
 end
