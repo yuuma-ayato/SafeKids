@@ -1,53 +1,53 @@
-<%= form_with(model: @parent, local: true ) do |form| %>
+<%= form_with(model: @contact, local: true ) do |form| %>
 
 <%= form.fields_for :names do |name| %>
-<div class="parent_family_name">
+<div class="contact_family_name">
   <%= name.label :family_name %>
   <%= name.text_field :family_name %>
 </div>
-<div class="parent_family_name">
+<div class="contact_family_name">
   <%= name.label :first_name %>
   <%= name.text_field :first_name %>
 </div>
-<div class="parent_family_name">
+<div class="contact_family_name">
   <%= name.label :family_name_kana %>
   <%= name.text_field :family_name_kana %>
 </div>
-<div class="parent_family_name">
+<div class="contact_family_name">
   <%= name.label :first_name_kana %>
   <%= name.text_field :first_name_kana %>
 </div>
 <% end %>
 
-<div class="parent_relation">
+<div class="contact_relation">
   <%= form.label :relation %>
   <%= form.select :relation, [["父", "父"], ["母", "母"]], include_blank: "選択して下さい" %>
 </div>
-<div class="parent_phone_number">
+<div class="contact_phone_number">
   <%= form.label :phone_number %>
   <%= form.telephone_field :phone_number %>
 </div>
-<div class="parent_postal_code">
+<div class="contact_postal_code">
   <%= form.label :postal_code %>
   <%= form.text_field :postal_code %>
 </div>
-<div class="parent_prefecture">
+<div class="contact_prefecture">
   <%= form.label :prefecture %>
   <%= form.text_field :prefecture %>
 </div>
-<div class="parent_city">
+<div class="contact_city">
   <%= form.label :city %>
   <%= form.text_field :city %>
 </div>
-<div class="parent_adress">
+<div class="contact_adress">
   <%= form.label :adress %>
   <%= form.text_field :adress %>
 </div>
-<div class="parent_building">
+<div class="contact_building">
   <%= form.label :building %>
   <%= form.text_field :building %>
 </div>
-<div class="parent_image">
+<div class="contact_image">
   <%= form.label :image %>
   <%= form.file_field :image %>
 </div>

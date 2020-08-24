@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_24_060708) do
+ActiveRecord::Schema.define(version: 2020_08_24_063134) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +33,21 @@ ActiveRecord::Schema.define(version: 2020_08_24_060708) do
     t.index ["reservation_id"], name: "index_comments_on_reservation_id"
   end
 
+  create_table "contacts", force: :cascade do |t|
+    t.string "relation", limit: 255, null: false
+    t.string "phone_number", limit: 11, null: false
+    t.string "postal_code", limit: 7, null: false
+    t.string "prefecture", limit: 255, null: false
+    t.string "city", limit: 255, null: false
+    t.string "adress", limit: 255, null: false
+    t.string "building", limit: 255
+    t.string "image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_contacts_on_user_id"
+  end
+
   create_table "daycares", force: :cascade do |t|
     t.string "name", limit: 255, null: false
     t.string "phone_number", limit: 11, null: false
@@ -53,27 +68,10 @@ ActiveRecord::Schema.define(version: 2020_08_24_060708) do
     t.string "first_name_kana", limit: 255, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "parent_id"
     t.bigint "user_id"
     t.bigint "child_id"
     t.index ["child_id"], name: "index_names_on_child_id"
-    t.index ["parent_id"], name: "index_names_on_parent_id"
     t.index ["user_id"], name: "index_names_on_user_id"
-  end
-
-  create_table "parents", force: :cascade do |t|
-    t.integer "relation", null: false
-    t.string "phone_number", limit: 11, null: false
-    t.string "postal_code", limit: 7, null: false
-    t.string "prefecture", limit: 255, null: false
-    t.string "city", limit: 255, null: false
-    t.string "adress", limit: 255, null: false
-    t.string "building", limit: 255
-    t.string "image"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.bigint "user_id"
-    t.index ["user_id"], name: "index_parents_on_user_id"
   end
 
   create_table "reservations", force: :cascade do |t|
@@ -105,10 +103,9 @@ ActiveRecord::Schema.define(version: 2020_08_24_060708) do
 
   add_foreign_key "children", "users"
   add_foreign_key "comments", "reservations"
+  add_foreign_key "contacts", "users"
   add_foreign_key "names", "children"
-  add_foreign_key "names", "parents"
   add_foreign_key "names", "users"
-  add_foreign_key "parents", "users"
   add_foreign_key "reservations", "daycares"
   add_foreign_key "reservations", "users"
 end

@@ -7,9 +7,8 @@ Rails.application.routes.draw do
     resources :comments
   end
 
-  resources :parents
+  resources :contacts
   resources :children
-  resources :contact_informations
   resources :daycares
 
   if Rails.env.development?
