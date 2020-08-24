@@ -1,13 +1,17 @@
 class ReservationsController < ApplicationController
   before_action :set_reservation, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   def index
-    @reservations = Reservation.all
+    if current_user.user_type == 0
+      @reservations = current_user.reservations
+    else
+      @reservations = Reservation.all
+    end
   end
 
   def new
     @reservation = Reservation.new
-    @daycare = Daycare.all
   end
 
   def create
