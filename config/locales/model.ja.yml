@@ -12,8 +12,8 @@ ja:
     show: 詳細
     edit: 編集
     delete: 削除
-    relation: 続柄
-    phone_number: 電話番号
+    relation: お子様との関係
+    phone_number: 連絡先電話番号
     postal_code: 郵便番号
     prefecture: 都道府県
     city: 市区町村
@@ -53,9 +53,9 @@ ja:
         status: 予約状況
         daycare_to_use: 利用する保育施設
       contact:
-        relation: 続柄
+        relation: お子様との関係
         other_relation: その他の続柄
-        phone_number: 電話番号
+        phone_number: 連絡先電話番号
         postal_code: 郵便番号
         prefecture: 都道府県
         city: 市区町村

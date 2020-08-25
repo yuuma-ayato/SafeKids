@@ -11,4 +11,5 @@
 <p><%= t('view.birth') %>: <%= @child.birth %></p>
 <p class="show_image"><strong><%= t('view.image') %>:</strong></p>
 <p><%= image_tag @child.image.url, :size =>'135x180' %></p>
-<%= link_to "一覧へ戻る", reservations_path %>
+<p><%= link_to "予約申込みへ", reservations_path %></p>
+<p><%= link_to "予約一覧へ", reservations_path %></p>

@@ -1,5 +1,11 @@
 <h1>予約一覧</h1>
 <p><%= notice %></p>
+<div class="new_reservation">
+  <% if current_user.try(:admin?)%>
+    <button type="button" class = "btn"><%= link_to "管理者画面へ", admin_users_path %></button>
+  <% end %>
+  <button type="button" class = "btn"><%= link_to '予約する', new_reservation_path %></button>
+</div>
 
 <% unless current_user.user_type == 0 %>
 <%= search_form_for @q do |f| %>
@@ -12,7 +18,7 @@
 <% end %>
 
 <%= sort_link(
-      @q, :date, "日付",
+      @q, :date, "日付並び替え",
       { date: :desc },
       { class: "sort_link" }
     ) %>
@@ -33,11 +39,10 @@
       <td><%= reservation.daycare_to_use %></td>
       <td><%= reservation.status %></td>
       <td><%= link_to t('view.show'), reservation_path(reservation.id) %></td>
+      <% unless current_user.user_type == 2 %>
       <td><%= link_to t('view.edit'), edit_reservation_path(reservation.id), data: { confirm: '本当に編集していいですか？' } %></td>
       <td><%= link_to t('view.delete'), reservation_path(reservation.id), method: :delete ,data: { confirm: '本当に削除していいですか？' } %></td>
+      <% end %>
     </tr>
     <% end %>
   </table>
-  <div class="new_reservation">
-    <%= link_to '予約する', new_reservation_path %>
-  </div>
