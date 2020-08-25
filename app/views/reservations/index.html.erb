@@ -5,6 +5,7 @@
     <button type="button" class = "btn"><%= link_to "管理者画面へ", admin_users_path %></button>
   <% end %>
   <button type="button" class = "btn"><%= link_to '予約する', new_reservation_path %></button>
+  <button type="button" class = "btn"><%= link_to 'マイページ', user_path(current_user.id) %></button>
 </div>
 
 <% unless current_user.user_type == 0 %>

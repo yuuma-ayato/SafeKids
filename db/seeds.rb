@@ -75,6 +75,7 @@ end
 end
 
 10.times do |n|
+  gimei = Gimei.new
   gimei = Gimei.male
   Name.create!(
     family_name: "Gimei.last.kanji",
@@ -85,6 +86,7 @@ end
 end
 
 10.times do |n|
+  gimei = Gimei.new
   gimei = Gimei.female
   Name.create!(
     family_name: "Gimei.last.kanji",
@@ -95,6 +97,7 @@ end
 end
 
 10.times do |n|
+  gimei = Gimei.new
   gimei = Gimei.male
   Name.create!(
     family_name: "Gimei.last.kanji",
@@ -105,6 +108,7 @@ end
 end
 
 10.times do |n|
+  gimei = Gimei.new
   gimei = Gimei.female
   Name.create!(
     family_name: "Gimei.last.kanji",
