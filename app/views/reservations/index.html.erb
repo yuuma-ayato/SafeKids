@@ -1,6 +1,14 @@
 <h1>予約一覧</h1>
 <p><%= notice %></p>
 
+<%= search_form_for @q do |f| %>
+  <%= f.label :daycare_to_use_cont, '施設名' %>
+  <%= f.search_field :daycare_to_use_cont %>
+  <%=f.label :status_eq, '予約状況' %>
+  <%= f.select :status_eq, [['仮予約', 0], ['本予約', 1]], :include_blank => '指定なし' %>
+  <%= f.submit %>
+<% end %>
+
   <table class="table table">
     <tr>
       <th><%= t('view.date') %></th>

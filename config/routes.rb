@@ -3,6 +3,7 @@ Rails.application.routes.draw do
                                     sessions: 'users/sessions' }
 
   root 'reservations#index'
+  get 'search', to: 'reservations#search'
   resources :reservations do
     resources :comments
   end

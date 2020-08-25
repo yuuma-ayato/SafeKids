@@ -8,8 +8,14 @@ class ReservationsController < ApplicationController
     elsif current_user.user_type == 2
       @reservations = Reservation.all.where(status: "本予約")
     else
-      @reservations = Reservation.all
+      @q = Reservation.ransack(params[:q])
+      @reservations = @q.result(distinct: true)
     end
+  end
+
+  def search
+    @q = Reservation.search(search_params)
+    @reservations = @q.result(distinct: true)
   end
 
   def new
@@ -58,6 +64,10 @@ class ReservationsController < ApplicationController
 
   def set_reservation
     @reservation = Reservation.find(params[:id])
+  end
+
+  def search_params
+    params.require(:q).permit(:daycare_to_use_cont, :status)
   end
 
 end
