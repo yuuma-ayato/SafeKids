@@ -1,5 +1,5 @@
 class DaycaresController < ApplicationController
-  before_action :set_daycare, only: [:show, :edit, :update, :destroy]
+  before_action :set_daycare, only: %i[show edit update destroy]
 
   def index
     @daycares = Daycare.all

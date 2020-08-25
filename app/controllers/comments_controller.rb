@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  before_action :set_reservation, only: [:create, :edit, :update]
+  before_action :set_reservation, only: %i[create edit update]
   def create
     @comment = @reservation.comments.build(comment_params)
     respond_to do |format|

@@ -1,10 +1,12 @@
 class ReservationsController < ApplicationController
-  before_action :set_reservation, only: [:show, :edit, :update, :destroy]
+  before_action :set_reservation, only: %i[show edit update destroy]
   before_action :authenticate_user!
 
   def index
     if current_user.user_type == 0
       @reservations = current_user.reservations
+    elsif current_user.user_type == 2
+      @reservations = Reservation.all.where(status: "本予約")
     else
       @reservations = Reservation.all
     end
