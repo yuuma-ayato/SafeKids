@@ -11,6 +11,10 @@ Rails.application.routes.draw do
   resources :children
   resources :daycares
 
+  namespace :admin do
+    resources :users
+  end
+
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
   end

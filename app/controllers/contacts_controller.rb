@@ -33,7 +33,7 @@ class ContactsController < ApplicationController
 
     def update
       if @contact.update(contact_params)
-        redirect_to contacts_path, notice: t('view.edit_contact')
+        redirect_to @contact, notice: t('view.edit_contact')
       else
         render :edit
       end

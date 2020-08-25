@@ -38,6 +38,8 @@ ja:
     create_daycare: 保育施設情報を登録しました
     edit_daycare: 保育施設情報を編集しました
     delete_daycare: 保育施設情報を削除しました
+    reservation_edit: 予約編集
+    contact_edit: 連絡先編集
 
   activerecord:
     models:

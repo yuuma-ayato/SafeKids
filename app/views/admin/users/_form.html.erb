@@ -1,0 +1,28 @@
+<% if @user.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@user.errors.count, "error") %> 登録出来ません</h2>
+
+    <ul>
+    <% @user.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%# admin/users_controllerにformwithのデータを送る %>
+<%= form_with(model:[:admin, @user], local: true) do |f| %>
+  <%= f.label :email %>
+  <%= f.email_field :email %>
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+  <%= f.label :password_confirmation %>
+  <%= f.password_field :password_confirmation %>
+  <div class="user_user_type">
+    <%= f.label :user_type %>
+    <%= f.select :user_type, [["保護者", "保護者"], ["窓口担当者", "窓口担当者"], ["保育士", "保育士"]], include_blank: "選択して下さい" %>
+  </div>
+  <%= f.label :admin, "管理者権限" %>
+  <%= f.check_box :admin %>
+  <%= f.submit %>
+<% end %>

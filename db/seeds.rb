@@ -56,7 +56,7 @@ Name.create!(
   Name.create!(
     family_name: "安心",
     first_name: "太郎",
-    family_name_kana: "安心",
+    family_name_kana: "あんしん",
     first_name_kana: "たろう",
     contact_id: 1)
 
