@@ -6,25 +6,6 @@
   </p>
   <p>Email:<%=@user.email %></p>
   <p>管理者権限:<%= "有" if @user.admin? %></p>
-  <br>
-  <% if @user.user_type == 0 %>
-  <p>連絡先情報</p>
-  <% @contact.names.each do |name| %>
-  <p><%= t('view.family_name') %>: <%= name.family_name %></p>
-  <p><%= t('view.first_name') %>: <%= name.first_name %></p>
-  <p><%= t('view.family_name_kana') %>: <%= name.family_name_kana %></p>
-  <p><%= t('view.first_name_kana') %>: <%= name.first_name_kana %></p>
-  <% end %>
-
-  <p><%= t('view.relation') %>: <%= @contact.relation %></p>
-  <p><%= t('view.phone_number') %>: <%= @contact.phone_number %></p>
-  <p><%= t('view.postal_code') %>: <%= @contact.postal_code %></p>
-  <p><%= t('view.prefecture') %>: <%= @contact.prefecture %></p>
-  <p><%= t('view.city') %>: <%= @contact.city %></p>
-  <p><%= t('view.adress') %>: <%= @contact.adress %></p>
-  <p><%= t('view.building') %>: <%= @contact.building %></p>
-  <p class="show_image"><strong><%= t('view.image') %>:</strong></p>
-  <p><%= image_tag @contact.image.url, :size =>'135x180' %></p>
 
   <br>
   <p>予約一覧</p>
@@ -46,7 +27,6 @@
     </table>
     <td><%= link_to t('view.reservation_edit'), edit_reservation_path(reservation.id), data: { confirm: '本当に編集していいですか？' } %></td>
       <% end %><br>
-        <% end %>
     <%= link_to 'アカウント編集', edit_admin_user_path(@user)%>
     <%= link_to 'アカウント削除', admin_user_path(@user), method: :delete, data: { confirm: '本当に削除しますか？' } %>
     <p><%= link_to "管理者画面にもどる", admin_users_path %></p>

@@ -9,7 +9,6 @@ class Admin::UsersController < ApplicationController
   def show
     @reservations = @user.reservations
     if @user.user_type == 0
-      @contact = Contact.find(params[:id])
     end
   end
 

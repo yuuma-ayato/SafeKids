@@ -1,6 +1,7 @@
 <h1>予約一覧</h1>
 <p><%= notice %></p>
 
+<% unless current_user.user_type == 0 %>
 <%= search_form_for @q do |f| %>
   <%= f.label :daycare_to_use_cont, '施設名' %>
   <%= f.search_field :daycare_to_use_cont %>
@@ -8,6 +9,13 @@
   <%= f.select :status_eq, [['仮予約', 0], ['本予約', 1]], :include_blank => '指定なし' %>
   <%= f.submit %>
 <% end %>
+<% end %>
+
+<%= sort_link(
+      @q, :date, "日付",
+      { date: :desc },
+      { class: "sort_link" }
+    ) %>
 
   <table class="table table">
     <tr>
