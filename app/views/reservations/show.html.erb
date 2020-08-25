@@ -3,7 +3,7 @@
 <div class="container">
   <p id="notice"><%= notice %></p>
 
-<p><%= t('view.date') %>: <%= @reservation.date %></p>
+<p><%= t('view.date') %>: <%= @reservation.date.strftime("%Y年%m月%d日") %></p>
 <p><%= t('view.reason') %>: <%= @reservation.reason %></p>
 <p><%= t('view.daycare_to_use') %>: <%= @reservation.daycare_to_use %></p>
 <p><%= t('view.status') %>: <%= @reservation.status %></p><br>

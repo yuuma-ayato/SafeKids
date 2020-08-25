@@ -35,104 +35,120 @@ end
   10.times do |n|
     Contact.create!(
       relation: "父",
-      phone_number: "048957111#{n + 1}",
-      postal_code: "341000#{n + 1}"",
+      phone_number: "048957111#{rand(1..9)}",
+      postal_code: "341000#{rand(1..9)}",
       prefecture: "埼玉県",
       city: "三郷市",
-      adress: "中央",
-      building: "ライオンズビル101",
+      adress: "中央1-#{n + 1}",
+      building: "ライオンズビル10#{n + 1}",
       image: open("./db/fixtures/boy.png"),
-      user_id: 1)
+      user_id: rand(11..21))
   end
 
-Contact.create!(
-  relation: "母",
-  phone_number: "0489881111",
-  postal_code: "3411111",
-  prefecture: "埼玉県",
-  city: "三郷市",
-  adress: "泉１１１",
-  building: "",
-  image: open("./db/fixtures/girl.png"),
-  user_id: 4)
+10.times do |n|
+  Contact.create!(
+    relation: "母",
+    phone_number: "048957111#{rand(1..9)}",
+    postal_code: "341000#{rand(1..9)}",
+    prefecture: "埼玉県",
+    city: "三郷市",
+    adress: "泉1-#{n + 1}",
+    building: "",
+    image: open("./db/fixtures/girl.png"),
+    user_id: rand(2..11))
+end
 
-Contact.create!(
-  relation: "父",
-  phone_number: "0489992222",
-  postal_code: "3412211",
-  prefecture: "埼玉県",
-  city: "三郷市",
-  adress: "ららシティ１１ー１",
-  building: "",
-  image: open("./db/fixtures/usuge.png"),
-  user_id: 5)
+10.times do |n|
+  Child.create!(
+    gender: "男",
+    birth: Faker::Date.between(from: '2014-04-01', to: '2020-03-31'),
+    image: open("./db/fixtures/kid_boy.png"),
+    user_id: rand(2..11))
+end
 
-Child.create!(
-  gender: "男",
-  birth: Time.parse("2015/03/03"),
-  image: open("./db/fixtures/kid_boy.png"),
-  user_id: 1)
+10.times do |n|
+  Child.create!(
+    gender: "女",
+    birth: Faker::Date.between(from: '2014-04-01', to: '2020-03-31'),
+    image: open("./db/fixtures/candy_girl.png"),
+    user_id: rand(2..11))
+end
 
-Child.create!(
-  gender: "女",
-  birth: Time.parse("2013/11/11"),
-  image: open("./db/fixtures/candy_girl.png"),
-  user_id: 1)
+10.times do |n|
+  gimei = Gimei.male
+  Name.create!(
+    family_name: "Gimei.last.kanji",
+    first_name: "Gimei.first.kanji",
+    family_name_kana: "Gimei.last.hiragana",
+    first_name_kana: "Gimei.first.hiragana",
+    contact_id: rand(1..10))
+end
 
-Child.create!(
-  gender: "男",
-  birth: Time.parse("2014/03/03"),
-  image: open("./db/fixtures/kid_boy.png"),
-  user_id: 4)
+10.times do |n|
+  gimei = Gimei.female
+  Name.create!(
+    family_name: "Gimei.last.kanji",
+    first_name: "Gimei.first.kanji",
+    family_name_kana: "Gimei.last.hiragana",
+    first_name_kana: "Gimei.first.hiragana",
+    contact_id: rand(1..10))
+end
 
-Name.create!(
-  family_name: "安心",
-  first_name: "一郎",
-  family_name_kana: "あんしん",
-  first_name_kana: "いちろう",
-  contact_id: 1)
+10.times do |n|
+  gimei = Gimei.male
+  Name.create!(
+    family_name: "Gimei.last.kanji",
+    first_name: "Gimei.first.kanji",
+    family_name_kana: "Gimei.last.hiragana",
+    first_name_kana: "Gimei.first.hiragana",
+    child_id: rand(1..10))
+end
 
-Name.create!(
-  family_name: "田中",
-  first_name: "陽子",
-  family_name_kana: "たなか",
-  first_name_kana: "陽子",
-  contact_id: 2)
+10.times do |n|
+  gimei = Gimei.female
+  Name.create!(
+    family_name: "Gimei.last.kanji",
+    first_name: "Gimei.first.kanji",
+    family_name_kana: "Gimei.last.hiragana",
+    first_name_kana: "Gimei.first.hiragana",
+    child_id: rand(1..10))
+end
 
-Name.create!(
-family_name: "安泰",
-first_name: "四郎",
-family_name_kana: "あんたい",
-first_name_kana: "しろう",
-contact_id: 3)
-
-Name.create!(
-  family_name: "安心",
-  first_name: "吾郎",
-  family_name_kana: "あんしん",
-  first_name_kana: "ごろう",
-  child_id: 1)
-
-Name.create!(
-  family_name: "安心",
-  first_name: "光子",
-  family_name_kana: "あんしん",
-  first_name_kana: "みつこ",
-  child_id: 2)
-
-Name.create!(
-  family_name: "田中",
-  first_name: "睦朗",
-  family_name_kana: "たなか",
-  first_name_kana: "むつろう",
-  child_id: 3)
-
+5.times do |n|
 Reservation.create!(
-  date: Time.parse("2020/9/11"),
+  date: Faker::Date.between(from: '2020-09-01', to: '2020-12-29'),
   reason: "仕事",
   status: 0,
   daycare_to_use: "みさとしらゆり保育園　病児・病後児保育室【つばめ】",
-  user_id: 1)
+  user_id: rand(2..11))
+end
+
+5.times do |n|
+Reservation.create!(
+  date: Faker::Date.between(from: '2020-09-01', to: '2020-12-29'),
+  reason: "疾病",
+  status: 1,
+  daycare_to_use: "みさとしらゆり保育園　病児・病後児保育室【つばめ】",
+  user_id: rand(2..11))
+end
+
+5.times do |n|
+Reservation.create!(
+  date: Faker::Date.between(from: '2020-09-01', to: '2020-12-29'),
+  reason: "仕事",
+  status: 0,
+  daycare_to_use: "オハナゆめ保育園併設病児保育室",
+  user_id: rand(2..11))
+end
+
+5.times do |n|
+Reservation.create!(
+  date: Faker::Date.between(from: '2020-09-01', to: '2020-12-29'),
+  reason: "疾病",
+  status: 1,
+  daycare_to_use: "けやきの森保育園西初石園",
+  user_id: rand(2..11))
+end
 
   Daycare.create!(
     name: "みさとしらゆり保育園　病児・病後児保育室【つばめ】",

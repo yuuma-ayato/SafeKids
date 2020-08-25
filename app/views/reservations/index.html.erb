@@ -27,7 +27,7 @@
     <% @reservations.each do |reservation| %>
     <tr>
       <td class="reservation_row">
-        <%= reservation.date.strftime("%Y-%m-%d%H:%M") %>
+        <%= reservation.date.strftime("%Y年%m月%d日") %>
       </td>
       <td><%= reservation.reason %></td>
       <td><%= reservation.daycare_to_use %></td>
