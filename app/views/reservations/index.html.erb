@@ -10,8 +10,8 @@
 
 <% unless current_user.user_type == 0 %>
 <%= search_form_for @q do |f| %>
-  <%= f.label :daycare_to_use_cont, '施設名' %>
-  <%= f.search_field :daycare_to_use_cont %>
+  <%= f.label :daycare_to_use_eq, '施設名' %>
+  <%= f.collection_select :daycare_to_use_eq, Daycare.all, :name, :name, :prompt => "選択して下さい" %>
   <%=f.label :status_eq, '予約状況' %>
   <%= f.select :status_eq, [['仮予約', 0], ['本予約', 1]], :include_blank => '指定なし' %>
   <%= f.submit %>

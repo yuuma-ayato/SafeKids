@@ -54,7 +54,7 @@ class Admin::UsersController < ApplicationController
     end
 
     def check_admin
-      unless current_user.admin == true
+      unless current_user.try(:admin?)
         redirect_to reservations_path, notice: "あなたは管理者ではありません"
       end
     end

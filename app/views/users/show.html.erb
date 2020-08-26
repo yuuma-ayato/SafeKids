@@ -1,11 +1,11 @@
 <h1>マイページ</h1>
-
-<% @contact.names.each do |name| %>
-<p><%= t('view.family_name') %>: <%= name.family_name %></p>
-<p><%= t('view.first_name') %>: <%= name.first_name %></p>
-<p><%= t('view.family_name_kana') %>: <%= name.family_name_kana %></p>
-<p><%= t('view.first_name_kana') %>: <%= name.first_name_kana %></p>
-<% end %>
+<button type="button" class = "btn"><%= link_to "予約一覧へ", reservations_path %></button>
+<button type="button" class = "btn"><%= link_to "お子様情報追加", new_child_path %></button>
+<h3>保護者情報</h3>
+<p><%= t('view.family_name') %>: <%= @name.family_name %></p>
+<p><%= t('view.first_name') %>: <%= @name.first_name %></p>
+<p><%= t('view.family_name_kana') %>: <%= @name.family_name_kana %></p>
+<p><%= t('view.first_name_kana') %>: <%= @name.first_name_kana %></p>
 
 <p>メールアドレス:<%=@user.email %></p>
 
@@ -18,6 +18,17 @@
 <p><%= t('view.building') %>: <%= @contact.building %></p>
 <p class="show_image"><strong><%= t('view.image') %>:</strong></p>
 <p><%= image_tag @contact.image.url, :size =>'135x180' %></p>
+<br><br>
 
-<p><%= link_to "お子様情報入力欄へ", new_child_path %></p>
-<p><%= link_to "予約一覧へ", reservations_path %></p>
+<h3>お子様情報</h3>
+<% @child.names.each do |name| %>
+<p><%= t('view.family_name') %>: <%= name.family_name %></p>
+<p><%= t('view.first_name') %>: <%= name.first_name %></p>
+<p><%= t('view.family_name_kana') %>: <%= name.family_name_kana %></p>
+<p><%= t('view.first_name_kana') %>: <%= name.first_name_kana %></p>
+<% end %>
+
+<p><%= t('view.gender') %>: <%= @child.gender %></p>
+<p><%= t('view.birth') %>: <%= @child.birth %></p>
+<p class="show_image"><strong><%= t('view.image') %>:</strong></p>
+<p><%= image_tag @child.image.url, :size =>'135x180' %></p>

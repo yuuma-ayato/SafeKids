@@ -1,2 +1,37 @@
-<h1>Daycares#index</h1>
-<p>Find me in app/views/daycares/index.html.erb</p>
+<h2>保育施設管理画面</h2>
+<p><%= notice %></p>
+<button type="button" class = "btn"><%= link_to "管理者画面へ", admin_users_path %></button>
+<button type="button" class = "btn"><%= link_to "予約一覧へ", reservations_path %></button>
+<button type="button" class = "btn"><%= link_to '施設新規登録',new_daycare_path %></button>
+  <div class="reservation_table">
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>保育施設名</th>
+        <th>電話番号</th>
+        <th>郵便番号</th>
+        <th>市区町村</th>
+        <th>番地等</th>
+        <th>マンション名、部屋番号等</th>
+        <th>定員数</th>
+      </tr>
+    </thead>
+    <tbody class="admin_row">
+      <% @daycares.each do |daycare| %>
+        <tr>
+          <td><%= daycare.name %></td>
+          <td><%= daycare.phone_number %></td>
+          <td><%= daycare.postal_code %></td>
+          <td><%= daycare.prefecture %></td>
+          <td><%= daycare.city %></td>
+          <td><%= daycare.adress %></td>
+          <td><%= daycare.building %></td>
+          <td><%= daycare.capacity %></td>
+          <td><%= link_to '詳細', daycare_path(daycare.id)%></td>
+          <td><%= link_to '編集', edit_daycare_path(daycare.id)%></td>
+          <td><%= link_to '削除', daycare_path(daycare.id), method: :delete, data: { confirm: '本当に削除しますか？' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

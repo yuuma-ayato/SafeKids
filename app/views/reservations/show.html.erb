@@ -2,11 +2,30 @@
 
 <div class="container">
   <p id="notice"><%= notice %></p>
+<button type="button" class = "btn"><%= link_to "予約一覧へ", reservations_path %></button>
 
 <p><%= t('view.date') %>: <%= @reservation.date.strftime("%Y年%m月%d日") %></p>
 <p><%= t('view.reason') %>: <%= @reservation.reason %></p>
 <p><%= t('view.daycare_to_use') %>: <%= @reservation.daycare_to_use %></p>
 <p><%= t('view.status') %>: <%= @reservation.status %></p><br>
+
+<h3>保護者情報</h3>
+<p><%= t('view.family_name') %>: <%= @name.family_name %></p>
+<p><%= t('view.first_name') %>: <%= @name.first_name %></p>
+<p><%= t('view.family_name_kana') %>: <%= @name.family_name_kana %></p>
+<p><%= t('view.first_name_kana') %>: <%= @name.first_name_kana %></p>
+
+<p>メールアドレス:<%=@user.email %></p>
+
+<p><%= t('view.relation') %>: <%= @contact.relation %></p>
+<p><%= t('view.phone_number') %>: <%= @contact.phone_number %></p>
+<p><%= t('view.postal_code') %>: <%= @contact.postal_code %></p>
+<p><%= t('view.prefecture') %>: <%= @contact.prefecture %></p>
+<p><%= t('view.city') %>: <%= @contact.city %></p>
+<p><%= t('view.adress') %>: <%= @contact.adress %></p>
+<p><%= t('view.building') %>: <%= @contact.building %></p>
+<p class="show_image"><strong><%= t('view.image') %>:</strong></p>
+<p><%= image_tag @contact.image.url, :size =>'135x180' %></p>
 
 <% if current_user.user_type == 1 %>
 <%= form_with(model: @reservation, local: true ) do |form| %>
@@ -28,6 +47,4 @@
 </div>
 <!-- コメント入力欄をブログの詳細ページに表示するためのrender -->
 <%= render partial: 'comments/form', locals: { comment: @comment, reservation: @reservation } %>
-
-<%= link_to "一覧へ戻る", reservations_path %>
 </div>
