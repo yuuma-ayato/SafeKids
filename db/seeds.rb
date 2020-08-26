@@ -151,32 +151,34 @@ Reservation.create!(
   user_id: rand(2..11))
 end
 
-  Daycare.create!(
-    name: "みさとしらゆり保育園　病児・病後児保育室【つばめ】",
-    phone_number: "0489490072",
-    postal_code: "3410038",
-    prefecture: "埼玉県",
-    city: "三郷市",
-    adress: "中央１−２−１",
-    building: "ザ・ライオンズ三郷中央２１６",
-    capacity: 4)
+Daycare.create!(
+  name: "みさとしらゆり保育園　病児・病後児保育室【つばめ】",
+  phone_number: "0489490072",
+  postal_code: "3410038",
+  prefecture: "埼玉県",
+  city: "三郷市",
+  adress: "中央１−２−１",
+  building: "ザ・ライオンズ三郷中央２１６",
+  capacity: 4)
 
-  Daycare.create!(
-    name: "オハナゆめ保育園併設病児保育室",
-    phone_number: "0489113333",
-    postal_code: "3410021",
-    prefecture: "埼玉県",
-    city: "三郷市",
-    adress: "泉１１６−１",
-    building: "",
-    capacity: 3)
+Daycare.create!(
+  name: "オハナゆめ保育園併設病児保育室",
+  phone_number: "0489113333",
+  postal_code: "3410021",
+  prefecture: "埼玉県",
+  city: "三郷市",
+  adress: "泉１１６−１",
+  building: "",
+  capacity: 3)
 
-  Daycare.create!(
-    name: "けやきの森保育園西初石園",
-    phone_number: "0489223456",
-    postal_code: "3410022",
-    prefecture: "埼玉県",
-    city: "三郷市",
-    adress: "三郷",
-    building: "",
-    capacity: 3)
+20.times do |n|
+Daycare.create!(
+  name: "みさと病児保育施設#{n + 1}",
+  phone_number: "0489223456",
+  postal_code: "3410022",
+  prefecture: "埼玉県",
+  city: "三郷市",
+  adress: "三郷",
+  building: "",
+  capacity: 3)
+end
