@@ -23,34 +23,34 @@ RSpec.describe 'ユーザ登録・ログイン・ログアウト機能', type: :
         visit new_user_session_path
         fill_in 'user[email]', with: @user.email
         fill_in 'user[password]', with: @user.password
-        click_on 'ログイン'
-        expect(current_path).to eq user_path(id: @user.id)
+        click_button 'ログイン'
+        expect(page).to have_content "ログインしました。"
       end
     end
-#     context "ユーザのデータがありログインしている場合" do
-#       before do
-#         visit new_session_path
-#         fill_in 'session[email]', with: @user.email
-#         fill_in 'session[password]', with: @user.password
-#         click_on 'Log in'
-#       end
-#       it "自分の詳細画面に飛べること" do
-#         visit user_path(id: @user.id)
-#         expect(current_path).to eq user_path(id: @user.id)
-#       end
-#
-#       it "一般ユーザが他人の詳細画面に飛ぶとタスク一覧ページに遷移すること" do
-#         visit user_path(id: @admin_user.id)
-#         expect(page).to have_content "他の人のページへアクセス出来ません"
-#       end
-#
-#       it "ログアウトができること" do
-#         visit user_path(id: @user.id)
-#         click_on "Logout"
-#         expect(page).to have_content "ログアウトしました"
-#       end
-#     end
-#   end
+    context "ユーザのデータがありログインしている場合" do
+      before do
+        visit new_session_path
+        fill_in 'session[email]', with: @user.email
+        fill_in 'session[password]', with: @user.password
+        click_button 'ログイン'
+      end
+      it "自分の詳細画面に飛べること" do
+        visit user_path(id: @user.id)
+        expect(current_path).to eq user_path(id: @user.id)
+      end
+
+      it "一般ユーザが他人の詳細画面に飛ぶとタスク一覧ページに遷移すること" do
+        visit user_path(id: @admin_user.id)
+        expect(page).to have_content "他の人のページへアクセス出来ません"
+      end
+
+      it "ログアウトができること" do
+        visit user_path(id: @user.id)
+        click_on "Logout"
+        expect(page).to have_content "ログアウトしました"
+      end
+    end
+  end
 #
 #   describe "管理画面のテスト" do
 #     context "管理者ユーザのデータがありログインしていない場合" do

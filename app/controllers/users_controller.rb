@@ -8,6 +8,9 @@ class UsersController < ApplicationController
     @contact = Contact.find(params[:id])
     @child = Child.find(params[:id])
     @name = Name.find(params[:id])
+    unless @user == current_user
+      redirect_to tasks_path, notice: '他の人のページへアクセス出来ません'
+    end
   end
 end
 
