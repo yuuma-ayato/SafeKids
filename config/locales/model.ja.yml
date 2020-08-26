@@ -55,8 +55,8 @@ ja:
       contact:
         relation: お子様との関係
         other_relation: その他の続柄
-        phone_number: 連絡先電話番号
-        postal_code: 郵便番号
+        phone_number: 連絡先電話番号（ハイフンなし）
+        postal_code: 郵便番号（ハイフンなし）
         prefecture: 都道府県
         city: 市区町村
         adress: 番地等
