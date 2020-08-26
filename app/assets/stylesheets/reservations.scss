@@ -1,3 +1,23 @@
-// Place all the styles related to the reservations controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  text-align: center;
+}
+.header{
+    font-size:20px;
+    font-weight:bold;
+    text-align:center;
+    background-color:#00aced ;
+    color: #fff;
+    padding:1% 2%;
+}
+
+.article{
+    background-color:#c7d1f6;
+    color:#000000;
+    padding:5% 5%;
+    box-sizing: border-box;
+    border: solid 1px #fff;
+}

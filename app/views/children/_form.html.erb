@@ -1,36 +1,48 @@
+<% if @child.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@child.errors.count, "error") %> 登録出来ません</h2>
+
+    <ul>
+    <% @child.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <%= form_with(model: @child, local: true ) do |form| %>
 
 <%= form.fields_for :names do |name| %>
 <div class="child_family_name">
-  <%= name.label :family_name %>
-  <%= name.text_field :family_name %>
+  <p><%= name.label :family_name %></p>
+  <p><%= name.text_field :family_name %></p>
 </div>
 <div class="child_family_name">
-  <%= name.label :first_name %>
-  <%= name.text_field :first_name %>
+  <p><%= name.label :first_name %></p>
+  <p><%= name.text_field :first_name %></p>
 </div>
 <div class="child_family_name">
-  <%= name.label :family_name_kana %>
-  <%= name.text_field :family_name_kana %>
+  <p><%= name.label :family_name_kana %></p>
+  <p><%= name.text_field :family_name_kana %></p>
 </div>
 <div class="child_family_name">
-  <%= name.label :first_name_kana %>
-  <%= name.text_field :first_name_kana %>
+  <p><%= name.label :first_name_kana %></p>
+  <p><%= name.text_field :first_name_kana %></p>
 </div>
 <% end %>
 
 <div class="child_gender">
-  <%= form.label :gender %>
-  <%= form.select :gender, [["男", "男"], ["女", "女"]], include_blank: "選択して下さい" %>
+  <p><%= form.label :gender %></p>
+  <p><%= form.select :gender, [["男", "男"], ["女", "女"]], include_blank: "選択して下さい" %></p>
 </div>
 
 <div class="child_birth">
-  <%= form.label :birth %>
-  <%= form.date_select :birth, start_year: 2011, end_year: Time.current.year, use_month_numbers: true %>
+  <p><%= form.label :birth %></p>
+  <p><%= form.date_select :birth, start_year: 2011, end_year: Time.current.year, use_month_numbers: true %></p>
 </div>
 <div class="child_image">
-  <%= form.label :image %>
-  <%= form.file_field :image %>
+  <p><%= form.label :image %></p>
+<p><%= form.file_field :image %></p>
 </div>
 
 <%= form.submit %>

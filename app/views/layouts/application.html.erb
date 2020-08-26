@@ -10,12 +10,15 @@
 </head>
 
 <body>
+  <header class="header">あんしんキッズ</header>
   <% if user_signed_in? %>
   <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
   <% else %>
   <%= link_to "新規登録", new_user_registration_path %>
   <%= link_to "ログイン", new_user_session_path %>
   <% end %>
+  <article class="col-sm-12 col-md-offset-1 col-md-10">
   <%= yield %>
+  </article>
 </body>
 </html>
