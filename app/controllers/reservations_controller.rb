@@ -34,8 +34,6 @@ class ReservationsController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @contact = Contact.find(params[:id])
-    @name = Name.find(params[:id])
     @comments = @reservation.comments
     @comment = @reservation.comments.build
   end
