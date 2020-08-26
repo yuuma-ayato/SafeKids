@@ -1,5 +1,7 @@
 <h1>お子様情報詳細画面</h1>
 
+<button type="button" class = "btn"><%= link_to "予約一覧へ", reservations_path %></button>
+<button type="button" class = "btn"><%= link_to "予約申込みへ", reservations_path %></button>
 <% @child.names.each do |name| %>
 <p><%= t('view.family_name') %>: <%= name.family_name %></p>
 <p><%= t('view.first_name') %>: <%= name.first_name %></p>
@@ -11,5 +13,3 @@
 <p><%= t('view.birth') %>: <%= @child.birth %></p>
 <p class="show_image"><strong><%= t('view.image') %>:</strong></p>
 <p><%= image_tag @child.image.url, :size =>'135x180' %></p>
-<p><%= link_to "予約申込みへ", reservations_path %></p>
-<p><%= link_to "予約一覧へ", reservations_path %></p>
