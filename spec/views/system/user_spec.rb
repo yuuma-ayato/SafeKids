@@ -14,23 +14,19 @@ RSpec.describe 'ユーザ登録・ログイン・ログアウト機能', type: :
         click_on 'アカウント登録'
         expect(page).to have_content '連絡先情報入力'
       end
-      it 'ログインしていない時はログイン画面に飛ぶテスト' do
-        visit reservations_path
-        expect(current_path).to eq new_session_path
-      end
     end
   end
 
-#   describe 'セッション機能のテスト' do
-#     context "ユーザのデータがありログインしていない場合" do
-#       it 'ログインができること' do
-#         visit new_session_path
-#         fill_in 'session[email]', with: @user.email
-#         fill_in 'session[password]', with: @user.password
-#         click_on 'Log in'
-#         expect(current_path).to eq user_path(id: @user.id)
-#       end
-#     end
+  describe 'セッション機能のテスト' do
+    context "ユーザのデータがありログインしていない場合" do
+      it 'ログインができること' do
+        visit new_user_session_path
+        fill_in 'user[email]', with: @user.email
+        fill_in 'user[password]', with: @user.password
+        click_on 'ログイン'
+        expect(current_path).to eq user_path(id: @user.id)
+      end
+    end
 #     context "ユーザのデータがありログインしている場合" do
 #       before do
 #         visit new_session_path
