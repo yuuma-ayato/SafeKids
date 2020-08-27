@@ -20,7 +20,7 @@
   <%= f.password_field :password_confirmation %>
   <div class="user_user_type">
     <%= f.label :user_type %>
-    <%= f.select :user_type, [["保護者", "保護者"], ["窓口担当者", "窓口担当者"], ["保育士", "保育士"]], include_blank: "選択して下さい" %>
+    <%= f.select :user_type, [["保護者", 0], ["窓口担当者", 1], ["保育士", 2]], include_blank: "選択して下さい" %>
   </div>
   <%= f.label :admin, "管理者権限" %>
   <%= f.check_box :admin %>
