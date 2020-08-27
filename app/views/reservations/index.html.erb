@@ -16,13 +16,13 @@
   <%= f.select :status_eq, [['仮予約', 0], ['本予約', 1]], :include_blank => '指定なし' %>
   <%= f.submit %>
 <% end %>
-<% end %>
 
 <%= sort_link(
       @q, :date, "日付並び替え",
       { date: :desc },
       { class: "sort_link" }
     ) %>
+<% end %>
 
   <table class="table table">
     <tr>
