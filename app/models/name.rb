@@ -5,4 +5,5 @@ class Name < ApplicationRecord
   validates :first_name_kana, presence: true, length: { maximum: 255 }
 
   belongs_to :contact, optional: true
+  belongs_to :child, optional: true
 end

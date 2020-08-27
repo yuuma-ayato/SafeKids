@@ -1,6 +1,6 @@
 <% if @child.errors.any? %>
   <div id="error_explanation">
-    <h2><%= pluralize(@child.errors.count, "error") %> 登録出来ません</h2>
+    <h2><%= pluralize(@child.errors.count, t('view.error')) %></h2>
 
     <ul>
     <% @child.errors.full_messages.each do |message| %>

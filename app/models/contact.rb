@@ -1,4 +1,10 @@
 class Contact < ApplicationRecord
+  mount_uploader :image, ImageUploader
+
+  belongs_to :user, optional: true
+  has_many :names
+  accepts_nested_attributes_for :names, allow_destroy: true, reject_if: :all_blank
+
   validates :relation, presence: true, length: { maximum: 255 }
   validates :phone_number, presence: true, length: { maximum: 11 }
   validates :postal_code, presence: true, length: { maximum: 7 }, format: { with: /\A\d{7}\z/ }
@@ -7,10 +13,5 @@ class Contact < ApplicationRecord
   validates :adress, presence: true, length: { maximum: 255 }
   validates :building, length: { maximum: 255 }
   validates :image, presence: true
-
-  mount_uploader :image, ImageUploader
-
-  belongs_to :user, optional: true
-  has_many :names
-  accepts_nested_attributes_for :names, allow_destroy: true, reject_if: :all_blank
+  validates :names, presence: true
 end

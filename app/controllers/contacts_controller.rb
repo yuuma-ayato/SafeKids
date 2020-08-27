@@ -20,6 +20,7 @@ class ContactsController < ApplicationController
         if @contact.save
           redirect_to @contact, notice: t('view.create_contact')
         else
+          @contact.names.build
           render :new
         end
       end

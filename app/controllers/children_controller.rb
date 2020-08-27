@@ -16,6 +16,7 @@ class ChildrenController < ApplicationController
       if @child.save
         redirect_to @child, notice: t('view.create_child')
       else
+        @child.names.build
         render :new
       end
     end
