@@ -46,3 +46,4 @@ gem 'mini_magick'
 gem 'ransack'
 gem 'gimei'
 gem 'faker'
+gem "webpacker"

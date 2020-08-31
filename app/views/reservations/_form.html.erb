@@ -12,6 +12,6 @@
     <%= form.collection_select :daycare_to_use, Daycare.all, :name, :name, :prompt => "選択して下さい" %>
   </div>
 
-  <%= form.submit %>
+  <%= form.submit "登録" %>
 <% end %>
 <%= link_to "一覧へ戻る", reservations_path %>

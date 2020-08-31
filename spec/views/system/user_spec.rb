@@ -8,9 +8,9 @@ RSpec.describe 'ユーザ登録・ログイン・ログアウト機能', type: :
     context 'ユーザのデータがなくログインしていない場合' do
       it 'ユーザ新規登録のテスト' do
         visit new_user_registration_path
-        fill_in 'user[email]', with: 'new_user@example.com'
-        fill_in 'user[password]', with: '12345678'
-        fill_in 'user[password_confirmation]', with: '12345678'
+        fill_in 'user_email', with: 'new_user@example.com'
+        fill_in 'user_password', with: '12345678'
+        fill_in 'user_password_confirmation', with: '12345678'
         click_on 'アカウント登録'
         expect(page).to have_content '連絡先情報入力'
       end

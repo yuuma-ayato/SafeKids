@@ -1,18 +1,28 @@
 require 'rails_helper'
 RSpec.describe '予約管理機能', type: :system do
   before do
-    FactoryBot.create(:user)
-    visit new_user_session_path
-    fill_in 'user_email', with: 'sample@example.com'
-    fill_in 'user_password', with: '00000000'
-    click_button 'ログイン'
-    FactoryBot.create(:reservation, daycare_to_use: 'みさと保育園')
-    FactoryBot.create(:second_reservation, daycare_to_use: '吉川保育園')
+  #   FactoryBot.create(:user)
+  #   visit new_user_session_path
+  #   fill_in 'user_email', with: 'sample@example.com'
+  #   fill_in 'user_password', with: '00000000'
+  #   click_button 'ログイン'
+    # FactoryBot.create(:reservation, daycare_to_use: 'みさと保育園')
+    # FactoryBot.create(:second_reservation, daycare_to_use: '吉川保育園')
    end
   describe '予約一覧画面' do
     context '予約を作成した場合' do
       it '予約が表示される' do
-        visit reservations_path
+        FactoryBot.create(:user)
+        FactoryBot.create(:daycare)
+        visit new_user_session_path
+        fill_in 'user_email', with: 'sample@example.com'
+        fill_in 'user_password', with: '00000000'
+        click_button 'ログイン'
+        visit new_reservation_path
+        fill_in '予約日', with: DateTime.now
+        select "仕事", from: '保育理由'
+        select "みさと保育園", from: '利用する保育施設'
+        click_button '登録'
         expect(page).to have_content 'みさと保育園'
       end
     end
