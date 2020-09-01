@@ -34,6 +34,7 @@ end
 
 i = 1
 10.times do |n|
+  gimei = Gimei.male
   Contact.create!(
     relation: "父",
     phone_number: "048957111#{rand(1..9)}",
@@ -43,10 +44,16 @@ i = 1
     adress: "中央1-#{n + 1}",
     building: "ライオンズビル10#{n + 1}",
     image: open("./db/fixtures/boy.png"),
-    user_id: "#{i + n + 1}")
+    user_id: "#{i + n + 1}",
+    names_attributes:[
+      family_name: gimei.last.kanji,
+      first_name: gimei.first.kanji,
+      family_name_kana: gimei.last.hiragana,
+      first_name_kana: gimei.first.hiragana ])
 end
 
 10.times do |n|
+    gimei = Gimei.female
   Contact.create!(
     relation: "母",
     phone_number: "048957111#{rand(1..9)}",
@@ -56,63 +63,40 @@ end
     adress: "泉1-#{n + 1}",
     building: "",
     image: open("./db/fixtures/girl.png"),
-    user_id: "#{i + n + 1}")
+    user_id: "#{i + n + 1}",
+    names_attributes:[
+      family_name: gimei.last.kanji,
+      first_name: gimei.first.kanji,
+      family_name_kana: gimei.last.hiragana,
+      first_name_kana: gimei.first.hiragana ])
 end
 
 10.times do |n|
-  Child.create!(
+  gimei = Gimei.male
+    Child.create!(
     gender: "男",
     birth: Faker::Date.between(from: '2014-04-01', to: '2020-03-31'),
     image: open("./db/fixtures/kid_boy.png"),
-    user_id: "#{i + n + 1}")
+    user_id: "#{i + n + 1}",
+    names_attributes:[
+      family_name: gimei.last.kanji,
+      first_name: gimei.first.kanji,
+      family_name_kana: gimei.last.hiragana,
+      first_name_kana: gimei.first.hiragana ])
 end
 
 10.times do |n|
-  Child.create!(
+  gimei = Gimei.female
+    Child.create!(
     gender: "女",
     birth: Faker::Date.between(from: '2014-04-01', to: '2020-03-31'),
     image: open("./db/fixtures/candy_girl.png"),
-    user_id: "#{i + n + 1}")
-end
-
-10.times do |n|
-  gimei = Gimei.male
-  Name.create!(
-    family_name: gimei.last.kanji,
-    first_name: gimei.first.kanji,
-    family_name_kana: gimei.last.hiragana,
-    first_name_kana: gimei.first.hiragana,
-    contact_id: "#{n + 1}")
-end
-
-10.times do |n|
-  gimei = Gimei.female
-  Name.create!(
-    family_name: gimei.last.kanji,
-    first_name: gimei.first.kanji,
-    family_name_kana: gimei.last.hiragana,
-    first_name_kana: gimei.first.hiragana,
-    contact_id: "#{n + 1}")
-end
-
-10.times do |n|
-  gimei = Gimei.male
-  Name.create!(
-    family_name: gimei.last.kanji,
-    first_name: gimei.first.kanji,
-    family_name_kana: gimei.last.hiragana,
-    first_name_kana: gimei.first.hiragana,
-    child_id: "#{n + 1}")
-end
-
-10.times do |n|
-  gimei = Gimei.female
-  Name.create!(
-    family_name: gimei.last.kanji,
-    first_name: gimei.first.kanji,
-    family_name_kana: gimei.last.hiragana,
-    first_name_kana: gimei.first.hiragana,
-    child_id: "#{n + 1}")
+    user_id: "#{i + n + 1}",
+    names_attributes:[
+      family_name: gimei.last.kanji,
+      first_name: gimei.first.kanji,
+      family_name_kana: gimei.last.hiragana,
+      first_name_kana: gimei.first.hiragana ])
 end
 
 5.times do |n|
