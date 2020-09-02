@@ -41,6 +41,9 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 gem 'devise-i18n'
+gem 'bootstrap', '~> 4.4.1'
+gem 'jquery-rails'
+gem 'devise-bootstrap-views', '~> 1.0'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'ransack'

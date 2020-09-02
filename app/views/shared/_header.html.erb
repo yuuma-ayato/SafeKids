@@ -1,0 +1,32 @@
+<header>
+  <nav class="navbar navbar-expand navbar-light">
+    <%= link_to "あんしんキッズ", root_path, class: 'navbar-brand' %>
+    <div id="Navber">
+      <ul class="navbar-nav">
+        <% if user_signed_in? %>
+        <% if current_user.try(:admin?)%>
+        <li class="nav-item active">
+          <%= link_to "管理者画面へ", admin_users_path, class: "nav-link" %>
+        </li>
+        <% end %>
+        <li class="nav-item active">
+          <%= link_to '予約する', new_reservation_path, class: "nav-link" %>
+        </li>
+          <li class="nav-item active">
+            <%= link_to 'アカウント編集', edit_user_registration_path, class: 'nav-link' %>
+          </li>
+          <li class="nav-item active">
+            <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'nav-link' %>
+          </li>
+      <% else %>
+          <li class="nav-item active">
+            <%= link_to "新規登録", new_user_registration_path, class: 'nav-link' %>
+          </li>
+          <li class="nav-item active">
+            <%= link_to "ログイン", new_user_session_path, class: 'nav-link' %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </nav>
+</header>
