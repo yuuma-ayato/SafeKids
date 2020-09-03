@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
-  get 'users/show'
   devise_for :users, controllers: { registrations: 'users/registrations',
                                     sessions: 'users/sessions' }
 
-  root 'reservations#index'
+  root 'static_pages#home'
   get 'search', to: 'reservations#search'
   resources :reservations do
     resources :comments

@@ -17,3 +17,9 @@
 .alert-alert {
   @extend .alert-danger;
 }
+
+.jumbotron {
+  background-image: image-url("children.gif");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
