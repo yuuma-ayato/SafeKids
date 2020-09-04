@@ -1,8 +1,8 @@
 <header>
   <nav class="navbar navbar-expand navbar-light">
-    <% if user_signed_in? %>
-    <%= link_to "あんしんキッズ", reservations_path, class: 'navbar-brand' %>
+    <%= link_to "あんしんキッズ",root_path, class: 'navbar-brand mr-auto' %>
     <div id="Navber">
+      <% if user_signed_in? %>
       <ul class="navbar-nav">
         <% if current_user.try(:admin?)%>
         <li class="nav-item active">
@@ -20,9 +20,9 @@
         </li>
       </ul>
       <% else %>
-      <ul class="navbar-nav">
+      <ul class="nav nav-pills ml-auto">
         <li class="nav-item active">
-          <%= link_to "ログイン", new_user_session_path, class: 'nav-link' %>
+          <%= link_to "ログイン", new_user_session_path, class: 'nav-link active' %>
         </li>
       </ul>
       <% end %>

@@ -1,5 +1,13 @@
 @import "bootstrap";
 
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  text-align: center;
+}
+
 // ログイン画面
 
 .container-login {
@@ -18,21 +26,23 @@
   @extend .alert-danger;
 }
 
-.jumbotron {
-  background-image: image-url("children.gif");
-  background-size: cover;
-  background-repeat: center no-repeat;
-  .container {
-    margin-top: 6rem;
-    h1,
-    p {
-      margin-bottom: 0.75rem;
-    }
-    h1 {
-      margin-bottom: 1.5rem;
-    }
-    p:last-of-type {
-      margin-bottom: 2rem;
-    }
+.container {
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  h1 {
+    font-size: 4rem;
   }
+  h4 {
+    font-size: 1.5rem;
+  }
+  p {
+    font-size: 1rem;
+  }
+}
+
+.jumbotron {
+  position: relative;
+  height: 40vh;
+  background: image-url("children2.jpeg") no-repeat center center;
+  background-size: contain;
 }
