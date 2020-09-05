@@ -26,6 +26,20 @@ body {
   @extend .alert-danger;
 }
 
+.top-page {
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  h1 {
+    font-size: 4rem;
+  }
+  h4 {
+    font-size: 1.5rem;
+  }
+  p {
+    font-size: 1rem;
+  }
+}
+
 .jumbotron {
   position: relative;
   height: 40vh;
