@@ -17,58 +17,62 @@
   <div class="form-row">
     <div class="form-group col-sm-6">
       <%= name.label :family_name %>
-      <%= name.text_field :family_name, class: "form-control"  %>
+      <%= name.text_field :family_name, placeholder: '安心', class: "form-control"  %>
     </div>
     <div class="form-group col-sm-6">
       <%= name.label :first_name %>
-      <%= name.text_field :first_name, class: "form-control"  %>
+      <%= name.text_field :first_name, placeholder: '太郎', class: "form-control"  %>
     </div>
     <div class="form-group col-sm-6">
       <%= name.label :family_name_kana %>
-      <%= name.text_field :family_name_kana, class: "form-control" %>
+      <%= name.text_field :family_name_kana, placeholder: 'あんしん', class: "form-control" %>
     </div>
     <div class="form-group col-sm-6">
       <%= name.label :first_name_kana %>
-      <%= name.text_field :first_name_kana, class: "form-control" %>
+      <%= name.text_field :first_name_kana, placeholder: 'たろう', class: "form-control" %>
     </div>
     <% end %>
 
     <div class="form-group col-sm-12">
       <%= form.label :relation %>
-      <%= form.text_field :relation, class: "form-control" %>
+      <%= form.select :relation, [["父", "父"], ["母", "母"], ["その他", "その他"]], {include_blank: "選択して下さい"}, { class: 'custom-select', id: "relation" } %>
+    </div>
+    <div class="form-group col-sm-12">
+        <%= form.label :other_relation %>
+        <%= form.text_field :other_relation, placeholder: '祖父', class: "form-control", id: "other_relation", disabled: true %>
     </div>
     <div class="form-group col-sm-12">
       <%= form.label :phone_number %>
-      <%= form.telephone_field :phone_number, class: "form-control" %>
+      <%= form.telephone_field :phone_number, placeholder: '0332451111', class: "form-control" %>
     </div>
     <div class="form-group col-sm-12">
       <%= form.label :postal_code %>
-      <%= form.text_field :postal_code, class: "form-control" %>
+      <%= form.text_field :postal_code, placeholder: '1000004', class: "form-control" %>
     </div>
     <div class="form-group col-sm-12">
       <%= form.label :prefecture %>
-      <%= form.text_field :prefecture, class: "form-control" %>
+      <%= form.text_field :prefecture, placeholder: '東京都', class: "form-control" %>
     </div>
     <div class="form-group col-sm-12">
       <%= form.label :city %>
-      <%= form.text_field :city, class: "form-control" %>
+      <%= form.text_field :city, placeholder: '千代田区', class: "form-control" %>
     </div>
     <div class="form-group col-sm-12">
       <%= form.label :adress %>
-      <%= form.text_field :adress, class: "form-control" %>
+      <%= form.text_field :adress, placeholder: '大手町１ー１', class: "form-control" %>
     </div>
     <div class="form-group col-sm-12">
       <%= form.label :building %>
-      <%= form.text_field :building, class: "form-control" %>
+      <%= form.text_field :building, placeholder: 'ライオンズマンション１０１', class: "form-control" %>
     </div>
     <div class="form-group col-sm-12">
       <%= form.label :image %>
       <%= form.file_field :image, class: "form-control-file" %>
     </div>
 
-  <div class="form-group col-sm-12">
-    <%= form.submit %>
-  </div>
+    <div class="form-group col-sm-12">
+      <%= form.submit "登録", class: "btn btn-primary btn-block" %>
     </div>
+  </div>
   <% end %>
 </div>

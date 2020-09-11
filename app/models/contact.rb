@@ -1,11 +1,17 @@
 class Contact < ApplicationRecord
   mount_uploader :image, ImageUploader
+  enum relation: { その他: 0, 父: 1, 母: 2 }
+
+  def otherrelation?
+    relation == "その他"
+  end
 
   belongs_to :user, optional: true
   has_many :names
   accepts_nested_attributes_for :names, allow_destroy: true, reject_if: :all_blank
 
   validates :relation, presence: true, length: { maximum: 255 }
+  validates :other_relation, length: { maximum: 255 }, presence: true, if: :otherrelation?
   validates :phone_number, presence: true, length: { maximum: 11 }
   validates :postal_code, presence: true, length: { maximum: 7 }, format: { with: /\A\d{7}\z/ }
   validates :prefecture, presence: true, length: { maximum: 255 }, format: { with: /\A[一-龥]+\z/ }
