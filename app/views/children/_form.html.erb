@@ -1,49 +1,57 @@
-<% if @child.errors.any? %>
+<div class="container">
+  <% if @child.errors.any? %>
   <div id="error_explanation">
     <h2><%= pluralize(@child.errors.count, t('view.error')) %></h2>
 
     <ul>
-    <% @child.errors.full_messages.each do |message| %>
+      <% @child.errors.full_messages.each do |message| %>
       <li><%= message %></li>
-    <% end %>
+      <% end %>
     </ul>
   </div>
-<% end %>
+  <% end %>
 
-<%= form_with(model: @child, local: true ) do |form| %>
+  <%= form_with(model: @child, local: true ) do |form| %>
 
-<%= form.fields_for :names do |name| %>
-<div class="child_family_name">
-  <p><%= name.label :family_name %></p>
-  <p><%= name.text_field :family_name %></p>
-</div>
-<div class="child_family_name">
-  <p><%= name.label :first_name %></p>
-  <p><%= name.text_field :first_name %></p>
-</div>
-<div class="child_family_name">
-  <p><%= name.label :family_name_kana %></p>
-  <p><%= name.text_field :family_name_kana %></p>
-</div>
-<div class="child_family_name">
-  <p><%= name.label :first_name_kana %></p>
-  <p><%= name.text_field :first_name_kana %></p>
-</div>
-<% end %>
+  <%= form.fields_for :names do |name| %>
+  <div class="form-row">
+    <div class="form-group col-sm-6">
+      <%= name.label :family_name %>
+      <%= name.text_field :family_name, placeholder: '安心', class: "form-control"  %>
+    </div>
+    <div class="form-group col-sm-6">
+      <%= name.label :first_name %>
+      <%= name.text_field :first_name, placeholder: '次郎', class: "form-control"  %>
+    </div>
+    <div class="form-group col-sm-6">
+      <%= name.label :family_name_kana %>
+      <%= name.text_field :family_name_kana, placeholder: 'あんしん', class: "form-control" %>
+    </div>
+    <div class="form-group col-sm-6">
+      <%= name.label :first_name_kana %>
+      <%= name.text_field :first_name_kana, placeholder: 'じろう', class: "form-control" %>
+    </div>
+    <% end %>
 
-<div class="child_gender">
-  <p><%= form.label :gender %></p>
-  <p><%= form.select :gender, [["男", "男"], ["女", "女"]], include_blank: "選択して下さい" %></p>
-</div>
+    <div class="form-group col-sm-12">
+      <%= form.label :gender %>
+      <%= form.select :gender, [["男", "男"], ["女", "女"], ["その他", "その他"]], {include_blank: "選択して下さい"}, { class: 'custom-select', id: "gender" } %>
+    </div>
 
-<div class="child_birth">
-  <p><%= form.label :birth %></p>
-  <p><%= form.date_select :birth, start_year: 2011, end_year: Time.current.year, use_month_numbers: true %></p>
-</div>
-<div class="child_image">
-  <p><%= form.label :image %></p>
-<p><%= form.file_field :image %></p>
-</div>
+    <div class="form-group col-sm-12">
+      <%= form.label :birth %>
+      <div class="form-inline col-sm-12">
+      <%= form.date_select :birth, {start_year: 2011, end_year: Time.current.year, use_month_numbers: true}, { class: 'form-control'} %>
+    </div>
+        </div>
+    <div class="form-group col-sm-12">
+      <%= form.label :image %>
+      <%= form.file_field :image, class: "form-control-file" %>
+    </div>
 
-<%= form.submit %>
-<% end %>
+    <div class="form-group col-sm-12">
+      <%= form.submit "登録", class: "btn btn-primary btn-block" %>
+    </div>
+  </div>
+  <% end %>
+</div>

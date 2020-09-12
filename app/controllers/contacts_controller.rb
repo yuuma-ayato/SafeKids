@@ -53,6 +53,7 @@ class ContactsController < ApplicationController
         :family_name_kana,
         :first_name_kana,
         :relation,
+        :other_relation,
         :phone_number,
         :postal_code,
         :prefecture,
