@@ -1,15 +1,21 @@
-<h1>お子様情報詳細画面</h1>
+<div class="container">
+  <h2>お子様情報詳細画面</h2>
 
-<button type="button" class = "btn"><%= link_to "予約一覧へ", reservations_path %></button>
-<button type="button" class = "btn"><%= link_to "予約申込みへ", reservations_path %></button>
-<% @child.names.each do |name| %>
-<p><%= t('view.family_name') %>: <%= name.family_name %></p>
-<p><%= t('view.first_name') %>: <%= name.first_name %></p>
-<p><%= t('view.family_name_kana') %>: <%= name.family_name_kana %></p>
-<p><%= t('view.first_name_kana') %>: <%= name.first_name_kana %></p>
-<% end %>
+  <div class="card">
+    <div class="face-photo">
+      <%= image_tag @child.image.url, class: "card-img-top" %>
+    </div>
+    <div class="card-body">
+      <% @child.names.each do |name| %>
+      <h4 class="card-title"><%= name.family_name %>　<%= name.first_name %></h4>
+      <class="card-text">
+      <p><%= t('view.kana') %>: <%= name.family_name_kana %>　<%= name.first_name_kana %></p>
+      <% end %>
 
-<p><%= t('view.gender') %>: <%= @child.gender %></p>
-<p><%= t('view.birth') %>: <%= @child.birth %></p>
-<p class="show_image"><strong><%= t('view.image') %>:</strong></p>
-<p><%= image_tag @child.image.url, :size =>'135x180' %></p>
+      <p><%= t('view.gender') %>: <%= @child.gender %></p>
+      <p><%= t('view.other_gender') %>: <%= @child.other_gender %></p>
+      <p><%= t('view.birth') %>: <%= @child.birth %></p>
+    </div>
+  </div>
+  <%= link_to "予約申込みへ", new_reservation_path, class: 'btn btn-outline-primary' %>
+</div>

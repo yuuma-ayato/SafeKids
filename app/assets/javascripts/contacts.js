@@ -9,3 +9,15 @@ $(document).ready(function(){
     }
   });
 });
+
+$(document).ready(function(){
+  $('#gender').on('change', function () {
+    var $selectedArea = $('#gender').val();
+    if ( $selectedArea == 'その他' ) {
+      $('#other_gender').prop( 'disabled', false );
+    } else {
+      $('#other_gender').prop( 'disabled', true );
+
+    }
+  });
+});

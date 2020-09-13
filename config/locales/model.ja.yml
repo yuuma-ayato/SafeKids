@@ -4,6 +4,7 @@ ja:
     first_name: 名
     family_name_kana: せい
     first_name_kana: めい
+    kana: ふりがな
     reservation: 予約
     date: 予約日
     reason: 保育理由
@@ -20,8 +21,10 @@ ja:
     city: 市区町村
     adress: 番地等
     building: マンション名、部屋番号等
+    domicile: 住所
     image: 顔写真
     gender: 性別
+    other_gender: その他の性別
     birth: 生年月日
     image: 顔写真
     name: 保育施設名
@@ -67,6 +70,7 @@ ja:
         names: 氏名情報
       child:
         gender: 性別
+        other_gender: その他の性別
         birth: 生年月日
         image: 顔写真
         names: 氏名情報）

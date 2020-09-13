@@ -1,23 +1,26 @@
 <div class="container">
-  <h1>保護者情報詳細画面</h1>
+  <h2>保護者情報詳細画面</h2>
 
-  <% @contact.names.each do |name| %>
-  <p><%= t('view.family_name') %>: <%= name.family_name %></p>
-  <p><%= t('view.first_name') %>: <%= name.first_name %></p>
-  <p><%= t('view.family_name_kana') %>: <%= name.family_name_kana %></p>
-  <p><%= t('view.first_name_kana') %>: <%= name.first_name_kana %></p>
-  <% end %>
+  <div class="card">
+    <div class="face-photo">
+      <%= image_tag @contact.image.url, class: "card-img-top" %>
+    </div>
+    <div class="card-body">
+      <% @contact.names.each do |name| %>
+      <h4 class="card-title"><%= name.family_name %>　<%= name.first_name %></h4>
+      <class="card-text">
+      <p><%= t('view.kana') %>: <%= name.family_name_kana %>　<%= name.first_name_kana %></p>
+      <% end %>
 
-  <p><%= t('view.relation') %>: <%= @contact.relation %></p>
-  <p><%= t('view.other_relation') %>: <%= @contact.other_relation %></p>
-  <p><%= t('view.phone_number') %>: <%= @contact.phone_number %></p>
-  <p><%= t('view.postal_code') %>: <%= @contact.postal_code %></p>
-  <p><%= t('view.prefecture') %>: <%= @contact.prefecture %></p>
-  <p><%= t('view.city') %>: <%= @contact.city %></p>
-  <p><%= t('view.adress') %>: <%= @contact.adress %></p>
-  <p><%= t('view.building') %>: <%= @contact.building %></p>
-  <p class="show_image"><strong><%= t('view.image') %>:</strong></p>
-  <p><%= image_tag @contact.image.url, :size =>'135x180' %></p>
-
+      <p><%= t('view.relation') %>: <%= @contact.relation %></p>
+      <p><%= t('view.other_relation') %>: <%= @contact.other_relation %></p>
+      <p><%= t('view.phone_number') %>: <%= @contact.phone_number %></p>
+      <p><%= t('view.postal_code') %>: <%= @contact.postal_code %></p>
+      <p>
+        <%= t('view.domicile') %>: <%= @contact.prefecture %><%= @contact.city %><%= @contact.adress %>
+      </p>
+      <p><%= t('view.building') %>: <%= @contact.building %></p>
+    </div>
+  </div>
   <%= link_to "お子様情報入力欄へ", new_child_path, class: 'btn btn-danger' %>
 </div>

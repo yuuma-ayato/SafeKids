@@ -39,11 +39,18 @@
     </div>
 
     <div class="form-group col-sm-12">
-      <%= form.label :birth %>
-      <div class="form-inline col-sm-12">
-      <%= form.date_select :birth, {start_year: 2011, end_year: Time.current.year, use_month_numbers: true}, { class: 'form-control'} %>
+        <%= form.label :other_gender %>
+        <%= form.text_field :other_gender, class: "form-control", id: "other_gender", disabled: true %>
     </div>
+
+    <div class="form-group col-sm-12">
+      <%= form.label :birth %>
+      <div class="form-inline">
+        <div class="mx-auto">
+          <%= form.date_select :birth, {start_year: 2011, end_year: Time.current.year, use_month_numbers: true}, { class: 'form-control '} %>
         </div>
+      </div>
+    </div>
     <div class="form-group col-sm-12">
       <%= form.label :image %>
       <%= form.file_field :image, class: "form-control-file" %>
