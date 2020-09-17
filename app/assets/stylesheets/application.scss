@@ -5,7 +5,8 @@ html {
   min-height: 100%;
 }
 body {
-  text-align: center;
+  // text-align: center;
+  background-color: #FAF9F7;
 }
 
 // ログイン画面
@@ -43,7 +44,7 @@ body {
 .jumbotron {
   position: relative;
   height: 40vh;
-  background: image-url("children2.jpeg") no-repeat center center;
+  background: image-url("children2.png") no-repeat center center;
   background-size: contain;
 }
 
