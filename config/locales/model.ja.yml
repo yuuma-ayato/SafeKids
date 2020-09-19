@@ -11,8 +11,8 @@ ja:
     status: 予約状況
     daycare_to_use: 利用保育施設
     show: 詳細
-    edit: 編集
-    delete: 削除
+    edit: 予約内容を変更
+    delete: 取り消し
     relation: お子様との関係
     other_relation: その他の続柄
     phone_number: 連絡先電話番号

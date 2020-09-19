@@ -17,6 +17,8 @@
   <%= form.select :status, [["仮予約", "仮予約"], ["本予約", "本予約"]], include_blank: "選択して下さい" %>
 </div>
 <%= form.submit "確定" %>
+
+<p><%= link_to t('view.edit'), edit_reservation_path(@reservation.id), data: { confirm: '本当に変更していいですか？' }, class: "text-primary" %></p>
 <% end %>
 <% end %>
 

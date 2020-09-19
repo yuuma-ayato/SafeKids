@@ -6,7 +6,7 @@ html {
 }
 body {
   // text-align: center;
-  // background-color: #FAF9F7;
+  background-color: 	#FAF9F7;
 }
 
 // ログイン画面
@@ -31,7 +31,7 @@ body {
   margin-top: 1rem;
   margin-bottom: 2rem;
   h1 {
-    font-size: 4rem;
+    font-size: 3rem;
   }
   h4 {
     font-size: 1.5rem;
@@ -55,10 +55,19 @@ body {
 }
 
 .face-photo img{
-  height: 130px;
+  height: 80px;
   width: auto;
 }
 
 .card {
   margin: 2rem;
+  // background-color: 	#E8F5FC;
+  a:link {color: #000000; text-decoration:none }
+  a:visited { color: #000000; text-decoration:none }
+  a:hover { color: #000000; text-decoration:none }
+  a:active { color: #000000; text-decoration:none }
+}
+
+span.badge {
+  font-size: 0.8rem;
 }

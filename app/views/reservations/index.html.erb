@@ -20,19 +20,17 @@
 
   <div class="text-left">
   <% @reservations.each do |reservation| %>
+  <%= link_to reservation_path(reservation.id) do %>
   <div class="card">
     <div class="card-body">
-      <h4 class="card-title"><%= reservation.date.strftime("%Y年%m月%d日") %></h4>
-      <h6 class="card-subtitle mb-2 text-muted"><%= reservation.reason %></h6>
-      <p class="card-text">
-        <%= reservation.daycare_to_use %>
-        <%= reservation.status %>
-      </p>
-      <%= link_to t('view.show'), reservation_path(reservation.id) %>
-      <% unless current_user.user_type == 2 %>
-      <%= link_to t('view.edit'), edit_reservation_path(reservation.id), data: { confirm: '本当に編集していいですか？' } %>
-      <%= link_to t('view.delete'), reservation_path(reservation.id), method: :delete ,data: { confirm: '本当に削除していいですか？' } %>
+        <h4 class="card-title"><%= reservation.date.strftime("%Y年%m月%d日") %>
+          <span class="badge badge-pill badge-primary"><%= reservation.status %></span>
+        </h4>
+      <h6 class="card-subtitle font-weight-bold"><%= reservation.daycare_to_use %></h6>
+
       <% end %>
+      
+      <%= link_to t('view.delete'), reservation_path(reservation.id), method: :delete ,data: { confirm: '本当に取り消していいですか？' }, class: "text-danger" %>
     </div>
   </div>
   <% end %>
