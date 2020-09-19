@@ -10,17 +10,16 @@
       <% @contact.names.each do |name| %>
       <h5 class="card-title"><%= name.family_name %>　<%= name.first_name %></h5>
       <class="card-text">
-      <p><%= t('view.kana') %>: <%= name.family_name_kana %>　<%= name.first_name_kana %></p>
+      <p><%= name.family_name_kana %>　<%= name.first_name_kana %></p>
       <% end %>
 
-      <p><%= t('view.relation') %>: <%= @contact.relation %></p>
-      <p><%= t('view.other_relation') %>: <%= @contact.other_relation %></p>
-      <p><%= t('view.phone_number') %>: <%= @contact.phone_number %></p>
-      <p><%= t('view.postal_code') %>: <%= @contact.postal_code %></p>
+      <p><%= @contact.relation %></p>
+      <p><%= @contact.other_relation %></p>
+      <p><i class="fas fa-phone mr-1"></i><%= @contact.phone_number %></p>
+      <p><a class="font-weight-bold mr-1">〒</a><%= @contact.postal_code %></p>
       <p>
-        <%= t('view.domicile') %>: <%= @contact.prefecture %><%= @contact.city %><%= @contact.adress %>
+        <i class="fas fa-home mr-1"></i><%= @contact.prefecture %><%= @contact.city %><%= @contact.adress %><%= @contact.building %>
       </p>
-      <p><%= t('view.building') %>: <%= @contact.building %></p>
     </div>
   </div>
   <%= link_to "お子様情報入力欄へ", new_child_path, class: 'btn btn-danger' %>

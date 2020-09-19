@@ -1,9 +1,9 @@
 class Contact < ApplicationRecord
   mount_uploader :image, ImageUploader
-  enum relation: { その他: 0, 父: 1, 母: 2 }
+  enum relation: { その他の続柄: 0, 父: 1, 母: 2 }
 
   def otherrelation?
-    relation == "その他"
+    relation == "その他の続柄"
   end
 
   belongs_to :user, optional: true
