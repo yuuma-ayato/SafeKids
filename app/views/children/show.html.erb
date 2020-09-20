@@ -10,12 +10,12 @@
       <% @child.names.each do |name| %>
       <h4 class="card-title"><%= name.family_name %>　<%= name.first_name %></h4>
       <class="card-text">
-      <p><%= t('view.kana') %>: <%= name.family_name_kana %>　<%= name.first_name_kana %></p>
+      <p><%= name.family_name_kana %> <%= name.first_name_kana %></p>
       <% end %>
 
-      <p><%= t('view.gender') %>: <%= @child.gender %></p>
-      <p><%= t('view.other_gender') %>: <%= @child.other_gender %></p>
-      <p><%= t('view.birth') %>: <%= @child.birth %></p>
+      <p><i class="fas fa-venus-mars mr-1"></i><%= @child.gender %></p>
+      <p><%= @child.other_gender %></p>
+      <p><i class="fas fa-birthday-cake mr-1"></i><%= @child.birth.strftime("%Y年%m月%d日") %>生まれ</p>
     </div>
   </div>
   <%= link_to "予約申込みへ", new_reservation_path, class: 'btn btn-outline-primary' %>

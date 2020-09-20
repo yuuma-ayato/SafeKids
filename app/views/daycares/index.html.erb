@@ -10,8 +10,7 @@
         <th>保育施設名</th>
         <th>電話番号</th>
         <th>郵便番号</th>
-        <th>市区町村</th>
-        <th>番地等</th>
+        <th>住所</th>
         <th>マンション名、部屋番号等</th>
         <th>定員数</th>
       </tr>
@@ -22,9 +21,7 @@
           <td><%= daycare.name %></td>
           <td><%= daycare.phone_number %></td>
           <td><%= daycare.postal_code %></td>
-          <td><%= daycare.prefecture %></td>
-          <td><%= daycare.city %></td>
-          <td><%= daycare.adress %></td>
+          <td><%= daycare.prefecture %><%= daycare.city %><%= daycare.adress %></td>
           <td><%= daycare.building %></td>
           <td><%= daycare.capacity %></td>
           <td><%= link_to '詳細', daycare_path(daycare.id)%></td>
