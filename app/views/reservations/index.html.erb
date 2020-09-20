@@ -19,20 +19,19 @@
   <% end %>
 
   <div class="text-left">
-  <% @reservations.each do |reservation| %>
-  <%= link_to reservation_path(reservation.id) do %>
-  <div class="card">
-    <div class="card-body">
+    <% @reservations.each do |reservation| %>
+    <%= link_to reservation_path(reservation.id) do %>
+    <div class="card">
+      <div class="card-body">
         <h4 class="card-title"><%= reservation.date.strftime("%Y年%m月%d日") %>
           <span class="badge badge-pill badge-primary"><%= reservation.status %></span>
         </h4>
-      <h6 class="card-subtitle font-weight-bold"><%= reservation.daycare_to_use %></h6>
+        <h6 class="card-subtitle font-weight-bold"><%= reservation.daycare_to_use %></h6>
+        <% end %>
 
-      <% end %>
-      
-      <%= link_to t('view.delete'), reservation_path(reservation.id), method: :delete ,data: { confirm: '本当に取り消していいですか？' }, class: "text-danger" %>
+        <%= link_to t('view.delete'), reservation_path(reservation.id), method: :delete ,data: { confirm: '本当に取り消していいですか？' }, class: "text-danger" %>
+      </div>
     </div>
+    <% end %>
   </div>
-  <% end %>
-</div>
 </div>
