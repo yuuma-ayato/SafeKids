@@ -13,10 +13,13 @@
   <div class="form-row">
     <div class="form-group col-sm-12">
       <%= form.label :content, class: "sr-only" %>
-      <%= form.text_field :content, class: "form-control" %>
-      </div>
-  <div class="actions">
-    <%= form.submit "コメント", class: "btn btn-outline-primary" %>
+      <%= form.text_area :content, class: "form-control" %>
+    </div>
+    <div class="form-group col-sm-12">
+      <div class="actions">
+      <%= form.submit "コメント", class: "btn btn-outline-primary" %>
+    </div>
+    </div>
   </div>
   <% end %>
 </div>
