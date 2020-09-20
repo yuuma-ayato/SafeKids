@@ -14,7 +14,7 @@
   <%= form_with(model: @child, local: true ) do |form| %>
 
   <%= form.fields_for :names do |name| %>
-  <div class="form-row">
+  <div class="form-row text-left">
     <div class="form-group col-sm-6">
       <%= name.label :family_name %>
       <%= name.text_field :family_name, placeholder: '安心', class: "form-control"  %>
