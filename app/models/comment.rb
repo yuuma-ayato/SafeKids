@@ -1,5 +1,5 @@
 class Comment < ApplicationRecord
   validates :content, presence: true
 
-  belongs_to :reservation, dependent: :destroy
+  belongs_to :reservation
 end
