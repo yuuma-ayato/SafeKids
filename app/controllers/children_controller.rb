@@ -3,7 +3,11 @@ class ChildrenController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @children = Child.all
+    if current_user.user_type == 1
+      @children = Child.all
+    else
+      @children = current_user.children
+    end
   end
 
   def new

@@ -1,5 +1,5 @@
 <div class="container">
-  <h2>お子様情報詳細画面</h2>
+  <p class="font-weight-bold">ご利用になるお子様の情報</p>
   <%= render 'shared/flash_messages' %>
 
   <div class="card">
@@ -17,6 +17,7 @@
       <p><%= @child.other_gender %></p>
       <p><i class="fas fa-birthday-cake mr-1"></i><%= @child.birth.strftime("%Y年%m月%d日") %>生まれ</p>
     </div>
+    <p><%= link_to t('view.edit'), edit_child_path(@child.id), data: { confirm: '本当に変更していいですか？' }, class: "btn btn-outline-danger " %></p>
   </div>
   <%= link_to "予約申込みへ", new_reservation_path, class: 'btn btn-outline-primary' %>
 </div>

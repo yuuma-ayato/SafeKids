@@ -1,0 +1,30 @@
+<div class="container">
+  <p class="font-weight-bold"><i class="far fa-smile"></i>お子様情報</p>
+  <%= render 'shared/flash_messages' %>
+
+  <% @children.each do |child| %>
+  <div class="card">
+    <div class="face-photo">
+      <%= image_tag child.image.url, class: "card-img-top" %>
+    </div>
+    <div class="card-body">
+      <% child.names.each do |name| %>
+      <h5 class="card-title">
+        <%= name.family_name %>　<%= name.first_name %>
+        <span class="small">
+          <% if child.other_gender.present? %>
+          （<%= child.other_gender %>）
+          <% else %>
+          （<%= child.gender %>）
+          <% end %>
+        </span>
+      </h5>
+      <class="card-text">
+      <p><%= name.family_name_kana %>　<%= name.first_name_kana %></p>
+      <% end %>
+      <p><i class="fas fa-birthday-cake mr-1"></i><%= child.birth.strftime("%Y年%m月%d日") %>生まれ</p>
+    </div>
+  </div>
+  <% end %>
+  <%= link_to 'お子様情報を追加する', new_child_path, class: "btn btn-primary btn-lg btn-block" %>
+</div>

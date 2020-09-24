@@ -16,19 +16,22 @@
         </li>
         <% end %>
         <li class="nav-item">
-          <%= link_to '予約する', new_reservation_path, class: "nav-link active" %>
+          <%= link_to reservations_path do %>
+          <div class="nav-link active"><i class="fas fa-book"></i>予約</div>
+          <% end %>
         </li>
         <li class="nav-item">
-          <%= link_to 'アカウント編集', edit_user_registration_path, class: 'nav-link active' %>
+          <%= link_to contacts_path do%>
+          <div class="nav-link active"><i class="far fa-smile"></i>保護者</div>
+          <% end %>
         </li>
         <li class="nav-item">
-          <%= link_to '予約一覧', reservations_path, class: "nav-link active" %>
+          <%= link_to children_path do%>
+          <div class="nav-link active"><i class="fas fa-child mr-1"></i>お子様</div>
+          <% end %>
         </li>
         <li class="nav-item">
-          <%= link_to '保護者', contacts_path, class: "nav-link active" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'nav-link active' %>
+          <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'nav-link active text-black-50' %>
         </li>
       </ul>
     </div>

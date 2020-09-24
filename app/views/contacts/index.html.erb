@@ -3,6 +3,7 @@
   <%= render 'shared/flash_messages' %>
 
   <% @contacts.each do |contact| %>
+  <%= link_to contact_path(contact.id) do %>
   <div class="card">
     <div class="face-photo">
       <%= image_tag contact.image.url, class: "card-img-top" %>
@@ -28,14 +29,10 @@
       <p>
         <i class="fas fa-home mr-1"></i><%= contact.prefecture %><%= contact.city %><%= contact.adress %><%= contact.building %>
       </p>
-      <%= link_to edit_contact_path(contact.id), data: { confirm: '本当に変更していいですか？' } do %>
-      <i class="fas fa-edit mr-5"></i>
-      <% end %>
-      <%= link_to contact_path(contact.id), method: :delete ,data: { confirm: '本当に取り消していいですか？' } do %>
-      <i class="fas fa-trash-alt"></i>
-      <% end %>
     </div>
   </div>
   <% end %>
+  <% end %>
   <%= link_to '連絡先を追加する', new_contact_path, class: "btn btn-primary btn-lg btn-block" %>
+  <%= link_to 'アカウント編集', edit_user_registration_path, class: "btn btn-outline-danger btn-lg btn-block" %>
 </div>

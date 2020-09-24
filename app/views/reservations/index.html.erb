@@ -17,7 +17,7 @@
   { class: "sort_link" }
   ) %>
   <% end %>
-
+  
   <div class="text-left">
     <% @reservations.each do |reservation| %>
     <%= link_to reservation_path(reservation.id) do %>
@@ -34,4 +34,5 @@
     </div>
     <% end %>
   </div>
+  <%= link_to '予約する', new_reservation_path, class: "btn btn-primary btn-lg btn-block" %>
 </div>
