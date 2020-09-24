@@ -30,7 +30,11 @@
     <div class="card">
       <div class="card-body">
         <h4 class="card-title"><%= reservation.date.strftime("%Y年%m月%d日") %>
+          <% if reservation.status == "仮予約" %>
+          <span class="badge badge-pill badge-danger"><%= reservation.status %></span>
+          <% else %>
           <span class="badge badge-pill badge-primary"><%= reservation.status %></span>
+          <% end %>
         </h4>
         <h6 class="card-subtitle font-weight-bold"><%= reservation.daycare_to_use %></h6>
         <% end %>
