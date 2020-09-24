@@ -3,12 +3,13 @@ class ReservationsController < ApplicationController
   before_action :authenticate_user!
 
   def index
+    @q = Reservation.ransack(params[:q])
     if current_user.user_type == 0
       @reservations = current_user.reservations
     elsif current_user.user_type == 2
-      @reservations = Reservation.all.where(status: "本予約")
+      @reservations = @q.result.where(status: "本予約")
     else
-      @reservations = Reservation.all
+      @reservations = @q.result(distinct: true)
     end
   end
 

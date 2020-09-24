@@ -20,11 +20,12 @@
           <% end %>
         </span>
       </h5>
-      <class="card-text">
-      <p><%= name.family_name_kana %>　<%= name.first_name_kana %></p>
-      <% end %>
+      <div class="card-text">
+        <p><%= name.family_name_kana %>　<%= name.first_name_kana %></p>
+        <% end %>
 
-      <p><i class="fas fa-birthday-cake mr-1"></i><%= child.birth.strftime("%Y年%m月%d日") %>生まれ</p>
+        <p><i class="fas fa-birthday-cake mr-1"></i><%= child.birth.strftime("%Y年%m月%d日") %>生まれ</p>
+      </div>
     </div>
   </div>
   <% end %>

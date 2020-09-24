@@ -20,15 +20,16 @@
           <% end %>
         </span>
       </h5>
-      <class="card-text">
-      <p><%= name.family_name_kana %>　<%= name.first_name_kana %></p>
-      <% end %>
+      <div class="card-text">
+        <p><%= name.family_name_kana %>　<%= name.first_name_kana %></p>
+        <% end %>
 
-      <p><i class="fas fa-phone mr-1"></i><%= contact.phone_number %></p>
-      <p><a class="font-weight-bold mr-1">〒</a><%= contact.postal_code %></p>
-      <p>
-        <i class="fas fa-home mr-1"></i><%= contact.prefecture %><%= contact.city %><%= contact.adress %><%= contact.building %>
-      </p>
+        <p><i class="fas fa-phone mr-1"></i><%= contact.phone_number %></p>
+        <p><a class="font-weight-bold mr-1">〒</a><%= contact.postal_code %></p>
+        <p>
+          <i class="fas fa-home mr-1"></i><%= contact.prefecture %><%= contact.city %><%= contact.adress %><%= contact.building %>
+        </p>
+      </div>
     </div>
   </div>
   <% end %>
