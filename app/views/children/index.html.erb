@@ -4,6 +4,7 @@
 
   <% @children.each do |child| %>
   <div class="card">
+    <%= link_to child_path(child.id) do %>
     <div class="face-photo">
       <%= image_tag child.image.url, class: "card-img-top" %>
     </div>
@@ -22,9 +23,11 @@
       <class="card-text">
       <p><%= name.family_name_kana %>　<%= name.first_name_kana %></p>
       <% end %>
+
       <p><i class="fas fa-birthday-cake mr-1"></i><%= child.birth.strftime("%Y年%m月%d日") %>生まれ</p>
     </div>
   </div>
+  <% end %>
   <% end %>
   <%= link_to 'お子様情報を追加する', new_child_path, class: "btn btn-primary btn-lg btn-block" %>
 </div>
