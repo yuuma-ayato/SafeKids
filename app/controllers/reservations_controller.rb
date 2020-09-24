@@ -4,9 +4,9 @@ class ReservationsController < ApplicationController
 
   def index
     @q = Reservation.ransack(params[:q])
-    if current_user.user_type == 0
+    if current_user.user_type == "保護者"
       @reservations = current_user.reservations
-    elsif current_user.user_type == 2
+    elsif current_user.user_type == "保育士"
       @reservations = @q.result.where(status: "本予約")
     else
       @reservations = @q.result(distinct: true)

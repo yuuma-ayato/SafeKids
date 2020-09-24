@@ -2,7 +2,7 @@
   <p class="font-weight-bold"><i class="fas fa-book"></i>ただいまの予約</p>
   <%= render 'shared/flash_messages' %>
 
-  <% unless current_user.user_type == 0 %>
+  <% unless current_user.user_type == "保護者" %>
   <%= search_form_for @q do |f| %>
   <div class="form-row text-left">
     <div class="form-group col-sm-12">
@@ -40,7 +40,7 @@
     </div>
     <% end %>
   </div>
-  <% if current_user.user_type == 0 %>
+  <% if current_user.user_type == "保護者" %>
     <%= link_to '予約する', new_reservation_path, class: "btn btn-primary btn-lg btn-block" %>
   <% end %>
 </div>

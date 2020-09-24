@@ -8,7 +8,7 @@ class Admin::UsersController < ApplicationController
 
   def show
     @reservations = @user.reservations
-    if @user.user_type == 0
+    if @user.user_type == "保護者"
     end
   end
 
