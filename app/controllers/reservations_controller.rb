@@ -3,14 +3,12 @@ class ReservationsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    # @contacts = Contact.all
-    # @names = Name.all
     if current_user.user_type == 0
       @reservations = current_user.reservations
     elsif current_user.user_type == 2
       @reservations = Reservation.all.where(status: "本予約")
     else
-      Reservation.all
+      @reservations = Reservation.all
     end
   end
 
@@ -33,7 +31,6 @@ class ReservationsController < ApplicationController
   end
 
   def show
-    # @user = User.find(params[:id])
     @comments = @reservation.comments
     @comment = @reservation.comments.build
   end

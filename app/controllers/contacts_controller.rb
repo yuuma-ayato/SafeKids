@@ -3,7 +3,11 @@ class ContactsController < ApplicationController
   before_action :authenticate_user!
 
     def index
-      @contacts = Contact.all
+      if current_user.user_type == 1
+        @contacts = Contact.all
+      else
+        @contacts = current_user.contacts
+      end
     end
 
     def new

@@ -1,0 +1,41 @@
+<div class="container">
+  <p class="font-weight-bold"><i class="far fa-smile"></i>保護者情報</p>
+  <%= render 'shared/flash_messages' %>
+
+  <% @contacts.each do |contact| %>
+  <div class="card">
+    <div class="face-photo">
+      <%= image_tag contact.image.url, class: "card-img-top" %>
+    </div>
+    <div class="card-body">
+      <% contact.names.each do |name| %>
+      <h5 class="card-title">
+        <%= name.family_name %>　<%= name.first_name %>
+        <span class="small">
+          <% if contact.other_relation.present? %>
+          （<%= contact.other_relation %>）
+          <% else %>
+          （<%= contact.relation %>）
+          <% end %>
+        </span>
+      </h5>
+      <class="card-text">
+      <p><%= name.family_name_kana %>　<%= name.first_name_kana %></p>
+      <% end %>
+
+      <p><i class="fas fa-phone mr-1"></i><%= contact.phone_number %></p>
+      <p><a class="font-weight-bold mr-1">〒</a><%= contact.postal_code %></p>
+      <p>
+        <i class="fas fa-home mr-1"></i><%= contact.prefecture %><%= contact.city %><%= contact.adress %><%= contact.building %>
+      </p>
+      <%= link_to edit_contact_path(contact.id), data: { confirm: '本当に変更していいですか？' } do %>
+      <i class="fas fa-edit mr-5"></i>
+      <% end %>
+      <%= link_to contact_path(contact.id), method: :delete ,data: { confirm: '本当に取り消していいですか？' } do %>
+      <i class="fas fa-trash-alt"></i>
+      <% end %>
+    </div>
+  </div>
+  <% end %>
+  <%= link_to '連絡先を追加する', new_contact_path, class: "btn btn-primary btn-lg btn-block" %>
+</div>

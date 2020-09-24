@@ -9,7 +9,7 @@
     </button>
     <div class="collapse navbar-collapse justify-content-end" id="menu">
       <% if user_signed_in? %>
-      <ul class="navbar-nav text-right"">
+      <ul class="navbar-nav text-right">
         <% if current_user.try(:admin?)%>
         <li class="nav-item">
           <%= link_to "管理者画面へ", admin_users_path, class: "nav-link active" %>
@@ -23,6 +23,9 @@
         </li>
         <li class="nav-item">
           <%= link_to '予約一覧', reservations_path, class: "nav-link active" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to '保護者', contacts_path, class: "nav-link active" %>
         </li>
         <li class="nav-item">
           <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'nav-link active' %>
