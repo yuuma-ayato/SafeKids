@@ -75,3 +75,10 @@ span.badge {
   height: auto;
   margin-bottom: 1.5rem;
 }
+
+.table-borderless {
+   table-layout: fixed;
+   .comment-edit {
+     width: 4.5rem;
+   }
+}
