@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_13_213614) do
+ActiveRecord::Schema.define(version: 2020_09_25_024027) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -85,6 +85,7 @@ ActiveRecord::Schema.define(version: 2020_09_13_213614) do
     t.bigint "daycare_id"
     t.bigint "user_id"
     t.string "daycare_to_use", null: false
+    t.string "child_name", limit: 255, null: false
     t.index ["daycare_id"], name: "index_reservations_on_daycare_id"
     t.index ["user_id"], name: "index_reservations_on_user_id"
   end

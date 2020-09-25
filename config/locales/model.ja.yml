@@ -56,7 +56,8 @@ ja:
         date: 予約日
         reason: 保育理由
         status: 予約状況
-        daycare_to_use: 利用する保育施設
+        daycare_to_use: 保育施設名
+        child_name: ご利用になるお子様のお名前
       contact:
         relation: お子様との関係
         other_relation: その他の続柄
