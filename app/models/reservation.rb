@@ -3,6 +3,7 @@ class Reservation < ApplicationRecord
   validates :reason, presence: true
   validates :daycare_to_use, presence: true
   validates :status, presence: true
+  validates :child_name, presence: true
 
   enum reason: { 仕事: 0, 疾病: 1 }
   enum status: { 仮予約: 0, 本予約: 1 }
