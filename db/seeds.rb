@@ -36,7 +36,7 @@ i = 1
 10.times do |n|
   gimei = Gimei.male
   Contact.create!(
-    relation: "父",
+    relation: "父親",
     phone_number: "048957111#{rand(1..9)}",
     postal_code: "341000#{rand(1..9)}",
     prefecture: "埼玉県",
@@ -55,7 +55,7 @@ end
 10.times do |n|
     gimei = Gimei.female
   Contact.create!(
-    relation: "母",
+    relation: "母親",
     phone_number: "048957111#{rand(1..9)}",
     postal_code: "341000#{rand(1..9)}",
     prefecture: "埼玉県",
@@ -100,38 +100,54 @@ end
 end
 
 5.times do |n|
-Reservation.create!(
+  id = rand(2..11)
+  Reservation.create!(
   date: Faker::Date.between(from: '2020-09-01', to: '2020-12-29'),
   reason: "仕事",
   status: 0,
   daycare_to_use: "みさとしらゆり保育園　病児・病後児保育室【つばめ】",
-  user_id: rand(2..11))
+  child_name: User.joins(children: :names)
+                  .where(id: id)
+                  .select("users.*, names.first_name").first,
+  user_id: id)
 end
 
 5.times do |n|
-Reservation.create!(
+  id = rand(2..11)
+  Reservation.create!(
   date: Faker::Date.between(from: '2020-09-01', to: '2020-12-29'),
   reason: "疾病",
   status: 1,
   daycare_to_use: "みさとしらゆり保育園　病児・病後児保育室【つばめ】",
+  child_name: User.joins(children: :names)
+                  .where(id: id)
+                  .select("users.*, names.first_name").first,
   user_id: rand(2..11))
 end
 
 5.times do |n|
-Reservation.create!(
+  id = rand(2..11)
+  Reservation.create!(
   date: Faker::Date.between(from: '2020-09-01', to: '2020-12-29'),
   reason: "仕事",
   status: 0,
   daycare_to_use: "オハナゆめ保育園併設病児保育室",
+  child_name: User.joins(children: :names)
+                  .where(id: id)
+                  .select("users.*, names.first_name").first,
   user_id: rand(2..11))
 end
 
 5.times do |n|
-Reservation.create!(
+  id = rand(2..11)
+  Reservation.create!(
   date: Faker::Date.between(from: '2020-09-01', to: '2020-12-29'),
   reason: "疾病",
   status: 1,
   daycare_to_use: "けやきの森保育園西初石園",
+  child_name: User.joins(children: :names)
+                  .where(id: id)
+                  .select("users.*, names.first_name").first,
   user_id: rand(2..11))
 end
 
