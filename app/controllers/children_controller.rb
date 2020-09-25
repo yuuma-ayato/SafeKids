@@ -1,12 +1,13 @@
 class ChildrenController < ApplicationController
   before_action :set_child, only: %i[show edit update destroy]
   before_action :authenticate_user!
+  PER = 5
 
   def index
     if current_user.user_type == "窓口担当者"
-      @children = Child.all
+      @children = Child.all.page(params[:page]).per(PER)
     else
-      @children = current_user.children
+      @children = current_user.children.page(params[:page]).per(PER)
     end
   end
 

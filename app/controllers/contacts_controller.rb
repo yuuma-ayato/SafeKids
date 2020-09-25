@@ -1,12 +1,13 @@
 class ContactsController < ApplicationController
   before_action :set_contact, only: %i[show edit update destroy]
   before_action :authenticate_user!
+  PER = 5
 
     def index
       if current_user.user_type == "窓口担当者"
-        @contacts = Contact.all
+        @contacts = Contact.all.page(params[:page]).per(PER)
       else
-        @contacts = current_user.contacts
+        @contacts = current_user.contacts.page(params[:page]).per(PER)
       end
     end
 

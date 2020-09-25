@@ -1,15 +1,16 @@
 class ReservationsController < ApplicationController
   before_action :set_reservation, only: %i[show edit update destroy]
   before_action :authenticate_user!
+  PER = 5
 
   def index
     @q = Reservation.ransack(params[:q])
     if current_user.user_type == "保護者"
-      @reservations = current_user.reservations.page(params[:page]).per(3)
+      @reservations = current_user.reservations.page(params[:page]).per(PER)
     elsif current_user.user_type == "保育士"
-      @reservations = @q.result.where(status: "本予約").page(params[:page]).per(5)
+      @reservations = @q.result.where(status: "本予約").page(params[:page]).per(PER)
     else
-      @reservations = @q.result(distinct: true).page(params[:page]).per(5)
+      @reservations = @q.result(distinct: true).page(params[:page]).per(PER)
     end
   end
 
