@@ -9,6 +9,7 @@
     <div class="card-body text-left">
       <h6 class="card-subtitle font-weight-bold"><%= @reservation.daycare_to_use %></h6>
       <p><%= t('view.reason') %>: <%= @reservation.reason %></p>
+      <p class="font-weight-bold">ご利用になるお子様のお名前:<%= @reservation.child_name %> 様</p>
       </div>
       <% if current_user.user_type == "窓口担当者" %>
       <p><%= link_to t('view.edit'), edit_reservation_path(@reservation.id), data: { confirm: '本当に変更していいですか？' }, class: "btn btn-outline-danger btn-sm" %></p>

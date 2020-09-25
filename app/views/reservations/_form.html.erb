@@ -13,7 +13,11 @@
         </div>
         <div class="form-group col-sm-12">
           <%= form.label :daycare_to_use %>
-          <%= form.collection_select :daycare_to_use, Daycare.all, :name, :name, {:prompt => "選択して下さい"}, { class: 'custom-select' } %>
+          <%= form.collection_select :daycare_to_use, Daycare.all, :name, :name, {prompt: "選択して下さい"}, { class: 'custom-select' } %>
+        </div>
+        <div class="form-group col-sm-12">
+          <%= form.label :child_name %>
+          <%= form.collection_select :child_name, @child_name, :first_name, :first_name, {prompt: "選択して下さい"}, { class: 'custom-select' } %>
         </div>
 
         <div class="form-group col-sm-12">

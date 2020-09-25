@@ -16,6 +16,7 @@ class ReservationsController < ApplicationController
 
   def new
     @reservation = Reservation.new
+    @child_name = User.joins(children: :names).where(id: current_user.id).select("users.*, children.image, names.first_name, names.family_name")
   end
 
   def create
@@ -55,7 +56,7 @@ class ReservationsController < ApplicationController
 
   private
   def reservation_params
-    params.require(:reservation).permit(:date, :reason, :other_reason, :status, :daycare_to_use)
+    params.require(:reservation).permit(:date, :reason, :other_reason, :status, :daycare_to_use, :child_name)
   end
 
   def set_reservation

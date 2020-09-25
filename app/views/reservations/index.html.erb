@@ -14,7 +14,7 @@
       <%= f.select :status_eq, [['仮予約', 0], ['本予約', 1]], {:include_blank => '指定なし'}, {class: 'custom-select'} %>
     </div>
     <div class="form-group col-sm-12">
-    <%= f.submit "検索", class: "btn btn-primary btn-block" %>
+      <%= f.submit "検索", class: "btn btn-primary btn-block" %>
     </div>
   </div>
   <% end %>
@@ -41,6 +41,7 @@
         <h6 class="card-subtitle font-weight-bold"><%= reservation.daycare_to_use %></h6>
         <% end %>
 
+        <p class="font-weight-bold">お子様のお名前:<%= reservation.child_name %> 様</p>
         <%= link_to t('view.delete'), reservation_path(reservation.id), method: :delete ,data: { confirm: '本当に取り消していいですか？' }, class: "text-danger" %>
       </div>
     </div>
