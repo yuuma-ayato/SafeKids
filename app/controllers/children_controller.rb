@@ -3,7 +3,7 @@ class ChildrenController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    if current_user.user_type == "窓口"
+    if current_user.user_type == "窓口担当者"
       @children = Child.all
     else
       @children = current_user.children

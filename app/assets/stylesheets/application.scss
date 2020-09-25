@@ -43,8 +43,12 @@ body {
 
 .container {
   @extend .container-fluid;
-  max-width: 576px;
+  max-width: 718px;
   padding: 2rem;
+}
+
+.border-bottom {
+   padding: 10px;
 }
 
 .media img{
