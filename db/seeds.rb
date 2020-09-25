@@ -101,54 +101,62 @@ end
 
 5.times do |n|
   id = rand(2..11)
+  name = User.joins(children: :names)
+              .where(id: id)
+              .select("users.*, names.first_name").first
+
   Reservation.create!(
   date: Faker::Date.between(from: '2020-09-01', to: '2020-12-29'),
   reason: "仕事",
   status: 0,
   daycare_to_use: "みさとしらゆり保育園　病児・病後児保育室【つばめ】",
-  child_name: User.joins(children: :names)
-                  .where(id: id)
-                  .select("users.*, names.first_name").first,
+  child_name: name.first_name,
   user_id: id)
 end
 
 5.times do |n|
   id = rand(2..11)
+  name = User.joins(children: :names)
+              .where(id: id)
+              .select("users.*, names.first_name").first
+
   Reservation.create!(
   date: Faker::Date.between(from: '2020-09-01', to: '2020-12-29'),
   reason: "疾病",
   status: 1,
   daycare_to_use: "みさとしらゆり保育園　病児・病後児保育室【つばめ】",
-  child_name: User.joins(children: :names)
-                  .where(id: id)
-                  .select("users.*, names.first_name").first,
-  user_id: rand(2..11))
+  child_name: name.first_name,
+  user_id: id)
 end
 
 5.times do |n|
   id = rand(2..11)
+  name = User.joins(children: :names)
+              .where(id: id)
+              .select("users.*, names.first_name").first
+
   Reservation.create!(
   date: Faker::Date.between(from: '2020-09-01', to: '2020-12-29'),
   reason: "仕事",
   status: 0,
   daycare_to_use: "オハナゆめ保育園併設病児保育室",
-  child_name: User.joins(children: :names)
-                  .where(id: id)
-                  .select("users.*, names.first_name").first,
-  user_id: rand(2..11))
+  child_name: name.first_name,
+  user_id: id)
 end
 
 5.times do |n|
   id = rand(2..11)
+  name = User.joins(children: :names)
+              .where(id: id)
+              .select("users.*, names.first_name").first
+
   Reservation.create!(
   date: Faker::Date.between(from: '2020-09-01', to: '2020-12-29'),
   reason: "疾病",
   status: 1,
   daycare_to_use: "けやきの森保育園西初石園",
-  child_name: User.joins(children: :names)
-                  .where(id: id)
-                  .select("users.*, names.first_name").first,
-  user_id: rand(2..11))
+  child_name: name.first_name,
+  user_id: id)
 end
 
 Daycare.create!(

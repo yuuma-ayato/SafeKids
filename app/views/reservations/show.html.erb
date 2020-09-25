@@ -15,18 +15,12 @@
       <% @contacts.each do |contact| %>
       <h6 class="card-text border-bottom" >
         <%= contact.family_name %>　<%= contact.first_name %>
-        <span class="small">
-          <% if contact.other_relation.present? %>
-          （<%= contact.other_relation %>）
-          <% else %>
-          （<%= contact.relation %>）
-          <% end %>
-        </span>
         <p class="small"><%= contact.family_name_kana %>　<%= contact.first_name_kana %></p>
         <p><i class="fas fa-phone mr-1"></i><%= contact.phone_number %></p>
         <% end %>
       </h6>
     </div>
+
     <% if current_user.user_type == "窓口担当者" %>
     <p><%= link_to t('view.edit'), edit_reservation_path(@reservation.id), data: { confirm: '本当に変更していいですか？' }, class: "btn btn-outline-danger btn-sm" %></p>
     <%= form_with(model: @reservation, local: true ) do |form| %>
@@ -44,6 +38,7 @@
     </div>
   </div>
   <br>
+
   <h6 class="font-weight-bold"><i class="far fa-comments"></i>コメント一覧</h6>
   <!-- このcomments_areaというHTMLのidを取得して、そのdivの部分だけを更新する -->
   <div id="comments_area">
