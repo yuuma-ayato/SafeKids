@@ -34,6 +34,7 @@ class ReservationsController < ApplicationController
   end
 
   def show
+    @contacts = User.joins(contacts: :names).where(id: @reservation.user_id).select("users.*, names.family_name, names.first_name, names.family_name_kana, names.first_name_kana, contacts.phone_number, contacts.relation, contacts.other_relation")
     @comments = @reservation.comments
     @comment = @reservation.comments.build
   end
