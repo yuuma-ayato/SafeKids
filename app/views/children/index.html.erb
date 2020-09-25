@@ -5,12 +5,12 @@
   <% @children.each do |child| %>
   <div class="card">
     <%= link_to child_path(child.id) do %>
-    <div class="face-photo">
-      <%= image_tag child.image.url, class: "card-img-top" %>
-    </div>
-    <div class="card-body">
+    <div class="card-body d-flex justify-content-center">
+      <div class="face-photo">
+        <%= image_tag child.image.url, class: "card-img-top" %>
+      </div>
       <% child.names.each do |name| %>
-      <h5 class="card-title">
+      <h5 class="card-title m-3">
         <%= name.family_name %>　<%= name.first_name %>
         <span class="small">
           <% if child.other_gender.present? %>
@@ -19,13 +19,9 @@
           （<%= child.gender %>）
           <% end %>
         </span>
-      </h5>
-      <div class="card-text">
-        <p><%= name.family_name_kana %>　<%= name.first_name_kana %></p>
+        <p class="small"><%= name.family_name_kana %>　<%= name.first_name_kana %></p>
         <% end %>
-
-        <p><i class="fas fa-birthday-cake mr-1"></i><%= child.birth.strftime("%Y年%m月%d日") %>生まれ</p>
-      </div>
+      </h5>
     </div>
   </div>
   <% end %>
