@@ -1,4 +1,16 @@
 <div class="container">
+  <% if @reservation.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@reservation.errors.count, t('view.error')) %></h2>
+
+    <ul>
+      <% @reservation.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
+
   <%= form_with(model: @reservation, local: true ) do |form| %>
   <div class="card">
     <div class="card-body">
