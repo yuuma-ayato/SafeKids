@@ -19,21 +19,21 @@
           <% end %>
         </span>
         <p class="small"><%= name.family_name_kana %>　<%= name.first_name_kana %></p>
+        <% end %>
       </h5>
 
       <div class="card-text text-left">
-        <% end %>
         <div class="border-bottom" >
-        <p class="font-weight-bold">連絡先</p>
-        <p><i class="fas fa-phone mr-1"></i><%= @contact.phone_number %></p>
+          <p class="font-weight-bold">連絡先</p>
+          <p><i class="fas fa-phone mr-1"></i><%= @contact.phone_number %></p>
         </div>
         <div class="border-bottom" >
-        <p class="font-weight-bold">住所</p>
-        <p><a class="font-weight-bold mr-1">〒</a><%= @contact.postal_code %></p>
-        <p>
-          <i class="fas fa-home mr-1"></i><%= @contact.prefecture %><%= @contact.city %><%= @contact.adress %><%= @contact.building %>
-        </p>
-      </div>
+          <p class="font-weight-bold">住所</p>
+          <p><a class="font-weight-bold mr-1">〒</a><%= @contact.postal_code %></p>
+          <p>
+            <i class="fas fa-home mr-1"></i><%= @contact.prefecture %><%= @contact.city %><%= @contact.adress %><%= @contact.building %>
+          </p>
+        </div>
       </div>
       <p><%= link_to t('view.edit'), edit_contact_path(@contact.id), data: { confirm: '本当に変更していいですか？' }, class: "btn btn-outline-danger mt-3" %></p>
     </div>

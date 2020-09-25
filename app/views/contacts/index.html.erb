@@ -5,12 +5,13 @@
   <% @contacts.each do |contact| %>
   <div class="card">
     <%= link_to contact_path(contact.id) do %>
+    <div class="card-body d-flex justify-content-center">
     <div class="face-photo">
       <%= image_tag contact.image.url, class: "card-img-top" %>
     </div>
-    <div class="card-body">
+
       <% contact.names.each do |name| %>
-      <h5 class="card-title">
+      <h5 class="card-title m-4">
         <%= name.family_name %>　<%= name.first_name %>
         <span class="small">
           <% if contact.other_relation.present? %>
@@ -19,22 +20,13 @@
           （<%= contact.relation %>）
           <% end %>
         </span>
-      </h5>
-      <div class="card-text">
-        <p><%= name.family_name_kana %>　<%= name.first_name_kana %></p>
+        <p class="small"><%= name.family_name_kana %>　<%= name.first_name_kana %></p>
         <% end %>
-
-        <p><i class="fas fa-phone mr-1"></i><%= contact.phone_number %></p>
-        <p><a class="font-weight-bold mr-1">〒</a><%= contact.postal_code %></p>
-        <p>
-          <i class="fas fa-home mr-1"></i><%= contact.prefecture %><%= contact.city %><%= contact.adress %><%= contact.building %>
-        </p>
-      </div>
+      </h5>
     </div>
   </div>
   <% end %>
   <% end %>
   <%= paginate @contacts %>
   <%= link_to '連絡先を追加する', new_contact_path, class: "btn btn-primary btn-lg btn-block" %>
-  <%= link_to 'アカウント編集', edit_user_registration_path, class: "btn btn-outline-danger btn-lg btn-block" %>
 </div>
