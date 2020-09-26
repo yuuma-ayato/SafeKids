@@ -29,11 +29,7 @@
         </div>
         <div class="form-group col-sm-12">
           <%= form.label :child_name %>
-          <%= form.collection_select :child_name,
-                                        User.joins(children: :names)
-                                            .where(id: current_user.id)
-                                            .select("users.*, children.image, names.family_name, names.first_name"),
-                                              :first_name, :first_name, {prompt: "選択して下さい"}, { class: 'custom-select' } %>
+          <%= form.collection_select :child_name, search_child_name, :first_name, :first_name, {prompt: "選択して下さい"}, { class: 'custom-select' } %>
         </div>
 
         <div class="form-group col-sm-12">
