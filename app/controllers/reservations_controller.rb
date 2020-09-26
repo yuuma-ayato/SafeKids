@@ -16,9 +16,6 @@ class ReservationsController < ApplicationController
 
   def new
     @reservation = Reservation.new
-    @child_name = User.joins(children: :names)
-                      .where(id: current_user.id)
-                      .select("users.*, children.image, names.family_name, names.first_name")
   end
 
   def create
@@ -75,5 +72,4 @@ class ReservationsController < ApplicationController
   def set_reservation
     @reservation = Reservation.find(params[:id])
   end
-
 end
