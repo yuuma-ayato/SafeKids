@@ -1,6 +1,7 @@
 class Admin::UsersController < ApplicationController
   before_action :set_admin, only: %i[update show edit destroy]
   before_action :check_admin
+  before_action :check_guest, only: %i[update destroy]
 
   def index
     @users = User.all.order(created_at: :DESC)
@@ -56,6 +57,12 @@ class Admin::UsersController < ApplicationController
     def check_admin
       unless current_user.try(:admin?)
         redirect_to reservations_path, notice: "あなたは管理者ではありません"
+      end
+    end
+
+    def check_guest
+      if @user.email == 'guest@example.com'
+        redirect_to admin_users_path, alert: "ゲストユーザーの変更・削除はできません。"
       end
     end
 

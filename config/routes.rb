@@ -1,8 +1,15 @@
 Rails.application.routes.draw do
+  root 'static_pages#top'
+
+  #ゲストユーザー機能
   devise_for :users, controllers: { registrations: 'users/registrations',
+                                    passwords: 'users/passwords',
                                     sessions: 'users/sessions' }
 
-  root 'static_pages#top'
+  devise_scope :user do
+   post 'users/guest_sign_in', to: 'users/sessions#new_guest'
+  end
+
   get 'search', to: 'reservations#search'
   resources :reservations do
     resources :comments
