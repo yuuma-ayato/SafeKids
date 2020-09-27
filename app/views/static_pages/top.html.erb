@@ -7,8 +7,15 @@
   </div>
   <% unless user_signed_in? %>
   <%= link_to "新規登録", new_user_registration_path, class: 'btn btn-primary btn-lg' %>
-  <%= link_to 'ゲストログイン（保護者）', users_guest_sign_in_path, method: :post %>
-  <%= link_to 'ゲストログイン（窓口担当者）', users_guest_clerk_sign_in_path, method: :post %>
-  <%= link_to 'ゲストログイン（保育士）', users_guest_childminder_sign_in_path, method: :post %>
+  <div class="btn-group dropup">
+    <button type="button" class="btn btn-primary btn-lg dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      ゲストログイン
+    </button>
+    <div class="dropdown-menu">
+  <%= link_to '保護者', users_guest_sign_in_path, method: :post, class: "dropdown-item" %>
+  <%= link_to '窓口担当者（管理者）', users_guest_clerk_sign_in_path, method: :post, class: "dropdown-item" %>
+  <%= link_to '保育士', users_guest_childminder_sign_in_path, method: :post, class: "dropdown-item" %>
+  </div>
   <% end %>
+</div>
 </div>

@@ -190,3 +190,82 @@ Daycare.create!(
   building: "",
   capacity: 3)
 end
+
+User.create!(
+  email: "guest@example.com",
+  password: "123456",
+  password_confirmation: "123456",
+  user_type: 0,
+  admin: false)
+
+gimei_male = Gimei.male
+gimei_female = Gimei.female
+
+Contact.create!(
+  relation: "父親",
+  phone_number: "048957111#{rand(1..9)}",
+  postal_code: "341000#{rand(1..9)}",
+  prefecture: "埼玉県",
+  city: "三郷市",
+  adress: "中央5-15",
+  building: "ライオンズビル505",
+  image: open("./db/fixtures/boy.png"),
+  user_id: "22",
+  names_attributes:[
+    family_name: gimei_male.last.kanji,
+    first_name: gimei_male.first.kanji,
+    family_name_kana: gimei_male.last.hiragana,
+    first_name_kana: gimei_male.first.hiragana ])
+
+Contact.create!(
+  relation: "母親",
+  phone_number: "048957111#{rand(1..9)}",
+  postal_code: "341000#{rand(1..9)}",
+  prefecture: "埼玉県",
+  city: "三郷市",
+  adress: "中央5-15",
+  building: "ライオンズビル505",
+  image: open("./db/fixtures/girl.png"),
+  user_id: "22",
+  names_attributes:[
+    family_name: gimei_female.last.kanji,
+    first_name: gimei_female.first.kanji,
+    family_name_kana: gimei_female.last.hiragana,
+    first_name_kana: gimei_female.first.hiragana ])
+
+  Child.create!(
+  gender: "男",
+  birth: Faker::Date.between(from: '2014-04-01', to: '2020-03-31'),
+  image: open("./db/fixtures/kid_boy.png"),
+  user_id: "22",
+  names_attributes:[
+    family_name: gimei_female.last.kanji,
+    first_name: gimei_female.first.kanji,
+    family_name_kana: gimei_female.last.hiragana,
+    first_name_kana: gimei_female.first.hiragana ])
+
+  Child.create!(
+  gender: "女",
+  birth: Faker::Date.between(from: '2014-04-01', to: '2020-03-31'),
+  image: open("./db/fixtures/candy_girl.png"),
+  user_id: "22",
+  names_attributes:[
+    family_name: gimei_female.last.kanji,
+    first_name: gimei_female.first.kanji,
+    family_name_kana: gimei_female.last.hiragana,
+    first_name_kana: gimei_female.first.hiragana ])
+
+5.times do |n|
+  id = 22
+  name = User.joins(children: :names)
+              .where(id: id)
+              .select("users.*, names.first_name").first
+
+  Reservation.create!(
+  date: Faker::Date.between(from: '2020-09-01', to: '2020-12-29'),
+  reason: "疾病",
+  status: "仮予約",
+  daycare_to_use: "みさとしらゆり保育園　病児・病後児保育室【つばめ】",
+  child_name: name.first_name,
+  user_id: id)
+end

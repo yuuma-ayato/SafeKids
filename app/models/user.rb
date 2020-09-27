@@ -15,6 +15,7 @@ class User < ApplicationRecord
    find_or_create_by!(email: 'guest_clerk@example.com') do |user|
      user.password = SecureRandom.urlsafe_base64
      user.user_type = 1
+     user.admin = true
      # user.confirmed_at = Time.now  # Confirmable（メールアドレスでの認証） を使用している場合は必要
    end
   end
