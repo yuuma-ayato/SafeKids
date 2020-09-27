@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 
   devise_scope :user do
    post 'users/guest_sign_in', to: 'users/sessions#new_guest'
+   post 'users/guest_clerk_sign_in', to: 'users/sessions#new_guest_clerk'
+   post 'users/guest_childminder_sign_in', to: 'users/sessions#new_guest_childminder'
   end
 
   get 'search', to: 'reservations#search'

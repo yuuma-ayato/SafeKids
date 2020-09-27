@@ -7,6 +7,8 @@
   </div>
   <% unless user_signed_in? %>
   <%= link_to "新規登録", new_user_registration_path, class: 'btn btn-primary btn-lg' %>
-  <%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post %>
+  <%= link_to 'ゲストログイン（保護者）', users_guest_sign_in_path, method: :post %>
+  <%= link_to 'ゲストログイン（窓口担当者）', users_guest_clerk_sign_in_path, method: :post %>
+  <%= link_to 'ゲストログイン（保育士）', users_guest_childminder_sign_in_path, method: :post %>
   <% end %>
 </div>
