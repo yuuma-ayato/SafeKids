@@ -37,6 +37,9 @@ Rails 5.2.4
   * ユーザーの情報を表示する。
 * コメント機能
   * 予約についてコメント（保護者連絡）を付けられる。
+* ゲストログイン機能
+  * 保護者、窓口担当者、保育士の３つの異なるユーザータイプでログイン可能
+
 
 ## カタログ設計
 [Googleスプレッドシート](https://docs.google.com/spreadsheets/d/10yvr_-g7P8p7djihJd5azVzyCWWB0n8XN4H2jfQ5ynE/edit?usp=sharing)
