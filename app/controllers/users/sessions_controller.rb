@@ -6,7 +6,7 @@ class Users::SessionsController < Devise::SessionsController
   def new_guest
     user = User.guest
     sign_in user
-    redirect_to reservations_path, notice: 'ゲストユーザーとしてログインしました。'
+    redirect_to reservations_path, notice: 'ゲストユーザー（保護者）としてログインしました。'
   end
 
   def new_guest_clerk

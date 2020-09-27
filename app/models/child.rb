@@ -1,5 +1,5 @@
 class Child < ApplicationRecord
-  enum gender: { その他の性別: 0, 男: 1, 女: 1 }
+  enum gender: { その他の性別: 0, 男: 1, 女: 2 }
   mount_uploader :image, ImageUploader
 
   def othergender?
