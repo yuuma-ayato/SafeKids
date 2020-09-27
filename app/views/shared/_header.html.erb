@@ -23,6 +23,7 @@
           <div class="nav-link active"><i class="fas fa-book"></i>予約</div>
           <% end %>
         </li>
+        <% unless current_user.user_type == "保育士" %>
         <li class="nav-item">
           <%= link_to contacts_path do%>
           <div class="nav-link active"><i class="far fa-smile"></i>保護者</div>
@@ -33,6 +34,7 @@
           <div class="nav-link active"><i class="fas fa-child mr-1"></i>お子様</div>
           <% end %>
         </li>
+        <% end %>
         <li class="nav-item">
           <%= link_to user_path(current_user.id) do%>
           <div class="nav-link active"><i class="fas fa-user-circle"></i>アカウント設定</div>
