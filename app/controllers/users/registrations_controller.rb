@@ -6,7 +6,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_account_update_params, only: [:update]
 
   def check_guest
-    if resource.email == 'guest@example.com'
+    if resource.email == 'guest@example.com' || 'guest_clerk@example.com' || 'guest_childminder@example.com'
       redirect_to edit_user_registration_path, alert: 'ゲストユーザーの変更・削除はできません。'
     end
   end

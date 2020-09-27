@@ -9,6 +9,18 @@ class Users::SessionsController < Devise::SessionsController
     redirect_to reservations_path, notice: 'ゲストユーザーとしてログインしました。'
   end
 
+  def new_guest_clerk
+    user = User.guest_clerk
+    sign_in user
+    redirect_to reservations_path, notice: 'ゲストユーザー（窓口担当者）としてログインしました。'
+  end
+
+  def new_guest_childminder
+    user = User.guest_childminder
+    sign_in user
+    redirect_to reservations_path, notice: 'ゲストユーザー（保育士）としてログインしました。'
+  end
+
   def after_sign_in_path_for(resource)
     reservations_path(resource)
   end
