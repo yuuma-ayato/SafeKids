@@ -6,7 +6,7 @@ class ReservationsController < ApplicationController
   def index
     @q = Reservation.ransack(params[:q])
     if current_user.user_type == "保護者"
-      @reservations = current_user.reservations.page(params[:page]).per(PER)
+      @reservations = current_user.reservations.page(params[:page]).per(3)
     elsif current_user.user_type == "保育士"
       @reservations = @q.result.where(status: "本予約").page(params[:page]).per(PER)
     else

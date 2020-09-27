@@ -1,10 +1,14 @@
 <div class="container">
+  <%= render 'shared/flash_messages' %>
   <p class="font-weight-bold"><i class="far fa-file-alt"></i>予約情報</p>
-  <p id="notice"><%= notice %></p>
 
   <div class="card">
     <h3 class="card-title"><%= @reservation.date.strftime("%Y年%m月%d日") %>
+      <% if @reservation.status == "仮予約" %>
+      <span class="badge badge-pill badge-danger"><%= @reservation.status %></span>
+      <% else %>
       <span class="badge badge-pill badge-primary"><%= @reservation.status %></span>
+      <% end %>
     </h3>
     <div class="card-body text-left">
       <h6 class="card-subtitle font-weight-bold"><%= @reservation.daycare_to_use %></h6>

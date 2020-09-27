@@ -3,7 +3,7 @@ class DaycaresController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @daycares = Daycare.all
+    @daycares = Daycare.all.page(params[:page]).per(8)
   end
 
   def new

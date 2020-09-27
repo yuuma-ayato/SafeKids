@@ -1,6 +1,6 @@
 <div class="container">
-  <p class="font-weight-bold"><i class="fas fa-book"></i>ただいまの予約</p>
   <%= render 'shared/flash_messages' %>
+  <p class="font-weight-bold"><i class="fas fa-book"></i>ただいまの予約</p>
 
   <% unless current_user.user_type == "保護者" %>
   <%= search_form_for @q do |f| %>
@@ -28,7 +28,6 @@
 
   <div class="text-left">
     <% @reservations.each do |reservation| %>
-    <%= link_to reservation_path(reservation.id) do %>
     <div class="card">
       <div class="card-body">
         <h4 class="card-title"><%= reservation.date.strftime("%Y年%m月%d日") %>
@@ -39,16 +38,18 @@
           <% end %>
         </h4>
         <h6 class="card-subtitle font-weight-bold"><%= reservation.daycare_to_use %></h6>
-        <% end %>
 
         <p class="font-weight-bold">お子様のお名前:<%= reservation.child_name %> 様</p>
-        <%= link_to t('view.delete'), reservation_path(reservation.id), method: :delete ,data: { confirm: '本当に取り消していいですか？' }, class: "text-danger" %>
+        <div class="d-flex">
+        <%= link_to t('view.show'), reservation_path(reservation.id), class: "btn btn-outline-info btn-sm mr-auto" %>
+        <%= link_to t('view.delete'), reservation_path(reservation.id), method: :delete ,data: { confirm: '本当に取り消していいですか？' }, class: "btn btn-danger btn-sm" %>
+        </div>
       </div>
     </div>
     <% end %>
   </div>
   <%= paginate @reservations %>
   <% if current_user.user_type == "保護者" %>
-  <%= link_to '予約する', new_reservation_path, class: "btn btn-primary btn-lg btn-block" %>
+    <%= link_to '予約する', new_reservation_path, class: "btn btn-primary btn-lg btn-block" %>
   <% end %>
 </div>
