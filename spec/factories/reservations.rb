@@ -3,7 +3,6 @@ FactoryBot.define do
     date { DateTime.new }
     reason { 0 }
     daycare_to_use { 'みさと保育園' }
-    status { 0 }
     child_name {'美里'}
     user { User.first }
   end
