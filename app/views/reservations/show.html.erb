@@ -14,7 +14,7 @@
       <h6 class="card-subtitle font-weight-bold"><%= @reservation.daycare_to_use %></h6>
       <p><%= t('view.reason') %>: <%= @reservation.reason %></p>
       <p class="font-weight-bold">ご利用になるお子様のお名前</p>
-        <p><%= @reservation.child_name %> 様</p>
+        <h5 class="font-weight-bold mb-4"><%= @reservation.child_name %> 様</h5>
         <p class="font-weight-bold mb-0">ご連絡先</p>
         <%# search_contactsはreservations_helpaerに定義 %>
       <% search_contacts.each do |contact| %>
