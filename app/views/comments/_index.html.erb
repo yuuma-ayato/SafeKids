@@ -5,7 +5,6 @@
     <div class="comment-content" id ="this_comment_<%= comment.id %>"></div>
     <tr>
       <td><%= comment.content %></td>
-      <td>投稿者：<%= current_user.user_type %></td>
       <td class="comment-edit"><%= link_to "編集", edit_reservation_comment_path(reservation, comment), remote: true, class: "btn btn-outline-success btn-sm" %></td>
       <td class="comment-edit"><%= link_to "削除", reservation_comment_path(comment.reservation_id, comment.id), method: :delete, remote: true,
         data: { confirm: "本当に削除しますか?"}, class: "btn btn-outline-danger btn-sm" %></td>
