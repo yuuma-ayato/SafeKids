@@ -42,7 +42,7 @@ class ReservationsController < ApplicationController
 
   def update
     if @reservation.update(reservation_params)
-      redirect_to reservations_path, notice: t('view.edit_reservation')
+      redirect_to @reservation, notice: t('view.edit_reservation')
     else
       render :edit
     end
