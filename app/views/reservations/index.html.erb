@@ -5,11 +5,15 @@
   <% unless current_user.user_type == "保護者" %>
   <%= search_form_for @q do |f| %>
   <div class="form-row text-left">
-    <div class="form-group col-sm-6">
+    <div class="form-group col-sm-4">
+      <%=f.label :child_name_cont, '名前検索' %>
+      <%= f.search_field :child_name_cont, placeholder: "ご利用になるお子様の名前", class: "form-control" %>
+    </div>
+    <div class="form-group col-sm-4">
       <%= f.label :daycare_to_use_eq, '施設名' %>
       <%= f.collection_select :daycare_to_use_eq, Daycare.all, :name, :name, {:prompt => "選択して下さい"}, {class: 'custom-select'} %>
     </div>
-    <div class="form-group col-sm-6">
+    <div class="form-group col-sm-4">
       <%=f.label :status_eq, '予約状況' %>
       <%= f.select :status_eq, [['仮予約', 0], ['本予約', 1]], {:include_blank => '指定なし'}, {class: 'custom-select'} %>
     </div>
