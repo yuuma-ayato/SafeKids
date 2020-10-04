@@ -2,7 +2,36 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.5'
+
 gem 'rails', '~> 5.2.4'
+
+# ログイン機能
+gem 'devise'
+gem 'devise-i18n'
+gem 'devise-bootstrap-views', '~> 1.0'
+# bootstrap導入
+gem 'bootstrap', '~> 4.4.1'
+gem 'jquery-rails'
+# 画像アップロード
+gem 'carrierwave'
+gem 'mini_magick'
+# 検索機能
+gem 'ransack'
+# seedデータ作成
+gem 'gimei'
+gem 'faker'
+# アイコンデフォルト
+gem 'font-awesome-sass'
+# ページネーション
+gem 'kaminari'
+# AWSデプロイ
+gem 'fog-aws'
+gem 'dotenv-rails'
+gem 'unicorn' # アプリケーションサーバのunicorn
+gem 'mini_racer', platforms: :ruby # デプロイ時に必要
+gem 'ed25519'
+gem 'bcrypt_pbkdf'
+
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.11'
 gem 'sass-rails', '~> 5.0'
@@ -11,24 +40,6 @@ gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
-gem 'devise'
-gem 'devise-i18n'
-gem 'bootstrap', '~> 4.4.1'
-gem 'jquery-rails'
-gem 'devise-bootstrap-views', '~> 1.0'
-gem 'carrierwave'
-gem 'mini_magick'
-gem 'ransack'
-gem 'gimei'
-gem 'faker'
-gem 'font-awesome-sass'
-gem 'kaminari'
-gem 'fog-aws'
-gem 'dotenv-rails'
-gem 'unicorn' # アプリケーションサーバのunicorn
-gem 'mini_racer', platforms: :ruby # デプロイ時に必要
-gem 'ed25519'
-gem 'bcrypt_pbkdf'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
