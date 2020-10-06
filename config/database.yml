@@ -21,13 +21,12 @@ default: &default
   # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
+development:
+  <<: *default
   # Dockerを使わないときはコメントアウト
   host: db
   username: postgres
   password: password
-
-development:
-  <<: *default
   database: SafeKids_development
 
   # The specified database role being used to connect to postgres.
