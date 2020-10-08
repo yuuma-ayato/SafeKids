@@ -18,6 +18,10 @@ test:
 
 production:
   <<: *default
-  database: SafeKids_production
-  username: SafeKids
-  password: <%= ENV['SAFEKIDS_DATABASE_PASSWORD'] %>
+  # database: SafeKids_production
+  # username: SafeKids
+  # password: <%= ENV['SAFEKIDS_DATABASE_PASSWORD'] %>
+  host: <%= Rails.application.credentials.rds[:host] %>
+  database: <%= Rails.application.credentials.rds[:database] %>
+  username: <%= Rails.application.credentials.rds[:username] %>
+  password: <%= Rails.application.credentials.rds[:password] %>
