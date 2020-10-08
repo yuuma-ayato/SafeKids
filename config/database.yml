@@ -7,10 +7,10 @@ default: &default
 development:
   <<: *default
   database: SafeKids_development
-      # Dockerを使わないときはコメントアウト
-    host: db
-    username: postgres
-    password: password
+  # Dockerを使わないときはコメントアウト
+  host: db
+  username: postgres
+  password: password
 
 test:
   <<: *default
