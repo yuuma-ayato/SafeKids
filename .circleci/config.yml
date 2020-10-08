@@ -73,7 +73,7 @@ jobs:
             - ./vendor/bundle
           key: v1-dependencies-{{ checksum "Gemfile.lock" }}
       - run:
-          name: Wait db
+          name: Wait DB
           command: dockerize -wait tcp://127.0.0.1:5432 -timeout 1m
       - run: cp -v config/database.ci.yml config/database.yml
       - run: bundle exec rake db:create
@@ -85,9 +85,9 @@ jobs:
 
 workflows:
   version: 2
-  rubocop_rspec:
+  build_and_test:
     jobs:
-      - rubocop
-      - rspec:
+      - build
+      - test:
           requires:
-            - rubocop
+            - build
