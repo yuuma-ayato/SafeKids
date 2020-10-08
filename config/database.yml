@@ -8,9 +8,9 @@ development:
   <<: *default
   database: SafeKids_development
   # Dockerを使わないときはコメントアウト
-  host: db
-  username: postgres
-  password: password
+  # host: db
+  # username: postgres
+  # password: password
 
 test:
   <<: *default
