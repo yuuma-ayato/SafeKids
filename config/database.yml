@@ -3,13 +3,13 @@ default: &default
   encoding: unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
     # Dockerを使わないときはコメントアウト
-  # host: db
   # username: postgres
   # password: password
 
 development:
   <<: *default
   database: SafeKids_development
+  host: db
 
 test:
   <<: *default
