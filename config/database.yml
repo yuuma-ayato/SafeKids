@@ -20,3 +20,4 @@ production:
   database: SafeKids_production
   username: SafeKids
   password: <%= ENV['SAFEKIDS_DATABASE_PASSWORD'] %>
+  port: 5432
