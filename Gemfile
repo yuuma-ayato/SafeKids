@@ -31,6 +31,8 @@ gem 'unicorn' # アプリケーションサーバのunicorn
 gem 'mini_racer', platforms: :ruby # デプロイ時に必要
 gem 'ed25519'
 gem 'bcrypt_pbkdf'
+# rubcop
+gem 'rubocop', require: false
 
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.11'
