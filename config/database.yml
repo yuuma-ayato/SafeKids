@@ -2,14 +2,14 @@ default: &default
   adapter: postgresql
   encoding: unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-    # Dockerを使わないときはコメントアウト
+  # Dockerを使わないときはコメントアウト
+  # host: db
   # username: postgres
   # password: password
 
 development:
   <<: *default
   database: SafeKids_development
-  host: db
 
 test:
   <<: *default
@@ -20,4 +20,3 @@ production:
   database: SafeKids_production
   username: SafeKids
   password: <%= ENV['SAFEKIDS_DATABASE_PASSWORD'] %>
-  port: 5432
