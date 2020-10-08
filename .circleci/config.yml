@@ -1,87 +1,43 @@
-# Ruby CircleCI 2.0 configuration file
-#
-# Check https://circleci.com/docs/2.0/language-ruby/ for more details
-#
-version: 2
+version: 2.1
+
+orbs:
+  ruby: circleci/ruby@1.1.0
+
 jobs:
   build:
     docker:
-      - image: circleci/ruby:2.6.5-node-browsers
+      - image: circleci/ruby:2.6.5-browsers
         environment:
           BUNDLER_VERSION: 2.1.4
-          RAILS_ENV: test
-          POSTGRES_HOST: 127.0.0.1
-          # POSTGRES_HOST: "db"
-      - image: circleci/postgres
-        environment:
-          POSTGRES_USER: "postgres"
-          POSTGRES_PASSWORD: "password"
-          POSTGRES_DB: SafeKids_test
-    working_directory: ~/repo
-
+          TZ: "Asia/Tokyo"
     steps:
       - checkout
-      - restore_cache:
-          keys:
-            - v1-dependencies-{{ checksum "Gemfile.lock" }}
-            - v1-dependencies-
-      - run: gem install bundler -v 2.1.4
-      - run: bundle install
-      - run: bundle update --bundler
-      - run: yarn install
-      - save_cache:
-          paths:
-            - ./vendor/bundle
-          key: v1-dependencies-{{ checksum "Gemfile.lock" }}
+      - ruby/install-deps
 
-      - run: mv config/database.ci.yml config/database.yml
-
-      # Database setup
-      - run: bundle exec rake db:create
-      - run: bundle exec rake db:schema:load
-      # Rubocop
-      - run:
-          name: Rubocop
-          command: bundle exec rubocop
-
-  rspec:
+  test:
+    parallelism: 3
     docker:
-      - image: circleci/ruby:2.6.5-node-browsers
+      - image: circleci/ruby:2.6.5-browsers
         environment:
+          DB_HOST: 127.0.0.1
           RAILS_ENV: test
-          POSTGRES_HOST: 127.0.0.1
-          # POSTGRES_HOST: "db"
+          BUNDLER_VERSION: 2.1.4
+          TZ: "Asia/Tokyo"
       - image: circleci/postgres
         environment:
-          POSTGRES_USER: "postgres"
-          POSTGRES_PASSWORD: "password"
-          POSTGRES_DB: portfolio_test
-    working_directory: ~/repo
+          POSTGRES_USER: postgres
+          POSTGRES_DB: SafeKids_test
+          POSTGRES_PASSWORD: password
     steps:
       - checkout
-      - restore_cache:
-          keys:
-            - v1-dependencies-{{ checksum "Gemfile.lock" }}
-            # fallback to using the latest cache if no exact match is found
-            - v1-dependencies-
-      - run: gem install bundler
-      - run: bundle install
-      - run: bundle update --bundler
-      - run: yarn install
-      - save_cache:
-          paths:
-            - ./vendor/bundle
-          key: v1-dependencies-{{ checksum "Gemfile.lock" }}
+      - ruby/install-deps
+      - run: mv config/database.ci.yml config/database.yml
       - run:
           name: Wait DB
-          command: dockerize -wait tcp://127.0.0.1:5432 -timeout 1m
-      - run: cp -v config/database.ci.yml config/database.yml
+          command: dockerize -wait tcp://localhost:5432 -timeout 1m
       - run: bundle exec rake db:create
       - run: bundle exec rake db:schema:load
-      # Rspec
-      - run:
-          name: Rspec
-          command: bundle exec rspec
+      - run: bundle exec rspec
 
 workflows:
   version: 2
