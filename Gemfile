@@ -51,7 +51,8 @@ group :development, :test do
   gem 'pry-rails'
   gem 'better_errors'
   gem 'binding_of_caller'
-  gem 'capistrano', '3.6.0' # capistranoのツール一式
+  # capistranoのツール一式
+  gem 'capistrano', '3.6.0'
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano-rbenv'
