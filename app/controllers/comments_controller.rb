@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CommentsController < ApplicationController
   before_action :set_reservation, only: %i[create edit update]
   def create
@@ -10,6 +12,7 @@ class CommentsController < ApplicationController
       end
     end
   end
+
   def edit
     @comment = @reservation.comments.find(params[:id])
     respond_to do |format|
@@ -17,18 +20,20 @@ class CommentsController < ApplicationController
       format.js { render :edit }
     end
   end
+
   def update
     @comment = @reservation.comments.find(params[:id])
-      respond_to do |format|
-        if @comment.update(comment_params)
-          flash.now[:notice] = 'コメントが編集されました'
-          format.js { render :index }
-        else
-          flash.now[:notice] = 'コメントの編集に失敗しました'
-          format.js { render :edit_error }
-        end
+    respond_to do |format|
+      if @comment.update(comment_params)
+        flash.now[:notice] = 'コメントが編集されました'
+        format.js { render :index }
+      else
+        flash.now[:notice] = 'コメントの編集に失敗しました'
+        format.js { render :edit_error }
       end
+    end
   end
+
   def destroy
     @comment = Comment.find(params[:id])
     @comment.destroy
@@ -37,10 +42,13 @@ class CommentsController < ApplicationController
       format.js { render :index }
     end
   end
+
   private
+
   def comment_params
     params.require(:comment).permit(:reservation_id, :content)
   end
+
   def set_reservation
     @reservation = Reservation.find(params[:reservation_id])
   end

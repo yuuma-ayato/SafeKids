@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 class Child < ApplicationRecord
   enum gender: { その他の性別: 0, 男: 1, 女: 2 }
   mount_uploader :image, ImageUploader
 
   def othergender?
-    gender == "その他の性別"
+    gender == 'その他の性別'
   end
 
   belongs_to :user, optional: true

@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 module ReservationsHelper
   def search_child_name
     User.joins(children: :names)
         .where(id: current_user.id)
-        .select("users.*, children.image, names.family_name, names.first_name")
+        .select('users.*, children.image, names.family_name, names.first_name')
   end
 
   def search_contacts
@@ -16,6 +18,7 @@ module ReservationsHelper
           names.first_name_kana,
           contacts.phone_number,
           contacts.relation,
-          contacts.other_relation")
+          contacts.other_relation"
+        )
   end
 end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ReservationsController < ApplicationController
   before_action :set_reservation, only: %i[show edit update destroy]
   before_action :authenticate_user!
@@ -5,13 +7,13 @@ class ReservationsController < ApplicationController
 
   def index
     @q = Reservation.ransack(params[:q])
-    if current_user.user_type == "保護者"
-      @reservations = current_user.reservations.page(params[:page]).per(3)
-    elsif current_user.user_type == "保育士"
-      @reservations = @q.result.where(status: "本予約").page(params[:page]).per(PER)
-    else
-      @reservations = @q.result(distinct: true).page(params[:page]).per(PER)
-    end
+    @reservations = if current_user.user_type == '保護者'
+                      current_user.reservations.page(params[:page]).per(3)
+                    elsif current_user.user_type == '保育士'
+                      @q.result.where(status: '本予約').page(params[:page]).per(PER)
+                    else
+                      @q.result(distinct: true).page(params[:page]).per(PER)
+                    end
   end
 
   def new
@@ -37,8 +39,7 @@ class ReservationsController < ApplicationController
     @comment = @reservation.comments.build
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @reservation.update(reservation_params)
@@ -54,6 +55,7 @@ class ReservationsController < ApplicationController
   end
 
   private
+
   def reservation_params
     params.require(:reservation).permit(:date, :reason, :other_reason, :status, :daycare_to_use, :child_name)
   end

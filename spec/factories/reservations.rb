@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 FactoryBot.define do
   factory :reservation do
     date { DateTime.new }
     reason { 0 }
     daycare_to_use { 'みさと保育園' }
-    child_name {'美里'}
+    child_name { '美里' }
     user { User.first }
   end
 
@@ -12,7 +14,7 @@ FactoryBot.define do
     reason { 1 }
     daycare_to_use { '吉川保育園' }
     status { 1 }
-    child_name {'美里'}
+    child_name { '美里' }
     user { User.first }
   end
 end

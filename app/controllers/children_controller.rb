@@ -1,14 +1,16 @@
+# frozen_string_literal: true
+
 class ChildrenController < ApplicationController
   before_action :set_child, only: %i[show edit update destroy]
   before_action :authenticate_user!
   PER = 5
 
   def index
-    if current_user.user_type == "窓口担当者"
-      @children = Child.all.page(params[:page]).per(PER)
-    else
-      @children = current_user.children.page(params[:page]).per(PER)
-    end
+    @children = if current_user.user_type == '窓口担当者'
+                  Child.all.page(params[:page]).per(PER)
+                else
+                  current_user.children.page(params[:page]).per(PER)
+                end
   end
 
   def new
@@ -30,11 +32,9 @@ class ChildrenController < ApplicationController
     end
   end
 
-  def show
-  end
+  def show; end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @child.update(child_params)
@@ -50,6 +50,7 @@ class ChildrenController < ApplicationController
   end
 
   private
+
   def child_params
     params.require(:child).permit(
       :gender,
@@ -61,14 +62,16 @@ class ChildrenController < ApplicationController
       :first_name_kana,
       :image,
       :image_cache,
-      names_attributes:[
-        :family_name,
-        :first_name,
-        :family_name_kana,
-        :first_name_kana ] )
-    end
-
-    def set_child
-      @child = Child.find(params[:id])
-    end
+      names_attributes: %i[
+        family_name
+        first_name
+        family_name_kana
+        first_name_kana
+      ]
+    )
   end
+
+  def set_child
+    @child = Child.find(params[:id])
+  end
+end
