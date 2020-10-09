@@ -60,7 +60,7 @@ module Admin
     end
 
     def check_guest
-      if @user.email == 'guest@example.com' || 'guest_clerk@example.com'
+      if @user.email == 'guest_clerk@example.com'
         redirect_to admin_users_path, alert: 'ゲストユーザーの変更・削除はできません。'
       end
     end
