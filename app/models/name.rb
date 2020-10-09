@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Name < ApplicationRecord
   belongs_to :contact, optional: true
   belongs_to :child, optional: true

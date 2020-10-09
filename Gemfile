@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
@@ -7,8 +9,8 @@ gem 'rails', '~> 5.2.4'
 
 # ログイン機能
 gem 'devise'
-gem 'devise-i18n'
 gem 'devise-bootstrap-views', '~> 1.0'
+gem 'devise-i18n'
 # bootstrap導入
 gem 'bootstrap', '~> 4.4.1'
 gem 'jquery-rails'
@@ -18,57 +20,57 @@ gem 'mini_magick'
 # 検索機能
 gem 'ransack'
 # seedデータ作成
-gem 'gimei'
 gem 'faker'
+gem 'gimei'
 # アイコンデフォルト
 gem 'font-awesome-sass'
 # ページネーション
 gem 'kaminari'
 # AWSデプロイ
-gem 'fog-aws'
-gem 'dotenv-rails'
-gem 'unicorn' # アプリケーションサーバのunicorn
-gem 'mini_racer', platforms: :ruby # デプロイ時に必要
-gem 'ed25519'
 gem 'bcrypt_pbkdf'
+gem 'dotenv-rails'
+gem 'ed25519'
+gem 'fog-aws'
+gem 'mini_racer', platforms: :ruby # デプロイ時に必要
+gem 'unicorn' # アプリケーションサーバのunicorn
 # rubcop
 gem 'rubocop', require: false
 
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.11'
 # gem 'sass-rails', '~> 5.0'
-gem 'sassc-rails'
-gem 'uglifier', '>= 1.3.0'
-gem 'coffee-rails', '~> 4.2'
-gem 'turbolinks', '~> 5'
-gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
+gem 'coffee-rails', '~> 4.2'
+gem 'jbuilder', '~> 2.5'
+gem 'sassc-rails'
+gem 'turbolinks', '~> 5'
+gem 'uglifier', '>= 1.3.0'
 
 group :development, :test do
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'rspec-rails'
-  gem 'spring-commands-rspec'
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'factory_bot_rails'
   gem 'launchy'
   gem 'pry-rails'
-  gem 'better_errors'
-  gem 'binding_of_caller'
+  gem 'rspec-rails'
+  gem 'spring-commands-rspec'
   # capistranoのツール一式
   gem 'capistrano', '3.6.0'
+  gem 'capistrano3-unicorn'
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano-rbenv'
-  gem 'capistrano3-unicorn'
 end
 
 group :development do
-  gem 'web-console', '>= 3.3.0'
+  gem 'letter_opener_web'
   gem 'listen', '>= 3.0.5', '< 3.2'
+  gem 'rails-erd'
+  gem 'ruby-graphviz'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  gem 'letter_opener_web'
-  gem 'ruby-graphviz'
-  gem 'rails-erd'
+  gem 'web-console', '>= 3.3.0'
 end
 
 group :test do
@@ -78,4 +80,4 @@ group :test do
   gem 'webdrivers'
 end
 
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]

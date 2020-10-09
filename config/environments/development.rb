@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.configure do
   config.cache_classes = false
   config.eager_load = false
@@ -13,7 +15,7 @@ Rails.application.configure do
     config.action_controller.perform_caching = false
     config.cache_store = :null_store
   end
-  
+
   config.active_storage.service = :local
   config.action_mailer.raise_delivery_errors = false
   config.action_mailer.perform_caching = false

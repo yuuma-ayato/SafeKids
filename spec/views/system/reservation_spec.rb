@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 RSpec.describe '予約管理機能', type: :system do
   before do
     FactoryBot.create(:user)
     FactoryBot.create(:reservation, daycare_to_use: 'みさと保育園')
     FactoryBot.create(:second_reservation, daycare_to_use: '吉川保育園')
-   end
+  end
   describe '予約一覧画面' do
     context '予約を作成した場合' do
       it '予約が表示される' do
@@ -16,41 +18,41 @@ RSpec.describe '予約管理機能', type: :system do
         expect(page).to have_content 'みさと保育園'
       end
     end
-  #   context '複数のタスクを作成した場合' do
-  #     it 'タスクが作成日時の降順に並んでいる' do
-  #       visit tasks_path
-  #       #index.html.erbの<%= task.title %>にclassをつけておく。
-  #       task_list = all('.task_row') # タスク一覧を配列として取得するため、View側でidを振っておく
-  #       expect(task_list[0]).to have_content 'new_task'
-  #       expect(task_list[1]).to have_content 'task'
-  #     end
-  #     it 'タスクを終了期限順に並び変える' do
-  #       visit tasks_path
-  #       click_button '期限順に並べる'
-  #       task_list = all('.task_row')
-  #       expect(task_list[0]).to have_content 'task'
-  #       expect(task_list[1]).to have_content 'new_task'
-  #     end
-  #     it 'タスクを優先順に並び変える' do
-  #       visit tasks_path
-  #       click_button '優先順に並べる'
-  #       task_list = all('.task_row')
-  #       expect(task_list[0]).to have_content 'task'
-  #       expect(task_list[1]).to have_content 'new_task'
-  #     end
-  #   end
-  #   context '検索をした場合' do
-  #     before do
-  #       FactoryBot.create(:task, title: "task")
-  #       FactoryBot.create(:second_task, title: "sample")
-  #     end
-  #     it "タイトルで検索できる" do
-  #       visit tasks_path
-  #       fill_in 'title', with: 'sample'
-  #       click_button '検索'
-  #       expect(page).to have_content 'sample'
-  #     end
-  #   end
+    #   context '複数のタスクを作成した場合' do
+    #     it 'タスクが作成日時の降順に並んでいる' do
+    #       visit tasks_path
+    #       #index.html.erbの<%= task.title %>にclassをつけておく。
+    #       task_list = all('.task_row') # タスク一覧を配列として取得するため、View側でidを振っておく
+    #       expect(task_list[0]).to have_content 'new_task'
+    #       expect(task_list[1]).to have_content 'task'
+    #     end
+    #     it 'タスクを終了期限順に並び変える' do
+    #       visit tasks_path
+    #       click_button '期限順に並べる'
+    #       task_list = all('.task_row')
+    #       expect(task_list[0]).to have_content 'task'
+    #       expect(task_list[1]).to have_content 'new_task'
+    #     end
+    #     it 'タスクを優先順に並び変える' do
+    #       visit tasks_path
+    #       click_button '優先順に並べる'
+    #       task_list = all('.task_row')
+    #       expect(task_list[0]).to have_content 'task'
+    #       expect(task_list[1]).to have_content 'new_task'
+    #     end
+    #   end
+    #   context '検索をした場合' do
+    #     before do
+    #       FactoryBot.create(:task, title: "task")
+    #       FactoryBot.create(:second_task, title: "sample")
+    #     end
+    #     it "タイトルで検索できる" do
+    #       visit tasks_path
+    #       fill_in 'title', with: 'sample'
+    #       click_button '検索'
+    #       expect(page).to have_content 'sample'
+    #     end
+    #   end
   end
   #
   # describe 'タスク登録画面' do

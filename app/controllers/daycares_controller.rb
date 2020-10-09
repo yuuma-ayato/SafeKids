@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class DaycaresController < ApplicationController
   before_action :set_daycare, only: %i[show edit update destroy]
   before_action :authenticate_user!
@@ -23,11 +25,9 @@ class DaycaresController < ApplicationController
     end
   end
 
-  def show
-  end
+  def show; end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @daycare.update(daycare_params)
@@ -43,6 +43,7 @@ class DaycaresController < ApplicationController
   end
 
   private
+
   def daycare_params
     params.require(:daycare).permit(
       :name,
@@ -52,10 +53,11 @@ class DaycaresController < ApplicationController
       :city,
       :adress,
       :building,
-      :capacity )
-      end
+      :capacity
+    )
+  end
 
-      def set_daycare
-        @daycare = Daycare.find(params[:id])
-      end
-    end
+  def set_daycare
+    @daycare = Daycare.find(params[:id])
+  end
+end
