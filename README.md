@@ -1,8 +1,8 @@
 # あんしんキッズ
+## 病児保育施設ネット予約サービス
+<img width="1347" alt="あんしんキッズ" src="https://user-images.githubusercontent.com/63707386/95640302-1dd9ee00-0ad7-11eb-832d-97f0ea6a8dea.png">
 
-# 病児保育施設ネット予約サービス
-
-# URL
+### URL
 [https://ansinkids.work/](https://ansinkids.work/)
 
 # 解決したい課題
@@ -14,8 +14,8 @@
 そして安心して子育てできる社会に貢献します。
 
 # 使用技術
-* Ruby 2.6.3\
-* Ruby on Rails 5.2.4\
+* Ruby 2.6.3
+* Ruby on Rails 5.2.4
 * PostgreSQL 12.4
 * Docker 19.03.13/docker-compose
 * Circle CI
@@ -29,38 +29,35 @@
 
 
 # 機能一覧
-
-* ログイン機能
-* ユーザー登録機能
-  * メールアドレス、パスワードは必須
-* ユーザー編集機能
-  * ユーザーの操作をする。
-* 予約一覧機能
-  * 仮予約、本予約の確認
-* 予約の編集・削除機能
-  * 予約の情報を操作する。
-* 予約の検索
-  * フリーワード、ステータス（仮・本予約）により絞り込みをする。
-* 管理者機能
-  * 全ユーザーの操作（作成、編集、削除）が行えるようにする。
-* 窓口担当者機能
-  * 予約の確定（本予約）をする。仮予約の一覧を確認する。
-* 保育士機能
-  * 本予約の一覧を確認する。
-* マイページ機能
-  * ユーザーの情報を表示する。
-* コメント機能
-  * 予約についてコメント（保護者連絡）を付けられる。
+## 認証機能
+* ログイン、ユーザー登録
 * ゲストログイン機能
   * 保護者、窓口担当者、保育士の３つの異なるユーザータイプでログイン可能
+  * ゲストユーザーは編集・削除不可
+## 予約機能
+  * 予約のCRUD / 詳細より保護者の連絡先を表示
+## 保育施設機能
+  * 保育施設のCRUD
+## 窓口担当者機能
+  * 予約の確定（本予約）を行う。
+## 保育士機能
+  * 確定された本予約の一覧を確認する。
+## 管理者機能
+  * ユーザーの作成、編集、削除ができる。
+  * 保育施設の作成、編集、削除ができる。
+## 検索機能
+  * フリーワード、ステータス（仮・本予約）により絞り込みをする。
+## マイページ機能
+  * ユーザーの情報を表示する。
+## コメント機能
+  * 予約についてコメントができる。
+  * Ajaxを使うことでページ遷移せずに作成できる。
 
-
-## [カタログ設計](https://docs.google.com/spreadsheets/d/10yvr_-g7P8p7djihJd5azVzyCWWB0n8XN4H2jfQ5ynE/edit?usp=sharing)
-## [テーブル定義](https://docs.google.com/spreadsheets/d/1NtphrLYvBmN8jrOSotKD8EiXoRDo84038nifjXmbqKY/edit?usp=sharing)
-## [ER図](https://drive.google.com/file/d/1K6tKCB2e4J1Thjdg9z7wN2ZnjQqBvH7G/view?usp=sharing)
-##
+## 設計
+[カタログ設計](https://docs.google.com/spreadsheets/d/10yvr_-g7P8p7djihJd5azVzyCWWB0n8XN4H2jfQ5ynE/edit?usp=sharing)
+[テーブル定義](https://docs.google.com/spreadsheets/d/1NtphrLYvBmN8jrOSotKD8EiXoRDo84038nifjXmbqKY/edit?usp=sharing)
+[ER図](https://drive.google.com/file/d/1K6tKCB2e4J1Thjdg9z7wN2ZnjQqBvH7G/view?usp=sharing)
 [画面遷移図](https://docs.google.com/spreadsheets/d/1Co6MR_8zaoVBHPAL6_bVkObPN5vsngJDSjferR0XAp8/edit?usp=sharing)
-##
 [ワイヤーフレーム](https://docs.google.com/spreadsheets/d/1vpvGSbl4zREDn6Dq-eJ7eC-_Wx68nhWOeGWLzO52O5M/edit?usp=sharing)
 
 ## 使用Gem
