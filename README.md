@@ -18,7 +18,8 @@
   * 利用前日までに役所窓口で本予約の手続きをする。
 5. 利用
   * 保育士に子供の状況を伝えた上で預ける。後日、市役所から振込用紙が届くので、料金を支払う。\
-上記のように受付時間内に仮予約の電話をしたり、前日までに役所へ行って本予約の手続きをしなければならない等、実際に利用するのが難しい仕組みになっています。\\
+\
+上記のように受付時間内に仮予約の電話をしたり、前日までに役所へ行って本予約の手続きをしなければならない等、実際に利用するのが難しい仕組みになっています。\
 周りの友人達からも、利用したいけど手続きが大変、仕事が忙しくて申込みに行く時間が無いといった声を聞き、病児保育を便利に利用するサービスを作りたいと考え、開発致しました。
 
 ## 機能における見所
@@ -73,7 +74,7 @@
 [テーブル定義](https://docs.google.com/spreadsheets/d/1NtphrLYvBmN8jrOSotKD8EiXoRDo84038nifjXmbqKY/edit?usp=sharing)\
 [ER図](https://drive.google.com/file/d/1K6tKCB2e4J1Thjdg9z7wN2ZnjQqBvH7G/view?usp=sharing)\
 [画面遷移図](https://docs.google.com/spreadsheets/d/1Co6MR_8zaoVBHPAL6_bVkObPN5vsngJDSjferR0XAp8/edit?usp=sharing)\
-[ワイヤーフレーム](https://docs.google.com/spreadsheets/d/1vpvGSbl4zREDn6Dq-eJ7eC-_Wx68nhWOeGWLzO52O5M/edit?usp=sharing)\
+[ワイヤーフレーム](https://docs.google.com/spreadsheets/d/1vpvGSbl4zREDn6Dq-eJ7eC-_Wx68nhWOeGWLzO52O5M/edit?usp=sharing)
 
 ## 今後の課題
 #### Google Maps APIの利用
