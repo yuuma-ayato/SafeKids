@@ -1,4 +1,4 @@
-# <font color="Blue">あんしんキッズ</font>
+# あんしんキッズ
 ## 病児保育施設ネット予約サービス
 <img width="1347" alt="あんしんキッズ" src="https://user-images.githubusercontent.com/63707386/95640302-1dd9ee00-0ad7-11eb-832d-97f0ea6a8dea.png">
 
@@ -6,8 +6,8 @@
 [https://ansinkids.work/](https://ansinkids.work/)
 
 # 概要
-病児保育とは仕事を休んで看病するのが難しいときに子供を預かってもらえる制度です。
-親にとってはとてもありがたい制度ですが、現状では利用までに以下のような手続きが必要です。
+**病児保育とは仕事を休んで看病するのが難しいときに子供を預かってもらえる制度です。\
+親にとってはとてもありがたい制度ですが、現状では利用までに以下のような手続きが必要です。**
 1. 事前登録
   * 役所窓口で事前に利用者登録をする。子供の問診を行う。
 2. 連絡（仮予約）
@@ -29,7 +29,7 @@
   * 窓口担当者：予約の検索 / 予約の確定 / 保育施設の登録（管理者）
   * 保育士：本予約の検索
 * 予約詳細より保護者の連絡先を表示
-  *　お子様の名前だけではなく、登録されている連絡先も自動的に表示されるよう実装しました。
+  * お子様の名前だけではなく、登録されている連絡先も自動的に表示されるよう実装しました。
 
 # 使用技術
 * Ruby 2.6.3
@@ -45,39 +45,39 @@
 * RSpec
 
 # 機能一覧
-## 認証機能
+### 認証機能
 * ログイン、ユーザー登録
 * ゲストログイン機能
   * 保護者、窓口担当者、保育士の３つの異なるユーザータイプでログイン可能
   * ゲストユーザーは編集・削除不可
-## 予約機能
+### 予約機能
   * 予約のCRUD / 詳細より保護者の連絡先を表示
-## 保育施設機能
+### 保育施設機能
   * 保育施設のCRUD
-## 窓口担当者機能
+### 窓口担当者機能
   * 予約の確定（本予約）を行う。
-## 保育士機能
+### 保育士機能
   * 確定された本予約の一覧を確認する。
-## 管理者機能
+### 管理者機能
   * ユーザーの登録、編集、削除ができる。
   * 保育施設の登録、編集、削除ができる。
-## 検索機能
+### 検索機能
   * フリーワード、ステータス（仮・本予約）により絞り込みをする。
-## マイページ機能
+### マイページ機能
   * ユーザーの情報を表示する。
-## コメント機能
+### コメント機能
   * 予約についてコメントができる。
   * Ajaxを使うことでページ遷移せずに作成できる。
 
-## 設計
+# 設計
 [カタログ設計](https://docs.google.com/spreadsheets/d/10yvr_-g7P8p7djihJd5azVzyCWWB0n8XN4H2jfQ5ynE/edit?usp=sharing)\
 [テーブル定義](https://docs.google.com/spreadsheets/d/1NtphrLYvBmN8jrOSotKD8EiXoRDo84038nifjXmbqKY/edit?usp=sharing)\
 [ER図](https://drive.google.com/file/d/1K6tKCB2e4J1Thjdg9z7wN2ZnjQqBvH7G/view?usp=sharing)\
 [画面遷移図](https://docs.google.com/spreadsheets/d/1Co6MR_8zaoVBHPAL6_bVkObPN5vsngJDSjferR0XAp8/edit?usp=sharing)\
 [ワイヤーフレーム](https://docs.google.com/spreadsheets/d/1vpvGSbl4zREDn6Dq-eJ7eC-_Wx68nhWOeGWLzO52O5M/edit?usp=sharing)\
 
-# 今後の課題
-**Google Maps APIの利用**
+## 今後の課題
+#### Google Maps APIの利用
 保育施設の所在地を表示する事で、予約の際に保育施設までの行き方を調べる手間を無くし、保護者の負担を減らしたいと考えています。
 ## 使用した主なGem
 * ransack
