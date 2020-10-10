@@ -44,6 +44,9 @@
 * Github (Github Flow)
 * RSpec
 
+## サービス構成図
+![構成図](https://user-images.githubusercontent.com/63707386/95666883-5c37e180-0b99-11eb-8bb1-d6ed80532a9b.png)
+
 ## 機能一覧
 ### 認証機能
 * ログイン、ユーザー登録
