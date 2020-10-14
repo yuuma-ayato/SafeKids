@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 module Users
   class RegistrationsController < Devise::RegistrationsController
     before_action :check_guest, only: %i[update destroy]
@@ -7,9 +5,8 @@ module Users
     # before_action :configure_account_update_params, only: [:update]
 
     def check_guest
-      case params[:user][:email].downcase
-      when ['guest@example.com', 'guest_clerk@example.com', 'guest_childminder@example.com']
-        redirect_to edit_user_registration_path alert: 'ゲストユーザーの変更・削除はできません。'
+      if resource.email == 'guest@example.com' || 'guest_clerk@example.com' || 'guest_childminder@example.com'
+        redirect_to edit_user_registration_path, alert: 'ゲストユーザーの変更・削除はできません。'
       end
     end
 
