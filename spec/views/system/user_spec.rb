@@ -2,10 +2,8 @@
 
 require 'rails_helper'
 RSpec.describe 'ユーザ登録・ログイン・ログアウト機能', type: :system do
-  before do
-    FactoryBot.create(:user)
-    FactoryBot.create(:admin_user)
-  end
+  let!(:user) { FactoryBot.create(:user) }
+  let!(:admin_user) { FactoryBot.create(:admin_user) }
   describe 'ユーザ登録のテスト' do
     context 'ユーザのデータがなくログインしていない場合' do
       it 'ユーザ新規登録のテスト' do
@@ -23,15 +21,15 @@ RSpec.describe 'ユーザ登録・ログイン・ログアウト機能', type: :
     context 'ユーザのデータがありログインする場合' do
       it 'ログインができること' do
         visit new_user_session_path
-        fill_in 'user_email', with: 'sample@example.com'
-        fill_in 'user_password', with: '00000000'
+        fill_in 'user_email', with: user.email
+        fill_in 'user_password', with: user.password
         click_button 'ログイン'
         expect(page).to have_content 'ログインしました。'
       end
       it 'ログアウトができること' do
         visit new_user_session_path
-        fill_in 'user_email', with: 'sample@example.com'
-        fill_in 'user_password', with: '00000000'
+        fill_in 'user_email', with: user.email
+        fill_in 'user_password', with: user.password
         click_button 'ログイン'
         click_on 'ログアウト'
         expect(page).to have_content 'ログイン'
@@ -43,19 +41,18 @@ RSpec.describe 'ユーザ登録・ログイン・ログアウト機能', type: :
     context '管理者ユーザのデータがありログインしていない場合' do
       it '管理者は管理画面にアクセスできること' do
         visit new_user_session_path
-        fill_in 'user_email', with: 'admin@example.com'
-        fill_in 'user_password', with: '00000000'
+        fill_in 'user_email', with: admin_user.email
+        fill_in 'user_password', with: admin_user.password
         click_button 'ログイン'
         visit admin_users_path
         expect(page).to have_content '管理者画面'
       end
     end
-
     context '一般ユーザーでログインしている場合' do
       it '一般ユーザは管理画面にアクセスできないこと' do
         visit new_user_session_path
-        fill_in 'user_email', with: 'sample@example.com'
-        fill_in 'user_password', with: '00000000'
+        fill_in 'user_email', with: user.email
+        fill_in 'user_password', with: user.password
         click_button 'ログイン'
         visit admin_users_path
         expect(page).to have_content 'あなたは管理者ではありません'
