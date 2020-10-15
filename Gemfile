@@ -33,8 +33,6 @@ gem 'ed25519'
 gem 'fog-aws'
 gem 'mini_racer', platforms: :ruby # デプロイ時に必要
 gem 'unicorn' # アプリケーションサーバのunicorn
-# rubcop
-gem 'rubocop', require: false
 
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.11'
@@ -71,6 +69,10 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'web-console', '>= 3.3.0'
+  gem 'rubocop', require: false
+  gem 'rubocop-performance', require: false
+  gem 'rubocop-rails', require: false
+  gem 'rubocop-rspec'
 end
 
 group :test do
