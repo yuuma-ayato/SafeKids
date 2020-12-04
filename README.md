@@ -4,6 +4,7 @@
 
 ### URL
 [https://ansinkids.work/](https://ansinkids.work/)
+※現在停止中
 
 ## 概要
 **病児保育とは仕事を休んで看病するのが難しいときに子供を預かってもらえる制度です。\
